@@ -1,6 +1,6 @@
 baseURL = 'http://example.org/'
 languageCode = 'zh-cn'
-title = 'My New Hugo Site'
+title = '园子里的日光'
 theme = 'hermeneutics'
 
 
@@ -49,11 +49,12 @@ theme = 'hermeneutics'
     weight = 40
 
 [params]
-    author = "Innei"
+    author = "Chlorine"
     bio = "Como el viento."
     tags = [
-        "Web Developer",
-        "Open Source",
-        "UI/UX",
-        "Writer"
+        "Undergraduate @ THU",
+        "Open Source Enthusiast",
+        "Indie Blogger",
+        "Alt-History Writer",
+        "Cyber Hermit"
     ]

@@ -1,22 +1,27 @@
 {{ define "main" }}
 <!-- 公告通知 -->
-<div id="announcement" 
-    class="fixed top-20 right-4 w-80 p-4 rounded-lg border border-border/40 bg-card/95 backdrop-blur
-    shadow-lg shadow-accent/5 z-50 transform translate-x-[120%] transition-transform duration-500
-    animate-fade opacity-0">
+{{ $announcement := .Site.GetPage "announcement" }}
+{{ with $announcement }}
+<div id="announcement" class="fixed top-20 right-4 w-80 p-4 rounded-lg border border-border/40 dark:border-border-dark/40 
+bg-card/95 dark:bg-card-dark/95 backdrop-blur
+shadow-lg shadow-accent/5 z-50 transform translate-x-[120%] transition-transform duration-500
+animate-fade opacity-0">
     <div class="flex items-start justify-between gap-3">
         <div class="flex items-center gap-2 text-sm font-medium mb-1">
             <div class="i-carbon-notification w-4 h-4 text-primary/80"></div>
-            <span>{{ with .Site.GetPage "announcement" }}{{ .Title }}{{ end }}</span>
+            <span>公告</span>
         </div>
-        <button onclick="closeAnnouncement()" class="text-muted-foreground/60 hover:text-muted-foreground">
+        <button onclick="closeAnnouncement()" class="text-muted-foreground/60 dark:text-muted-foreground-dark/80 
+            hover:text-muted-foreground/90 dark:hover:text-muted-foreground-dark/95 
+            transition-colors duration-200">
             <div class="i-carbon-close w-4 h-4"></div>
         </button>
     </div>
     <div class="text-sm text-muted-foreground/70 prose-sm prose-p:my-0">
-        {{ with .Site.GetPage "announcement" }}{{ .Content }}{{ end }}
+        {{ .Content }}
     </div>
 </div>
+{{ end }}
 
 <section class="h-screen flex items-center">
     <div class="container max-w-6xl mx-auto px-4">
@@ -43,20 +48,21 @@
                 </h2>
                 <div class="flex flex-wrap gap-2">
                     {{ range $index, $tag := .Site.Params.tags }}
-                    <span class="px-3 py-1 rounded-full bg-accent/50 text-sm text-muted-foreground/80
+                    <span class="px-3 py-1 rounded-full bg-accent/50 dark:bg-accent-dark/50 
+                        text-sm text-muted-foreground/80 dark:text-muted-foreground-dark/80
                         animate-fade-up opacity-0" style="animation-delay: {{ add 0.5 (mul $index 0.1) }}s">
                         {{ $tag }}
                     </span>
                     {{ end }}
                 </div>
                 {{ with .Site.Params.bio }}
-                <p class="text-lg text-muted-foreground/70 animate-fade-up opacity-0" 
-                    style="animation-delay: 0.8s">
+                <p class="text-lg text-muted-foreground/70 animate-fade-up opacity-0" style="animation-delay: 0.8s">
                     {{ . }}
                 </p>
                 {{ end }}
 
-                <div class="flex gap-4 animate-fade-up opacity-0" style="animation-delay: 0.8s; animation-fill-mode: forwards;">
+                <div class="flex gap-4 animate-fade-up opacity-0"
+                    style="animation-delay: 0.8s; animation-fill-mode: forwards;">
                     <a href="#" title="Twitter" class="hover:opacity-80 text-white p-3 rounded-full"
                         style="background-color: #1DA1F2">
                         <div class="i-carbon-logo-twitter w-5 h-5"></div>
@@ -76,7 +82,8 @@
                 </div>
             </div>
 
-            <div class="w-64 h-64 rounded-full overflow-hidden flex-shrink-0 border-2 border-background shadow-xl animate-fade-left opacity-0" style="animation-delay: 0.6s; animation-fill-mode: forwards;">
+            <div class="w-64 h-64 rounded-full overflow-hidden flex-shrink-0 border-2 border-background shadow-xl animate-fade-left opacity-0"
+                style="animation-delay: 0.6s; animation-fill-mode: forwards;">
                 <img src="/img/avatar.jpg" alt="avatar" class="object-cover rounded-full" width="256" height="256"
                     loading="lazy">
             </div>
@@ -84,21 +91,22 @@
     </div>
 </section>
 
-<section class="bg-accent/20">
+<section class="bg-accent/20 dark:bg-accent-dark/20">
     <div class="container max-w-6xl mx-auto px-4 py-20">
         <div class="flex items-center justify-between mb-8">
             <h2 class="text-2xl font-medium text-foreground/80">最新文章</h2>
-            {{/*  <a href="/posts" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring h-9 px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90">
+            {{/* <a href="/posts"
+                class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring h-9 px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90">
                 查看全部
                 <div class="i-carbon-arrow-right ml-2 w-4 h-4"></div>
-            </a>  */}}
+            </a> */}}
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {{ $posts := where .Site.RegularPages "Section" "posts" }}
             {{ $featuredPosts := where $posts "Params.featured" true }}
             {{ $recentPosts := $posts | first 3 }}
             {{ $displayPosts := union $featuredPosts $recentPosts | first 3 }}
-            
+
             {{ range $index, $post := $displayPosts }}
             {{ partial "post-card.html" (dict "context" . "post" $post "index" $index) }}
             {{ end }}
@@ -110,46 +118,46 @@
 </footer>
 
 <script>
-let isAnnouncementVisible = false;
+    let isAnnouncementVisible = false;
 
-function showAnnouncement() {
-    const announcement = document.getElementById('announcement');
-    if (announcement) {
-        announcement.classList.remove('translate-x-[120%]');
-        announcement.classList.remove('opacity-0');
-        isAnnouncementVisible = true;
+    function showAnnouncement() {
+        const announcement = document.getElementById('announcement');
+        if (announcement) {
+            announcement.classList.remove('translate-x-[120%]');
+            announcement.classList.remove('opacity-0');
+            isAnnouncementVisible = true;
+        }
     }
-}
 
-function closeAnnouncement() {
-    const announcement = document.getElementById('announcement');
-    if (announcement) {
-        announcement.classList.add('translate-x-[120%]');
-        announcement.classList.add('opacity-0');
-        isAnnouncementVisible = false;
+    function closeAnnouncement() {
+        const announcement = document.getElementById('announcement');
+        if (announcement) {
+            announcement.classList.add('translate-x-[120%]');
+            announcement.classList.add('opacity-0');
+            isAnnouncementVisible = false;
+        }
     }
-}
 
-function toggleAnnouncement() {
-    if (isAnnouncementVisible) {
-        closeAnnouncement();
-    } else {
-        showAnnouncement();
+    function toggleAnnouncement() {
+        if (isAnnouncementVisible) {
+            closeAnnouncement();
+        } else {
+            showAnnouncement();
+        }
     }
-}
 
-// 监听键盘事件 - 使用 Ctrl/Cmd + / 切换公告显示
-document.addEventListener('keydown', function(e) {
-    if ((e.ctrlKey || e.metaKey) && e.key === '/') {
-        e.preventDefault();
-        toggleAnnouncement();
-    }
-});
+    // 监听键盘事件 - 使用 Ctrl/Cmd + / 切换公告显示
+    document.addEventListener('keydown', function (e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === '/') {
+            e.preventDefault();
+            toggleAnnouncement();
+        }
+    });
 
-// 页面加载完成后初始化
-document.addEventListener('DOMContentLoaded', function() {
-    // 延迟2秒后自动显示一次
-    setTimeout(showAnnouncement, 2000);
-});
+    // 页面加载完成后初始化
+    document.addEventListener('DOMContentLoaded', function () {
+        // 延迟2秒后自动显示一次
+        setTimeout(showAnnouncement, 2000);
+    });
 </script>
 {{ end }}

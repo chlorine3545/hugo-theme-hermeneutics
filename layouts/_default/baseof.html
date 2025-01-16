@@ -11,7 +11,7 @@
   {{ block "head" . }}{{ end }}
 </head>
 
-<body class="bg-background text-foreground min-h-screen">
+<body class="bg-background text-foreground dark:bg-background-dark dark:text-foreground-dark min-h-screen transition-colors">
   <!-- 加载动画 -->
   <div id="loading-screen" class="fixed inset-0 z-[100] bg-background flex items-center justify-center transition-opacity duration-500">
       <div class="flex flex-col items-center gap-4">

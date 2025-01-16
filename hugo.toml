@@ -2,3 +2,58 @@ baseURL = 'http://example.org/'
 languageCode = 'zh-cn'
 title = 'My New Hugo Site'
 theme = 'hermeneutics'
+
+
+[[menu.main]]
+    identifier = "archives"
+    name = "归档"
+    weight = 10
+    
+[[menu.main]]
+    identifier = "posts"
+    name = "时间"
+    url = "posts"
+    weight = 10
+    parent = "archives"
+
+[[menu.main]]
+    identifier = "category"
+    name = "分类"
+    url = "category"
+    weight = 10
+    parent = "archives"
+
+[[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "tags"
+    weight = 10
+    parent = "archives"
+
+[[menu.main]]
+    identifier = "links"
+    name = "友链"
+    url = "links"
+    weight = 20
+
+[[menu.main]]
+    identifier = "whisper"
+    name = "碎语"
+    url = "whisper"
+    weight = 30
+
+[[menu.main]]
+    identifier = "now"
+    name = "如今"
+    url = "now"
+    weight = 40
+
+[params]
+    author = "Innei"
+    bio = "Como el viento."
+    tags = [
+        "Web Developer",
+        "Open Source",
+        "UI/UX",
+        "Writer"
+    ]

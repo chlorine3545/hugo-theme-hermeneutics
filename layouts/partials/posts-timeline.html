@@ -1,0 +1,153 @@
+{{ $posts := . }}
+<div class="space-y-8">
+    <!-- 文章时间线可视化 -->
+    <div class="p-6 rounded-xl border border-border/40 bg-card/50 backdrop-blur">
+        <div class="space-y-6">
+            <h3 class="text-sm font-medium">文章发布时间线</h3>
+            
+            <!-- 时间线图表 -->
+            <div class="relative h-32">
+                {{ $now := now }}
+                {{ $monthsAgo := $now.AddDate 0 -11 0 }}
+                {{ $months := slice }}
+                {{ range $i := seq 0 12 }}
+                    {{ $month := $monthsAgo.AddDate 0 $i 0 }}
+                    {{ $months = $months | append $month }}
+                {{ end }}
+
+                <!-- 底部月份标签 -->
+                <div class="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-muted-foreground/60">
+                    {{ range $months }}
+                        <span class="w-8 text-center rotate-45 origin-top-left translate-y-4">{{ .Format "1月" }}</span>
+                    {{ end }}
+                </div>
+
+                <!-- 动态曲线和点 -->
+                <div class="absolute inset-x-0 bottom-8 flex items-end justify-between">
+                    {{ range $i, $month := $months }}
+                        {{ $count := 0 }}
+                        {{ range $posts }}
+                            {{ if eq (.Date.Format "2006-01") ($month.Format "2006-01") }}
+                                {{ $count = add $count 1 }}
+                            {{ end }}
+                        {{ end }}
+                        
+                        {{ $height := 0 }}
+                        {{ if gt $count 0 }}
+                            {{ $height = mul $count 12 }}
+                            {{ if gt $height 80 }}
+                                {{ $height = 80 }}
+                            {{ end }}
+                        {{ end }}
+                        
+                        <div class="relative group">
+                            <!-- 垂直线 -->
+                            <div class="w-px h-20 bg-gradient-to-t from-primary/10 to-transparent"></div>
+                            
+                            <!-- 动态点 -->
+                            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 
+                                {{ if gt $count 0 }}
+                                    bg-primary/{{ mul (div $count 5.0) 100 }}
+                                {{ else }}
+                                    bg-primary/5
+                                {{ end }}
+                                rounded-full transform -translate-y-[{{ $height }}px]
+                                transition-all duration-500 ease-out
+                                group-hover:scale-150 group-hover:shadow-lg group-hover:shadow-primary/20">
+                            </div>
+
+                            <!-- 连接线 -->
+                            {{ if ne $i 11 }}
+                            {{ $nextMonth := index $months (add $i 1) }}
+                            {{ $nextCount := 0 }}
+                            {{ range $posts }}
+                                {{ if eq (.Date.Format "2006-01") ($nextMonth.Format "2006-01") }}
+                                    {{ $nextCount = add $nextCount 1 }}
+                                {{ end }}
+                            {{ end }}
+                            
+                            {{ $nextHeight := 0 }}
+                            {{ if gt $nextCount 0 }}
+                                {{ $nextHeight = mul $nextCount 12 }}
+                                {{ if gt $nextHeight 80 }}
+                                    {{ $nextHeight = 80 }}
+                                {{ end }}
+                            {{ end }}
+                            
+                            <div class="absolute bottom-0 left-1/2 w-[calc(100%+0.5rem)] h-px bg-primary/20
+                                transform -translate-y-[{{ $height }}px] origin-left
+                                skew-y-[{{ div (sub $nextHeight $height) 2 }}deg]">
+                            </div>
+                            {{ end }}
+
+                            <!-- 悬浮提示 -->
+                            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 
+                                text-xs rounded bg-foreground/90 text-background whitespace-nowrap
+                                opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                                {{ $month.Format "2006年1月" }}: {{ $count }} 篇文章
+                            </div>
+                        </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 文章列表 -->
+    <div class="relative">
+        <!-- 时间线轴 -->
+        <div class="absolute left-6 top-8 bottom-0 w-px bg-gradient-to-b from-primary/20 via-primary/10 to-transparent"></div>
+        
+        <!-- 文章列表 -->
+        <div class="space-y-16">
+            {{ range .GroupByDate "2006" }}
+            <div class="relative">
+                <!-- 年份标记 -->
+                <div class="flex items-center gap-6 mb-6">
+                    <time class="text-2xl font-medium tabular-nums">{{ .Key }}</time>
+                    <div class="h-px flex-1 bg-gradient-to-r from-border to-transparent"></div>
+                </div>
+                
+                <!-- 该年份的文章 -->
+                <div class="space-y-4 pl-12">
+                    {{ range .Pages }}
+                    <article class="group relative">
+                        <!-- 时间线上的点 -->
+                        <div class="absolute left-[-1.5rem] top-2 w-1.5 h-1.5 rounded-full border border-primary/30 bg-background
+                            before:absolute before:inset-[-0.25rem] before:rounded-full before:border before:border-primary/20 before:scale-0
+                            before:transition-transform group-hover:before:scale-100">
+                        </div>
+                        
+                        <!-- 文章卡片 -->
+                        <div class="relative py-1 transition duration-300 group-hover:translate-x-2">
+                            <!-- 日期和标签 -->
+                            <div class="flex items-center gap-3 text-sm">
+                                <time class="tabular-nums text-muted-foreground/60">{{ .Date.Format "01-02" }}</time>
+                                
+                                <h3 class="font-medium">
+                                    <a href="{{ .RelPermalink }}" class="hover:text-primary transition-colors">
+                                        {{ .Title }}
+                                    </a>
+                                </h3>
+
+                                {{ with .Params.categories }}
+                                <span class="text-xs px-2 py-0.5 rounded-full bg-accent/50 text-muted-foreground/70">
+                                    {{ index . 0 }}
+                                </span>
+                                {{ end }}
+
+                                <!-- 置顶标记 -->
+                                {{ if .Params.featured }}
+                                <div class="i-carbon-star-filled w-3.5 h-3.5 text-primary/60"></div>
+                                {{ end }}
+                            </div>
+                        </div>
+                        <a href="{{ .RelPermalink }}" class="absolute inset-0" aria-label="阅读文章"></a>
+                    </article>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,205 @@
+{{ define "main" }}
+<div class="container max-w-6xl mx-auto px-4 pt-24 pb-16">
+    <div class="flex gap-16">
+        <!-- 文章主体内容 -->
+        <article class="flex-1 max-w-3xl">
+            <!-- 文章头部信息 -->
+            <header class="mb-12">
+                <h1 class="text-3xl font-medium mb-4">{{ .Title }}</h1>
+                <div class="flex items-center gap-4 text-sm text-muted-foreground/70">
+                    <time class="tabular-nums">{{ .Date.Format "2006-01-02" }}</time>
+                    <div class="h-1 w-1 rounded-full bg-border"></div>
+                    <span class="inline-flex items-center gap-1.5">
+                        <div class="i-carbon-time w-4 h-4 opacity-70"></div>
+                        <span class="tabular-nums">{{ .ReadingTime }} min read</span>
+                    </span>
+                    {{ with .Params.categories }}
+                    <div class="h-1 w-1 rounded-full bg-border"></div>
+                    <span class="text-xs px-2 py-0.5 rounded-full bg-accent/50">
+                        {{ index . 0 }}
+                    </span>
+                    {{ end }}
+                </div>
+            </header>
+
+            <!-- 文章内容 -->
+            <div class="prose prose-neutral dark:prose-invert max-w-none">
+                {{ .Content }}
+            </div>
+        </article>
+
+        <!-- 右侧边栏 -->
+        <aside class="w-48 shrink-0 relative hidden lg:block">
+            <div class="sticky top-24 flex flex-col gap-6">
+                <!-- 目录 -->
+                {{ if .TableOfContents }}
+                <div class="flex flex-col gap-4">
+                    <h3 class="text-sm font-medium text-foreground/80">目录</h3>
+                    <nav class="text-sm text-foreground/70">
+                        <style>
+                            #TableOfContents ul {
+                                margin: 0;
+                                padding: 0;
+                                list-style: none;
+                                /* 移除默认列表样式 */
+                            }
+
+                            #TableOfContents>ul {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 0.5rem;
+                                /* 增加间距 */
+                            }
+
+                            #TableOfContents ul li {
+                                position: relative;
+                            }
+
+                            #TableOfContents ul ul {
+                                padding-left: 1rem;
+                                margin-top: 0.5rem;
+                                /* 增加间距 */
+                            }
+
+                            #TableOfContents>ul>li:not(:last-child)::after {
+                                /* 添加分割线 */
+                                content: '';
+                                position: absolute;
+                                bottom: -0.25rem;
+                                left: 0;
+                                width: 100%;
+                                height: 1px;
+                                background-color: rgba(var(--border), 0.5);
+                            }
+
+                            #TableOfContents a {
+                                display: block;
+                                padding: 0.25rem 0;
+                                /* 调整垂直内边距 */
+                                color: rgba(var(--muted-foreground), 0.7);
+                                /* 调整默认颜色为较浅 */
+                                transition: all 0.2s ease;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                font-size: 14px;
+                                /* 调整字体大小 */
+                            }
+
+                            #TableOfContents ul ul a {
+                                font-size: 13px;
+                                /* 子目录字体更小 */
+                                color: rgba(var(--muted-foreground), 0.6);
+                                /* 子目录颜色更浅 */
+                            }
+
+                            #TableOfContents a:hover {
+                                color: rgba(var(--foreground), 0.9);
+                                /* 悬浮颜色更亮 */
+                            }
+
+                            #TableOfContents a.active {
+                                color: hsl(var(--foreground));
+                                /* 激活状态颜色变深 */
+                                font-weight: 500;
+                            }
+
+                            /* 移除之前关于 #TableOfContents a.active::before 的所有样式 */
+                        </style>
+                        {{ .TableOfContents }}
+                    </nav>
+                </div>
+                {{ end }}
+
+                <!-- 阅读进度 -->
+                <div class="flex flex-col gap-4">
+                    <h3 class="text-sm font-medium text-foreground/80">阅读进度</h3>
+                    <div class="relative h-1 bg-border/50 rounded-full overflow-hidden">
+                        <div id="reading-progress"
+                            class="absolute inset-y-0 left-0 bg-primary/80 transition-all duration-150"
+                            style="width: 0%"></div>
+                    </div>
+                    <div class="text-sm text-muted-foreground text-center">
+                        <span id="percent">0</span>% 已读
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<!-- 阅读进度计算脚本 -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const article = document.querySelector('article');
+        const progress = document.getElementById('reading-progress');
+        const percent = document.getElementById('percent');
+        const tocLinks = document.querySelectorAll('#TableOfContents a');
+        const headings = article.querySelectorAll('h2, h3, h4, h5, h6');
+        let activeId = '';
+
+        function updateReadingProgress() {
+            const totalHeight = article.offsetHeight;
+            const viewportHeight = window.innerHeight;
+            const scrollableDistance = totalHeight - viewportHeight;
+            const currentScroll = Math.max(0, window.scrollY - article.offsetTop);
+            const percentage = Math.min(100, Math.max(0, Math.round((currentScroll / scrollableDistance) * 100)));
+
+            progress.style.width = `${percentage}%`;
+            percent.textContent = percentage;
+        }
+
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function updateToc() {
+            const fromTop = window.scrollY + 100;
+            let currentId = '';
+
+            // 优先查找可见的标题
+            for (let i = headings.length - 1; i >= 0; i--) {
+                if (headings[i].offsetTop <= fromTop && isElementInViewport(headings[i])) {
+                    currentId = headings[i].id;
+                    break;
+                }
+            }
+
+            // 如果没有找到可见的标题，则使用之前的方法
+            if (!currentId) {
+                headings.forEach(heading => {
+                    if (heading.offsetTop <= fromTop) {
+                        currentId = heading.id;
+                    }
+                });
+            }
+
+            if (currentId !== activeId) {
+                tocLinks.forEach(link => link.classList.remove('active'));
+
+                if (currentId) {
+                    const activeLink = document.querySelector(`#TableOfContents a[href="#${currentId}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+
+                activeId = currentId;
+            }
+        }
+
+        window.addEventListener('load', updateReadingProgress);
+        window.addEventListener('scroll', updateReadingProgress);
+        window.addEventListener('resize', updateReadingProgress);
+        window.addEventListener('scroll', updateToc);
+        updateReadingProgress();
+        updateToc();
+    });
+</script>
+{{ end }}

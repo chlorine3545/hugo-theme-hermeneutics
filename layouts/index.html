@@ -1,0 +1,94 @@
+{{ define "main" }}
+<section class="h-screen flex items-center">
+    <div class="container max-w-6xl mx-auto px-4">
+        <main class="flex-1 flex items-center justify-between gap-24">
+            <div class="flex-1 max-w-lg">
+                <h2 class="text-4xl font-bold mb-4">
+                    Hi, I'm Innei 👋
+                </h2>
+                <h3 class="text-2xl mb-4">
+                    A NodeJS Full Stack <code class="bg-muted px-2 py-1 rounded">&lt;developer /&gt;</code>
+                </h3>
+                <p class="text-muted-foreground mb-12">An independent developer coding with love.</p>
+
+                <div class="flex gap-4 mt-12">
+                    <a href="#" title="Twitter" class="hover:opacity-80 text-white p-3 rounded-full"
+                        style="background-color: #1DA1F2">
+                        <div class="i-carbon-logo-twitter w-5 h-5"></div>
+                    </a>
+                    <a href="#" title="GitHub" class="hover:opacity-80 text-white p-3 rounded-full"
+                        style="background-color: #181717">
+                        <div class="i-carbon-logo-github w-5 h-5"></div>
+                    </a>
+                    <a href="#" title="RSS" class="hover:opacity-80 text-white p-3 rounded-full"
+                        style="background-color: #EE802F">
+                        <div class="i-carbon-rss w-5 h-5"></div>
+                    </a>
+                    <a href="#" title="Email" class="hover:opacity-80 text-white p-3 rounded-full"
+                        style="background-color: #EA4335">
+                        <div class="i-carbon-email w-5 h-5"></div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w-64 h-64 rounded-full overflow-hidden flex-shrink-0 border-2 border-background shadow-xl">
+                <img src="/img/avatar.jpg" alt="avatar" class="object-cover rounded-full" width="256" height="256"
+                    loading="lazy">
+            </div>
+        </main>
+    </div>
+</section>
+
+<section class="bg-accent/20">
+    <div class="container max-w-6xl mx-auto px-4 py-16">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-medium text-foreground/80">最新文章</h2>
+            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring h-9 px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90">
+                查看全部
+                <div class="i-carbon-arrow-right ml-2 w-4 h-4"></div>
+            </button>
+        </div>
+        <div class="grid gap-6">
+            <article class="group relative flex flex-col gap-6 p-6 rounded-xl border border-border/50 bg-card hover:bg-accent/30 transition-all duration-300 hover:shadow-lg">
+                <div class="flex items-start gap-8">
+                    <div class="w-[280px] aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 hidden sm:block border border-border/50">
+                        <img src="https://picsum.photos/800/600" alt="文章封面" 
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-lg font-medium mb-3 text-foreground/90">
+                            <a href="#" class="hover:text-primary transition-colors line-clamp-1">
+                                使用 Rust 和 WebAssembly 构建高性能 Web 应用
+                            </a>
+                        </h3>
+                        <p class="text-muted-foreground/80 text-sm leading-relaxed line-clamp-3">
+                            探索如何使用 Rust 语言编写 WebAssembly 模块，并将其集成到现代 Web 应用中，以获得接近原生的性能表现。本文将带你了解从开发环境搭建到性能优化的完整过程。
+                        </p>
+                        <div class="flex items-center gap-4 text-xs text-muted-foreground/70 mt-4">
+                            <time class="tabular-nums">2024-03-14</time>
+                            <div class="h-1 w-1 rounded-full bg-border"></div>
+                            <span class="inline-flex items-center gap-1.5">
+                                <div class="i-carbon-time w-3.5 h-3.5 opacity-70"></div>
+                                <span class="tabular-nums">8 min read</span>
+                            </span>
+                            <div class="h-1 w-1 rounded-full bg-border"></div>
+                            <div class="inline-flex items-center gap-1.5">
+                                <div class="i-carbon-tag w-3.5 h-3.5 opacity-70"></div>
+                                <span class="space-x-2">
+                                    <span class="hover:text-foreground/70 cursor-pointer transition-colors">Rust</span>
+                                    <span class="text-border">·</span>
+                                    <span class="hover:text-foreground/70 cursor-pointer transition-colors">WebAssembly</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="absolute inset-0" aria-label="阅读文章"></a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-background">
+</footer>
+{{ end }}

@@ -1,0 +1,8 @@
+{{- $styles := resources.Get . }}
+{{- if eq hugo.Environment "development" }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+{{- else }}
+{{- with $styles | minify | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{- end }}
+{{- end }}

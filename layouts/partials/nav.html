@@ -1,0 +1,20 @@
+<nav class="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur z-50">
+    <div class="container max-w-6xl mx-auto px-4 flex items-center h-16">
+        <a href="/" class="shrink-0">
+            <img src="/img/avatar.jpg" alt="avatar" class="w-8 h-8 rounded-full object-cover ring-2 ring-background shadow-sm">
+        </a>
+        <div class="flex mx-auto">
+            <div class="flex items-center bg-accent/50 backdrop-blur rounded-full px-4 h-9 gap-6 text-sm font-medium">
+                <a href="/" class="{{ if .IsHome }}text-primary{{ else }}text-muted-foreground hover:text-primary{{ end }}">首页</a>
+                <a href="/posts" class="{{ if eq .Section "posts" }}text-primary{{ else }}text-muted-foreground hover:text-primary{{ end }}">文稿</a>
+                <a href="/notes" class="{{ if eq .Section "notes" }}text-primary{{ else }}text-muted-foreground hover:text-primary{{ end }}">手记</a>
+                <a href="/timeline" class="{{ if eq .Section "timeline" }}text-primary{{ else }}text-muted-foreground hover:text-primary{{ end }}">时光</a>
+                <a href="/about" class="{{ if eq .Section "about" }}text-primary{{ else }}text-muted-foreground hover:text-primary{{ end }}">思考</a>
+                <a href="#" class="text-muted-foreground hover:text-primary">更多</a>
+            </div>
+        </div>
+        <button class="shrink-0 inline-flex items-center justify-center rounded-full w-9 h-9 transition-colors hover:bg-accent">
+            <div class="i-carbon-user-avatar w-4 h-4 opacity-80"></div>
+        </button>
+    </div>
+</nav> 

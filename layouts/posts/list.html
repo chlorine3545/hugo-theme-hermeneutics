@@ -1,0 +1,63 @@
+{{ define "main" }}
+<div class="container max-w-4xl mx-auto px-4 pt-24 pb-16">
+    <div class="flex items-center justify-between mb-12">
+        <div>
+            <h1 class="text-3xl font-medium mb-2">Articles</h1>
+            <p class="text-muted-foreground/70">共 {{ len .Pages }} 篇文章</p>
+        </div>
+        <div class="flex items-center gap-3">
+            <div class="relative">
+                <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                    <div class="i-carbon-search w-4 h-4 text-muted-foreground/70"></div>
+                </div>
+                <input type="search" placeholder="搜索文章..."
+                    class="h-9 px-9 rounded-md bg-accent/50 border-0 ring-1 ring-border/50 focus:ring-primary/50 focus:ring-2 text-sm">
+            </div>
+        </div>
+    </div>
+
+    <!-- 文章时间线 -->
+    <div class="relative border-l border-border/40 ml-3">
+        {{ range .Pages.GroupByDate "2006" }}
+        <div class="mb-12">
+            <!-- 年份标记 -->
+            <div class="flex items-center gap-4 mb-6 -ml-[13px]">
+                <div class="w-5 h-5 rounded-full bg-primary/90 ring-4 ring-background shadow-sm"></div>
+                <span class="text-xl font-medium">{{ .Key }}</span>
+            </div>
+
+            <!-- 该年份的文章列表 -->
+            <div class="space-y-6">
+                {{ range .Pages }}
+                <article class="group relative pl-8">
+                    <!-- 时间线上的点 -->
+                    <div
+                        class="absolute left-0 top-2 w-2.5 h-2.5 -ml-[5px] rounded-full border-2 border-border/60 bg-background group-hover:border-primary/90 group-hover:bg-primary/10 transition-all duration-300">
+                    </div>
+
+                    <!-- 文章卡片 -->
+                    <div
+                        class="flex items-center justify-between gap-4 group-hover:translate-x-1 transition-transform duration-300">
+                        <div class="flex items-center gap-3">
+                            <h2
+                                class="text-lg font-medium text-foreground/90 group-hover:text-primary transition-colors">
+                                <a href="{{ .RelPermalink }}" class="line-clamp-1">{{ .Title }}</a>
+                            </h2>
+                            {{ with .Params.categories }}
+                            <span class="text-xs text-muted-foreground/60 px-2 py-0.5 rounded-full bg-accent/50">
+                                {{ index . 0 }}
+                            </span>
+                            {{ end }}
+                        </div>
+                        <time class="text-sm text-muted-foreground/70 tabular-nums shrink-0">
+                            {{ .Date.Format "01-02" }}
+                        </time>
+                    </div>
+                </article>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

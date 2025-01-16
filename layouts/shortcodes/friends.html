@@ -1,0 +1,54 @@
+{{ $friends := .Site.Data.friends.friend }}
+
+<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
+    {{ range $friends }}
+    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" 
+        class="group relative p-3 rounded-lg border border-border/40 bg-card/50 backdrop-blur
+        transition duration-300 hover:border-border/60 hover:shadow-lg hover:shadow-accent/5 hover:bg-card/80
+        flex flex-col items-center text-center">
+        
+        <!-- 头像 -->
+        <div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-background mb-3">
+            {{ if .ava }}
+                <img src="{{ .ava }}" alt="{{ .name }}" 
+                    class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+            {{ else if .hash }}
+                <img src="https://gravatar.com/avatar/{{ .hash }}?d=mp" alt="{{ .name }}"
+                    class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+            {{ else }}
+                <div class="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                    <span class="text-xl font-medium text-primary/60">
+                        {{ substr .name 0 1 }}
+                    </span>
+                </div>
+            {{ end }}
+        </div>
+
+        <!-- 信息 -->
+        <div class="w-full">
+            <div class="flex items-center justify-center gap-2 mb-1">
+                <h3 class="font-medium">{{ .name }}</h3>
+                {{ with .room }}
+                <span class="shrink-0 text-xs px-1.5 py-0.5 rounded-full bg-primary/10 text-primary/70">
+                    {{ . }}
+                </span>
+                {{ end }}
+            </div>
+            
+            <p class="text-sm text-muted-foreground/70 line-clamp-2 px-1">{{ .des }}</p>
+            
+            {{ with .note }}
+            <div class="mt-2 flex items-center justify-center gap-1 text-xs text-muted-foreground/60">
+                <div class="i-carbon-notebook w-3.5 h-3.5 opacity-60"></div>
+                <span>{{ . }}</span>
+            </div>
+            {{ end }}
+        </div>
+
+        <!-- 悬浮提示 -->
+        <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-60 transition-opacity">
+            <div class="i-carbon-launch w-4 h-4"></div>
+        </div>
+    </a>
+    {{ end }}
+</div> 

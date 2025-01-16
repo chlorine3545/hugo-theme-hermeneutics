@@ -12,8 +12,49 @@
 </head>
 
 <body class="bg-background text-foreground min-h-screen">
+  <!-- 加载动画 -->
+  <div id="loading-screen" class="fixed inset-0 z-[100] bg-background flex items-center justify-center transition-opacity duration-500">
+      <div class="flex flex-col items-center gap-4">
+          <div class="relative w-12 h-12">
+              <div class="absolute inset-0 border-t-2 border-primary/20 rounded-full"></div>
+              <div class="absolute inset-0 border-t-2 border-primary rounded-full animate-spin"></div>
+          </div>
+          <div class="flex items-center gap-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-primary/80 animate-bounce-delay-1"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-primary/80 animate-bounce-delay-2"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-primary/80 animate-bounce-delay-3"></div>
+          </div>
+          <div class="text-sm text-muted-foreground/70 animate-pulse">
+              别着急，坐和放宽
+          </div>
+      </div>
+  </div>
+
   {{ partial "nav" . }}
   {{ block "main" . }}{{ end }}
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const loadingScreen = document.getElementById('loading-screen');
+      
+      // 页面加载完成后，淡出加载动画
+      window.addEventListener('load', function() {
+          loadingScreen.style.opacity = '0';
+          setTimeout(() => {
+              loadingScreen.style.display = 'none';
+          }, 500);
+      });
+      
+      // 页面跳转时，显示加载动画
+      document.addEventListener('click', function(e) {
+          const link = e.target.closest('a');
+          if (link && !link.target && link.hostname === window.location.hostname) {
+              loadingScreen.style.display = 'flex';
+              loadingScreen.style.opacity = '1';
+          }
+      });
+  });
+  </script>
 </body>
 
 </html>

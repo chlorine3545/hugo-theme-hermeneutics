@@ -1,0 +1,14 @@
+<div class="flex flex-col gap-4">
+    <h3 class="text-sm font-medium text-foreground/80">阅读进度</h3>
+    <div class="relative h-1 bg-border/50 rounded-full overflow-hidden">
+        <div id="reading-progress" class="absolute inset-y-0 left-0 bg-primary/80 transition-all duration-150"
+            style="width: 0%"></div>
+    </div>
+    <div class="text-sm text-muted-foreground text-center">
+        <span id="percent">0</span>% 已读
+    </div>
+</div>
+
+{{ with resources.Get "js/components/readingprogress.js" }}
+<script src="{{ .RelPermalink }}" defer></script>
+{{ end }}

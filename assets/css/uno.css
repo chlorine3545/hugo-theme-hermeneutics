@@ -96,6 +96,7 @@
 .grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}
 .mx-auto{margin-left:auto;margin-right:auto;}
 .my-6{margin-top:1.5rem;margin-bottom:1.5rem;}
+.my-8{margin-top:2rem;margin-bottom:2rem;}
 .-ml-\[13px\]{margin-left:-13px;}
 .-ml-\[5px\]{margin-left:-5px;}
 .mb-1{margin-bottom:0.25rem;}

@@ -3,6 +3,8 @@ languageCode = 'zh-cn'
 title = '园子里的日光'
 theme = 'hermeneutics'
 
+[Permalinks]
+    posts = "/:slug/"
 
 [[menu.main]]
     identifier = "archives"
@@ -58,3 +60,7 @@ theme = 'hermeneutics'
         "Alt-History Writer",
         "Cyber Hermit"
     ]
+    [params.twikoo]
+        enable = true
+        version = "1.6.41"
+        envId = "https://tk.viento.cc"

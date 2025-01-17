@@ -1,0 +1,35 @@
+{{ if eq .Type "alert" }}
+<div class="my-6 rounded-lg border-l-4 p-4
+    {{- if eq .AlertType "note" }} border-blue-500 bg-blue-50/30 dark:bg-blue-500/10
+    {{- else if eq .AlertType "tip" }} border-green-500 bg-green-50/30 dark:bg-green-500/10
+    {{- else if eq .AlertType "important" }} border-purple-500 bg-purple-50/30 dark:bg-purple-500/10
+    {{- else if eq .AlertType "warning" }} border-amber-500 bg-amber-50/30 dark:bg-amber-500/10
+    {{- else if eq .AlertType "caution" }} border-red-500 bg-red-50/30 dark:bg-red-500/10
+    {{- end }}">
+    <div class="mb-2 flex items-center gap-2 font-medium
+        {{- if eq .AlertType "note" }} text-blue-700 dark:text-blue-300
+        {{- else if eq .AlertType "tip" }} text-green-700 dark:text-green-300
+        {{- else if eq .AlertType "important" }} text-purple-700 dark:text-purple-300
+        {{- else if eq .AlertType "warning" }} text-amber-700 dark:text-amber-300
+        {{- else if eq .AlertType "caution" }} text-red-700 dark:text-red-300
+        {{- end }}">
+        <div class="w-5 h-5
+            {{- if eq .AlertType "note" }} i-carbon-information
+            {{- else if eq .AlertType "tip" }} i-carbon-idea
+            {{- else if eq .AlertType "important" }} i-carbon-star
+            {{- else if eq .AlertType "warning" }} i-carbon-warning
+            {{- else if eq .AlertType "caution" }} i-carbon-warning-alt
+            {{- end }}">
+        </div>
+        <span>{{ with .AlertTitle }}{{ . }}{{ else }}{{ or (i18n .AlertType) (title .AlertType) }}{{ end }}</span>
+    </div>
+    <div class="text-foreground/80 dark:text-foreground-dark/80">
+        {{ .Text }}
+    </div>
+</div>
+{{ else }}
+<blockquote class="my-6 border-l-4 border-border/60 dark:border-border-dark/60 pl-4 
+    bg-card/20 dark:bg-card-dark/20">
+    {{ .Text }}
+</blockquote>
+{{ end }}

@@ -1,0 +1,13 @@
+{{ $caption := .Title }}
+<figure class="my-8">
+    <img src="{{ .Destination | safeURL }}" 
+         alt="{{ .Text }}"
+         {{ with $caption }}title="{{ . }}"{{ end }}
+         class="w-full rounded-lg"
+         loading="lazy">
+    {{ with $caption }}
+    <figcaption class="mt-3 text-center text-sm text-muted-foreground/70 dark:text-muted-foreground-dark/70">
+        {{ . | markdownify }}
+    </figcaption>
+    {{ end }}
+</figure> 

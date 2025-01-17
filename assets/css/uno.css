@@ -60,7 +60,6 @@
 .right-0{right:0;}
 .right-2{right:0.5rem;}
 .right-4{right:1rem;}
-.right-8{right:2rem;}
 .top-0{top:0;}
 .top-2{top:0.5rem;}
 .top-20{top:5rem;}
@@ -216,7 +215,6 @@
 .rounded-xl{border-radius:0.75rem;}
 .before\:rounded-full::before{border-radius:9999px;}
 .bg-accent\/20,
-.bg-accent\/30,
 .bg-accent\/50{background-color:var(--accent) /* var(--accent) */;}
 .bg-background,
 .bg-background\/80{background-color:var(--background) /* var(--background) */;}
@@ -227,7 +225,6 @@
 .bg-primary,
 .bg-primary\/20,
 .bg-primary\/5,
-.bg-primary\/60,
 .bg-primary\/80,
 .bg-primary\/90,
 .group:hover .group-hover\:bg-primary\/10{background-color:var(--primary) /* var(--primary) */;}

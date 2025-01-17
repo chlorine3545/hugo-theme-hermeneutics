@@ -1,0 +1,71 @@
+<div class="relative my-8 p-6 rounded-xl border border-border/40 dark:border-border-dark/40 
+    bg-card/50 dark:bg-card-dark/50 backdrop-blur transition-all duration-300
+    hover:border-border/60 dark:hover:border-border-dark/60 
+    hover:bg-card/80 dark:hover:bg-card-dark/80"
+    id="ai-summary-toggle">
+    <!-- 标题栏 -->
+    <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="i-carbon-ai-status w-5 h-5 text-primary dark:text-primary-dark"></div>
+            <span class="text-base font-medium">AI 摘要</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <span class="px-2.5 py-0.5 text-xs rounded-md
+                text-primary/80 dark:text-primary-dark/80
+                ring-1 ring-primary/20 dark:ring-primary-dark/20">
+                109酱
+            </span>
+            <button class="group" aria-label="展开/收起摘要">
+                <div class="i-carbon-chevron-down w-5 h-5 
+                    text-muted-foreground/60 dark:text-muted-foreground-dark/60
+                    group-hover:text-foreground/90 dark:group-hover:text-foreground-dark/90
+                    transition-transform duration-200 ease-out"
+                    id="ai-summary-icon">
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <!-- 分割线 -->
+    <div class="my-4 border-t border-border/30 dark:border-border-dark/30"></div>
+
+    <!-- 摘要内容 -->
+    <div class="overflow-hidden transition-[height,opacity] duration-200 ease-out"
+        style="height: 0; opacity: 0;"
+        id="ai-summary-content">
+        <div class="text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground-dark">
+            {{ .Description }}
+        </div>
+    </div>
+</div>
+
+<!-- 交互脚本 -->
+<script>
+document.getElementById('ai-summary-toggle')?.addEventListener('click', function() {
+    const content = document.getElementById('ai-summary-content');
+    const icon = document.getElementById('ai-summary-icon');
+    const contentInner = content.querySelector('div');
+    
+    if (content.style.height === '0px' || content.style.height === '') {
+        // 展开
+        content.style.height = contentInner.offsetHeight + 'px';
+        content.style.opacity = '1';
+        icon.style.transform = 'rotate(180deg)';
+    } else {
+        // 收起
+        content.style.height = '0px';
+        content.style.opacity = '0';
+        icon.style.transform = '';
+    }
+});
+
+// 窗口大小改变时重新计算高度
+window.addEventListener('resize', () => {
+    const content = document.getElementById('ai-summary-content');
+    const contentInner = content.querySelector('div');
+    
+    if (content.style.height !== '0px' && content.style.height !== '') {
+        content.style.height = contentInner.offsetHeight + 'px';
+    }
+});
+</script> 

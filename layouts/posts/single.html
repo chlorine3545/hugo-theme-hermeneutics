@@ -7,28 +7,11 @@
                 <div class="w-full lg:max-w-3xl">
                     <!-- 文章头部 -->
                     <header class="mb-12">
-                        <h1 class="text-3xl font-bold mb-6">{{ .Title }}</h1>
-                        <!-- 文章特有的元信息 -->
-                        <div class="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground/80">
-                            <time class="tabular-nums">{{ .Date.Format "2006-01-02" }}</time>
-
-                            <div class="flex items-center gap-2">
-                                <div class="i-carbon-time w-4 h-4 opacity-60"></div>
-                                <span>{{ .ReadingTime }} min read</span>
-                            </div>
-
-                            {{ with .Params.categories }}
-                            <div class="flex items-center gap-2">
-                                <div class="i-carbon-category w-4 h-4 opacity-60"></div>
-                                {{ range . }}
-                                <a href="/categories/{{ . | urlize }}" class="hover:text-foreground transition-colors">
-                                    {{ . }}
-                                </a>
-                                {{ end }}
-                            </div>
-                            {{ end }}
-                        </div>
+                        <h1 class="text-4xl font-bold mb-6">{{ .Title }}</h1>
                     </header>
+
+                    <!-- AI 摘要 -->
+                    {{ partial "components/ai-summary.html" . }}
 
                     <!-- 文章内容 -->
                     <article class="prose prose-neutral dark:prose-invert max-w-none">

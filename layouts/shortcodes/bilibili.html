@@ -1,0 +1,84 @@
+{{ $id := delimit (slice "bilibili" (partial "function/uid.html" .)) "-" }}
+{{ $bvid := .Get "bv" }}
+{{ $apiUrl := printf "https://api.bilibili.com/x/web-interface/view?bvid=%s" $bvid }}
+
+{{ $headers := dict "Accept" "application/json" }}
+{{ $videoData := resources.GetRemote $apiUrl $headers | transform.Unmarshal }}
+{{ $data := $videoData.data }}
+
+<!-- 处理时间戳 -->
+{{ $timestamp := int $data.pubdate }}
+{{ $pubTime := $timestamp | time.AsTime }}
+
+<div class="p-6 rounded-xl border-2 border-border/50 dark:border-border-dark/50 
+    bg-card/50 dark:bg-card-dark/50 backdrop-blur
+    shadow-sm shadow-accent/5 dark:shadow-accent-dark/5
+    transition duration-300 
+    hover:(border-border/60 dark:border-border-dark/60
+    bg-card/80 dark:bg-card-dark/80 translate-y-[-2px]
+    shadow-md shadow-accent/10 dark:shadow-accent-dark/10)">
+
+    <!-- 视频封面和标题区域 -->
+    <div class="flex gap-4">
+        <!-- 封面图 -->
+        <a href="https://www.bilibili.com/video/{{ $bvid }}" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 w-40 h-24 rounded-lg overflow-hidden 
+            ring-1 ring-black/5 dark:ring-white/5">
+            <img src="{{ $data.pic }}" alt="{{ $data.title }}"
+                class="w-full h-full object-cover transition duration-300 hover:scale-105" loading="lazy"
+                referrerpolicy="no-referrer">
+        </a>
+
+        <!-- 标题和UP主信息 -->
+        <div class="flex-1 min-w-0">
+            <a href="https://www.bilibili.com/video/{{ $bvid }}" target="_blank" rel="noopener noreferrer" class="block text-lg font-medium text-foreground hover:text-primary 
+                transition-colors line-clamp-2">
+                {{ $data.title }}
+            </a>
+            <a href="https://space.bilibili.com/{{ printf "%.0f" $data.owner.mid }}" target="_blank"
+                rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-sm 
+    text-muted-foreground/70 hover:text-primary transition-colors">
+                <div class="i-carbon-user-avatar w-4 h-4"></div>
+                <span>{{ $data.owner.name }}</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- 视频信息 -->
+    <div class="mt-4 flex flex-wrap items-center gap-4 text-sm text-foreground/60">
+        <!-- 播放量 -->
+        <div class="inline-flex items-center gap-1.5" title="播放量">
+            <div class="i-carbon-play w-4 h-4"></div>
+            <span class="tabular-nums">{{ div $data.stat.view 10000.0 | lang.FormatNumber 1 }}万</span>
+        </div>
+
+        <!-- 点赞数 -->
+        <div class="inline-flex items-center gap-1.5" title="点赞数">
+            <div class="i-carbon-thumbs-up w-4 h-4"></div>
+            <span class="tabular-nums">{{ div $data.stat.like 10000.0 | lang.FormatNumber 1 }}万</span>
+        </div>
+
+        <!-- 投币数 -->
+        <div class="inline-flex items-center gap-1.5" title="投币数">
+            <div class="i-carbon-currency w-4 h-4"></div>
+            <span class="tabular-nums">{{ div $data.stat.coin 10000.0 | lang.FormatNumber 1 }}万</span>
+        </div>
+
+        <!-- 收藏数 -->
+        <div class="inline-flex items-center gap-1.5" title="收藏数">
+            <div class="i-carbon-favorite w-4 h-4"></div>
+            <span class="tabular-nums">{{ div $data.stat.favorite 10000.0 | lang.FormatNumber 1 }}万</span>
+        </div>
+
+        <!-- 弹幕数 -->
+        <div class="inline-flex items-center gap-1.5" title="弹幕数">
+            <div class="i-carbon-chat w-4 h-4"></div>
+            <span class="tabular-nums">{{ div $data.stat.danmaku 10000.0 | lang.FormatNumber 1 }}万</span>
+        </div>
+
+        <!-- 发布时间 -->
+        <div class="inline-flex items-center gap-1.5" title="发布时间">
+            <div class="i-carbon-time w-4 h-4"></div>
+            <span class="tabular-nums">{{ $pubTime.Format "2006-01-02" }}</span>
+        </div>
+    </div>
+</div>

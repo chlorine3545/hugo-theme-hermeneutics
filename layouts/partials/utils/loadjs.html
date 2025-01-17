@@ -1,0 +1,19 @@
+{{- $src := .src -}}
+{{- $defer := .defer | default false -}}
+{{- $async := .async | default false -}}
+
+{{- with resources.Get $src }}
+{{- if eq hugo.Environment "development" }}
+{{- with . | js.Build }}
+<script src="{{ .RelPermalink }}" {{ if $defer }} defer {{ end }} {{ if $async }} async {{ end }}></script>
+{{- end }}
+{{- else }}
+{{- $opts := dict "minify" true }}
+{{- with . | js.Build $opts | fingerprint }}
+<script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous" {{ if $defer }} defer {{
+    end }} {{ if $async }} async {{ end }}></script>
+{{- end }}
+{{- end }}
+{{- else }}
+{{- errorf "JavaScript file not found: %s" $src -}}
+{{- end }}

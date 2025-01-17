@@ -1,27 +1,6 @@
 {{ define "main" }}
 <!-- 公告通知 -->
-{{ $announcement := .Site.GetPage "announcement" }}
-{{ with $announcement }}
-<div id="announcement" class="fixed top-20 right-4 w-80 p-4 rounded-lg border border-border/40 dark:border-border-dark/40 
-bg-card/95 dark:bg-card-dark/95 backdrop-blur
-shadow-lg shadow-accent/5 z-50 transform translate-x-[120%] transition-transform duration-500
-animate-fade opacity-0">
-    <div class="flex items-start justify-between gap-3">
-        <div class="flex items-center gap-2 text-sm font-medium mb-1">
-            <div class="i-carbon-notification w-4 h-4 text-primary/80"></div>
-            <span>公告</span>
-        </div>
-        <button onclick="closeAnnouncement()" class="text-muted-foreground/60 dark:text-muted-foreground-dark/80 
-            hover:text-muted-foreground/90 dark:hover:text-muted-foreground-dark/95 
-            transition-colors duration-200">
-            <div class="i-carbon-close w-4 h-4"></div>
-        </button>
-    </div>
-    <div class="text-sm text-muted-foreground/70 prose-sm prose-p:my-0">
-        {{ .Content }}
-    </div>
-</div>
-{{ end }}
+{{ partial "components/announcement.html" . }}
 
 <section class="h-screen flex items-center">
     <div class="container max-w-6xl mx-auto px-4">
@@ -117,47 +96,4 @@ animate-fade opacity-0">
 <footer class="bg-background">
 </footer>
 
-<script>
-    let isAnnouncementVisible = false;
-
-    function showAnnouncement() {
-        const announcement = document.getElementById('announcement');
-        if (announcement) {
-            announcement.classList.remove('translate-x-[120%]');
-            announcement.classList.remove('opacity-0');
-            isAnnouncementVisible = true;
-        }
-    }
-
-    function closeAnnouncement() {
-        const announcement = document.getElementById('announcement');
-        if (announcement) {
-            announcement.classList.add('translate-x-[120%]');
-            announcement.classList.add('opacity-0');
-            isAnnouncementVisible = false;
-        }
-    }
-
-    function toggleAnnouncement() {
-        if (isAnnouncementVisible) {
-            closeAnnouncement();
-        } else {
-            showAnnouncement();
-        }
-    }
-
-    // 监听键盘事件 - 使用 Ctrl/Cmd + / 切换公告显示
-    document.addEventListener('keydown', function (e) {
-        if ((e.ctrlKey || e.metaKey) && e.key === '/') {
-            e.preventDefault();
-            toggleAnnouncement();
-        }
-    });
-
-    // 页面加载完成后初始化
-    document.addEventListener('DOMContentLoaded', function () {
-        // 延迟2秒后自动显示一次
-        setTimeout(showAnnouncement, 2000);
-    });
-</script>
 {{ end }}

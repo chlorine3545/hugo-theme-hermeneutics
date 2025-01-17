@@ -2,9 +2,8 @@
 <div class="container max-w-6xl mx-auto px-4 pt-24 pb-16">
     <div class="flex gap-16">
         <!-- 文章主体内容 -->
-        <article class="relative">
+        <div class="relative">
             <div class="flex gap-8 max-w-6xl mx-auto px-4 py-12 md:py-20">
-                <!-- 主要内容区 -->
                 <div class="w-full lg:max-w-3xl">
                     <!-- 文章头部 -->
                     <header class="mb-12">
@@ -32,9 +31,9 @@
                     </header>
 
                     <!-- 文章内容 -->
-                    <div class="prose prose-neutral dark:prose-invert max-w-none">
+                    <article class="prose prose-neutral dark:prose-invert max-w-none">
                         {{ .Content }}
-                    </div>
+                    </article>
 
                     <!-- 系列文章导航 -->
                     {{ partial "components/series-nav.html" . }}
@@ -56,47 +55,46 @@
             </div>
 
             <!-- 阅读进度指示器 -->
-            <div id="reading-progress-ball" 
-                class="lg:hidden fixed right-4 bottom-20 w-12 h-12 rounded-full 
+            <div id="reading-progress-ball" class="lg:hidden fixed right-4 bottom-20 w-12 h-12 rounded-full 
                 bg-card/95 dark:bg-card-dark/95 backdrop-blur 
                 shadow-lg border border-border/20 dark:border-border-dark/20
                 flex items-center justify-center text-sm font-medium tabular-nums
                 transition-all duration-300 transform translate-y-24 opacity-0">
                 0%
             </div>
-        </article>
+        </div>
     </div>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const progressBall = document.getElementById('reading-progress-ball');
-    const article = document.querySelector('article');
-    
-    function updateReadingProgress() {
-        const rect = article.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        const articleHeight = article.offsetHeight;
-        
-        // 计算阅读进度百分比
-        let progress = (windowHeight - rect.top) / (articleHeight - windowHeight) * 100;
-        progress = Math.min(100, Math.max(0, progress));
-        
-        // 更新移动端进度球
-        if (progressBall) {
-            progressBall.textContent = `${Math.round(progress)}%`;
-            
-            // 控制进度球的显示/隐藏
-            if (progress > 0 && progress < 100) {
-                progressBall.classList.remove('translate-y-24', 'opacity-0');
-            } else {
-                progressBall.classList.add('translate-y-24', 'opacity-0');
+    document.addEventListener('DOMContentLoaded', function () {
+        const progressBall = document.getElementById('reading-progress-ball');
+        const article = document.querySelector('article');
+
+        function updateReadingProgress() {
+            const rect = article.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            const articleHeight = article.offsetHeight;
+
+            // 计算阅读进度百分比
+            let progress = (windowHeight - rect.top) / (articleHeight - windowHeight) * 100;
+            progress = Math.min(100, Math.max(0, progress));
+
+            // 更新移动端进度球
+            if (progressBall) {
+                progressBall.textContent = `${Math.round(progress)}%`;
+
+                // 控制进度球的显示/隐藏
+                if (progress > 0 && progress < 100) {
+                    progressBall.classList.remove('translate-y-24', 'opacity-0');
+                } else {
+                    progressBall.classList.add('translate-y-24', 'opacity-0');
+                }
             }
         }
-    }
-    
-    window.addEventListener('scroll', updateReadingProgress);
-    updateReadingProgress();
-});
+
+        window.addEventListener('scroll', updateReadingProgress);
+        updateReadingProgress();
+    });
 </script>
 {{ end }}

@@ -25,9 +25,9 @@ animate-fade opacity-0">
 
 <section class="h-screen flex items-center">
     <div class="container max-w-6xl mx-auto px-4">
-        <main class="flex items-center justify-between gap-24">
-            <div class="flex-1 max-w-xl space-y-6">
-                <h2 class="text-4xl font-bold">
+        <main class="flex flex-col-reverse lg:flex-row items-center lg:justify-between gap-12 lg:gap-24">
+            <div class="w-full lg:flex-1 lg:max-w-xl space-y-6 text-center lg:text-left">
+                <h2 class="text-2xl lg:text-4xl font-bold">
                     <span class="inline-flex overflow-hidden">
                         <span class="animate-text-reveal" style="--index: 0">H</span>
                         <span class="animate-text-reveal" style="--index: 1">i</span>
@@ -48,7 +48,7 @@ animate-fade opacity-0">
                 </h2>
                 <div class="flex flex-wrap gap-2">
                     {{ range $index, $tag := .Site.Params.tags }}
-                    <span class="px-3 py-1 rounded-full bg-accent/50 dark:bg-accent-dark/50 
+                    <span class="mx-auto lg:mx-0 px-3 py-1 rounded-full bg-accent/50 dark:bg-accent-dark/50 
                         text-sm text-muted-foreground/80 dark:text-muted-foreground-dark/80
                         animate-fade-up opacity-0" style="animation-delay: {{ add 0.5 (mul $index 0.1) }}s">
                         {{ $tag }}
@@ -56,12 +56,12 @@ animate-fade opacity-0">
                     {{ end }}
                 </div>
                 {{ with .Site.Params.bio }}
-                <p class="text-lg text-muted-foreground/70 animate-fade-up opacity-0" style="animation-delay: 0.8s">
+                <p class="text-base lg:text-lg text-muted-foreground/70 animate-fade-up opacity-0" style="animation-delay: 0.8s">
                     {{ . }}
                 </p>
                 {{ end }}
 
-                <div class="flex gap-4 animate-fade-up opacity-0"
+                <div class="flex justify-center lg:justify-start gap-4 animate-fade-up opacity-0"
                     style="animation-delay: 0.8s; animation-fill-mode: forwards;">
                     <a href="#" title="Twitter" class="hover:opacity-80 text-white p-3 rounded-full"
                         style="background-color: #1DA1F2">
@@ -82,7 +82,7 @@ animate-fade opacity-0">
                 </div>
             </div>
 
-            <div class="w-64 h-64 rounded-full overflow-hidden flex-shrink-0 border-2 border-background shadow-xl animate-fade-left opacity-0"
+            <div class="w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden flex-shrink-0 border-2 border-background shadow-xl animate-fade-left opacity-0"
                 style="animation-delay: 0.6s; animation-fill-mode: forwards;">
                 <img src="/img/avatar.jpg" alt="avatar" class="object-cover rounded-full" width="256" height="256"
                     loading="lazy">

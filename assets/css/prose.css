@@ -162,27 +162,7 @@
   margin-bottom: 0;
 }
 
-/* 目录样式 */
-.prose .toc {
-  @apply text-sm;
-}
 
-.prose .toc ul {
-  @apply m-0 p-0 list-none space-y-1;
-}
-
-.prose .toc > ul > li > ul {
-  @apply pl-4 mt-1 mb-2 border-l border-border/30 dark:border-border-dark/30;
-}
-
-.prose .toc a {
-  @apply no-underline bg-none text-muted-foreground/60 dark:text-muted-foreground-dark/60
-    hover:text-foreground/90 dark:hover:text-foreground-dark/90 transition-colors;
-}
-
-.prose .toc a.active {
-  @apply text-primary dark:text-primary-dark font-medium;
-}
 
 /* 复制按钮 */
 .copy-button {

@@ -1,10 +1,10 @@
 {{ if eq .Type "alert" }}
 <div class="my-6 rounded-lg border-l-4 p-4
-    {{- if eq .AlertType "note" }} border-blue-500 bg-blue-50/30 dark:bg-blue-500/10
-    {{- else if eq .AlertType "tip" }} border-green-500 bg-green-50/30 dark:bg-green-500/10
-    {{- else if eq .AlertType "important" }} border-purple-500 bg-purple-50/30 dark:bg-purple-500/10
-    {{- else if eq .AlertType "warning" }} border-amber-500 bg-amber-50/30 dark:bg-amber-500/10
-    {{- else if eq .AlertType "caution" }} border-red-500 bg-red-50/30 dark:bg-red-500/10
+    {{- if eq .AlertType "note" }} border-blue-500 bg-blue-50/50 dark:bg-blue-500/10
+    {{- else if eq .AlertType "tip" }} border-green-500 bg-green-50/50 dark:bg-green-500/10
+    {{- else if eq .AlertType "important" }} border-purple-500 bg-purple-50/50 dark:bg-purple-500/10
+    {{- else if eq .AlertType "warning" }} border-amber-500 bg-amber-50/50 dark:bg-amber-500/10
+    {{- else if eq .AlertType "caution" }} border-red-500 bg-red-50/50 dark:bg-red-500/10
     {{- end }}">
     <div class="mb-2 flex items-center gap-2 font-medium
         {{- if eq .AlertType "note" }} text-blue-700 dark:text-blue-300

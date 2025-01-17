@@ -35,6 +35,12 @@
                     <div class="prose prose-neutral dark:prose-invert max-w-none">
                         {{ .Content }}
                     </div>
+
+                    <!-- 系列文章导航 -->
+                    {{ partial "components/series-nav.html" . }}
+
+                    <!-- 版权信息 -->
+                    {{ partial "components/copyright.html" . }}
                 </div>
 
                 <!-- 侧边栏 -->

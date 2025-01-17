@@ -1,30 +1,30 @@
 :root {
   /* 亮色模式变量 */
   --background: hsl(0 0% 100%);
-  --foreground: hsl(222.2 84% 4.9%);
-  --primary: hsl(222.2 47.4% 11.2%);
-  --primary-foreground: hsl(210 40% 98%);
-  --muted: hsl(210 40% 96.1%);
-  --muted-foreground: hsl(215.4 16.3% 46.9%);
-  --accent: hsl(210 40% 96.1%);
-  --accent-foreground: hsl(222.2 47.4% 11.2%);
+  --foreground: hsl(222 25% 12%);
+  --primary: hsl(222 35% 25%);
+  --primary-foreground: hsl(210 25% 98%);
+  --muted: hsl(210 25% 96%);
+  --muted-foreground: hsl(215 12% 45%);
+  --accent: hsl(210 25% 96%);
+  --accent-foreground: hsl(222 35% 25%);
   --card: hsl(0 0% 100%);
-  --card-foreground: hsl(222.2 84% 4.9%);
-  --border: hsl(214.3 31.8% 91.4%);
+  --card-foreground: hsl(222 25% 12%);
+  --border: hsl(214 15% 94%);
 }
 
 .dark {
-  --background: hsl(222.2 84% 4.9%);
-  --foreground: hsl(210 40% 98%);
-  --primary: hsl(210 40% 98%);
-  --primary-foreground: hsl(222.2 47.4% 11.2%);
-  --muted: hsl(217.2 32.6% 17.5%);
-  --muted-foreground: hsl(215 20.2% 65.1%);
-  --accent: hsl(217.2 32.6% 17.5%);
-  --accent-foreground: hsl(210 40% 98%);
-  --card: hsl(222.2 84% 4.9%);
-  --card-foreground: hsl(210 40% 98%);
-  --border: hsl(217.2 32.6% 17.5%);
+  --background: hsl(222 25% 8%);
+  --foreground: hsl(210 25% 92%);
+  --primary: hsl(210 25% 92%);
+  --primary-foreground: hsl(222 35% 12%);
+  --muted: hsl(217 20% 15%);
+  --muted-foreground: hsl(215 15% 65%);
+  --accent: hsl(217 20% 15%);
+  --accent-foreground: hsl(210 25% 92%);
+  --card: hsl(222 25% 8%);
+  --card-foreground: hsl(210 25% 92%);
+  --border: hsl(217 20% 15%);
 }
 
 * {

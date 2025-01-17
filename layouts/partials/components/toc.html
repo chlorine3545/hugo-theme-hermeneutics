@@ -1,0 +1,12 @@
+{{ if .TableOfContents }}
+{{ with resources.Get "css/components/toc.css" }}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{ end }}
+
+<div class="flex flex-col gap-4">
+    <h3 class="text-sm font-medium text-foreground/80">目录</h3>
+    <nav class="text-sm text-foreground/70">
+        {{ .TableOfContents }}
+    </nav>
+</div>
+{{ end }}

@@ -1,0 +1,50 @@
+{{ define "main" }}
+<div class="container max-w-6xl mx-auto px-4 pt-24 pb-16">
+    <!-- 页面标题 -->
+    <header class="mb-12">
+        <div class="flex items-center gap-4 mb-2">
+            <a href="{{ if eq .Data.Singular "category" }}/categories{{ else }}/tags{{ end }}" 
+                class="text-sm text-muted-foreground/70 hover:text-foreground/90 transition-colors">
+                <div class="i-carbon-arrow-left w-4 h-4"></div>
+            </a>
+            <div class="space-y-1">
+                <div class="flex items-center gap-2">
+                    <h1 class="text-3xl font-medium">{{ .Title }}</h1>
+                    <span class="px-2 py-1 text-sm rounded-full 
+                        bg-primary/10 dark:bg-primary-dark/20
+                        text-primary/70 dark:text-primary-dark/80
+                        tabular-nums">{{ len .Pages }}</span>
+                </div>
+                <p class="text-sm text-muted-foreground/70">
+                    {{ if eq .Data.Singular "category" }}
+                        分类下的所有文章
+                    {{ else if eq .Data.Singular "tag" }}
+                        标签下的所有文章
+                    {{ else }}
+                        系列下的所有文章
+                    {{ end }}
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- 文章列表 -->
+    <div class="space-y-16">
+        {{ range .Pages.GroupByDate "2006" }}
+        <div class="space-y-8">
+            <div class="flex items-center gap-4">
+                <time class="text-2xl font-medium tabular-nums">{{ .Key }}</time>
+                <div class="h-px flex-1 bg-gradient-to-r from-border to-transparent 
+                    dark:from-border-dark"></div>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {{ range .Pages }}
+                {{ partial "post-card.html" (dict "context" . "post" . "index" 0) }}
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }} 

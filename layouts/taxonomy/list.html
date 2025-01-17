@@ -1,0 +1,50 @@
+{{ define "main" }}
+<div class="container max-w-6xl mx-auto px-4 pt-24 pb-16">
+    <!-- 页面标题 -->
+    <header class="mb-12">
+        <div class="space-y-1">
+            <h1 class="text-3xl font-medium">{{ .Title }}</h1>
+            <p class="text-sm text-muted-foreground/70">
+                {{ if eq .Data.Singular "category" }}
+                    共 {{ len .Pages }} 篇文章，{{ len .Data.Terms }} 个分类
+                {{ else if eq .Data.Singular "tag" }}
+                    共 {{ len .Pages }} 篇文章，{{ len .Data.Terms }} 个标签
+                {{ else }}
+                    共 {{ len .Pages }} 篇文章，{{ len .Data.Terms }} 个系列
+                {{ end }}
+            </p>
+        </div>
+    </header>
+
+    <!-- 分类/标签云 -->
+    <div class="mb-16">
+        <div class="p-6 rounded-xl border border-border/40 dark:border-border-dark/40 
+            bg-card/50 dark:bg-card-dark/50 backdrop-blur">
+            <div class="flex flex-wrap gap-3">
+                {{ range .Data.Terms.Alphabetical }}
+                <a href="{{ .Page.RelPermalink }}" 
+                    class="group relative px-4 py-2 rounded-full 
+                    bg-accent/50 dark:bg-accent-dark/50 backdrop-blur
+                    hover:bg-accent/70 dark:hover:bg-accent-dark/70
+                    transition-all duration-300">
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm text-foreground/80 dark:text-foreground-dark/80">{{ .Page.Title }}</span>
+                        <span class="px-1.5 py-0.5 text-xs rounded-full 
+                            bg-primary/10 dark:bg-primary-dark/20
+                            text-primary/70 dark:text-primary-dark/80
+                            tabular-nums">{{ .Count }}</span>
+                    </div>
+                </a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+
+    <!-- 文章列表 -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {{ range .Pages }}
+        {{ partial "post-card.html" (dict "context" . "post" . "index" 0) }}
+        {{ end }}
+    </div>
+</div>
+{{ end }} 

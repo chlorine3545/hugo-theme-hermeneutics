@@ -1,0 +1,54 @@
+<div class="mt-16 p-6 rounded-xl border border-border/40 dark:border-border-dark/40 
+    backdrop-blur">
+    <div class="flex flex-col sm:flex-row gap-6">
+        <!-- 左侧图标 -->
+        <div class="flex-shrink-0">
+            <div class="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary-dark/20 
+                flex items-center justify-center">
+                <div class="i-carbon-license w-6 h-6 text-primary/80"></div>
+            </div>
+        </div>
+
+        <!-- 右侧内容 -->
+        <div class="flex-1 space-y-4">
+            <!-- 标题和协议 -->
+            <div class="space-y-1">
+                <h3 class="text-base font-medium">版权声明</h3>
+                <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground/70">
+                    <span>本文采用</span>
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" 
+                        target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-1 text-primary/80 hover:text-primary transition-colors">
+                        <div class="i-carbon-link w-3.5 h-3.5"></div>
+                        <span>CC BY-NC-SA 4.0</span>
+                    </a>
+                    <span>许可协议。</span>
+                </div>
+            </div>
+
+            <!-- 许可说明 -->
+            <div class="text-sm space-y-2 text-muted-foreground/70">
+                <div class="flex items-start gap-2">
+                    <div class="i-carbon-checkmark w-4 h-4 mt-0.5 text-primary/70"></div>
+                    <span>转载请注明出处：<span class="select-all">{{ .Permalink }}</span></span>
+                </div>
+                <div class="flex items-start gap-2">
+                    <div class="i-carbon-checkmark w-4 h-4 mt-0.5 text-primary/70"></div>
+                    <span>本文作者：{{ .Site.Params.author }}</span>
+                </div>
+                <div class="flex items-start gap-2">
+                    <div class="i-carbon-checkmark w-4 h-4 mt-0.5 text-primary/70"></div>
+                    <span>发布时间：<time class="tabular-nums">{{ .Date.Format "2006-01-02 15:04" }}</time></span>
+                </div>
+                {{ with .Lastmod }}
+                {{ if ne (dateFormat "2006-01-02" .) (dateFormat "2006-01-02" $.Date) }}
+                <div class="flex items-start gap-2">
+                    <div class="i-carbon-checkmark w-4 h-4 mt-0.5 text-primary/70"></div>
+                    <span>最后更新：<time class="tabular-nums">{{ .Format "2006-01-02 15:04" }}</time></span>
+                </div>
+                {{ end }}
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>

@@ -71,16 +71,19 @@
 </section>
 
 <section class="bg-accent/20 dark:bg-accent-dark/20">
-    <div class="container max-w-6xl mx-auto px-4 py-20">
+    <div class="container max-w-6xl mx-auto px-4 py-24">
         <div class="flex items-center justify-between mb-8">
-            <h2 class="text-2xl font-medium text-foreground/80">最新文章</h2>
+            <div class="space-y-1">
+                <h2 class="text-2xl font-medium">最新文章</h2>
+                <p class="text-sm text-muted-foreground/70">探索、思考、分享</p>
+            </div>
             {{/* <a href="/posts"
                 class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring h-9 px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90">
                 查看全部
                 <div class="i-carbon-arrow-right ml-2 w-4 h-4"></div>
             </a> */}}
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {{ $posts := where .Site.RegularPages "Section" "posts" }}
             {{ $featuredPosts := where $posts "Params.featured" true }}
             {{ $recentPosts := $posts | first 3 }}

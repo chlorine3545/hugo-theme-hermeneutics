@@ -19,7 +19,7 @@ theme = 'hermeneutics'
 [[menu.main]]
     identifier = "category"
     name = "分类"
-    url = "category"
+    url = "categories"
     weight = 10
     parent = "archives"
 

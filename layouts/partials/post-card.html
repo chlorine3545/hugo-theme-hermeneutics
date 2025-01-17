@@ -1,27 +1,29 @@
 {{ $post := . }}
-<article class="group relative p-4 sm:p-6 rounded-2xl border border-border/40 
-    bg-card/50 dark:bg-card-dark/50 backdrop-blur transition duration-300 
+<article class="group relative rounded-2xl border border-border/40 
+    bg-card/50 dark:bg-card-dark/50 backdrop-blur transition-all duration-500 
     hover:border-border/60 dark:hover:border-border-dark/60 
     hover:shadow-lg hover:shadow-accent/5 dark:hover:shadow-accent-dark/5 
     hover:bg-card/80 dark:hover:bg-card-dark/80
+    hover:translate-y-[-2px]
     animate-fade-up opacity-0" 
     style="animation-delay: {{ mul .index 0.2 }}s; animation-fill-mode: forwards;">
     
     <!-- 文章封面 -->
-    <div class="mb-5 aspect-[2/1] sm:aspect-[4/3] rounded-xl overflow-hidden">
+    <div class="aspect-[2/1] rounded-t-2xl overflow-hidden">
         {{ with $post.Params.cover }}
         <img src="{{ . }}" alt="{{ $post.Title }}" 
             class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.02]" loading="lazy">
         {{ else }}
-        <div class="w-full h-full bg-gradient-to-br from-accent/30 to-accent/10"></div>
+        <div class="w-full h-full bg-gradient-to-br from-primary/5 to-accent/5 
+            dark:from-primary/10 dark:to-accent/10"></div>
         {{ end }}
     </div>
     
     <!-- 文章信息 -->
-    <div class="space-y-4">
+    <div class="p-6 space-y-4">
         <!-- 标题和描述 -->
         <div class="space-y-2">
-            <h3 class="text-lg font-medium text-foreground/90">
+            <h3 class="text-lg font-medium">
                 <a href="{{ $post.RelPermalink }}" class="hover:text-primary transition-colors line-clamp-1">
                     {{ $post.Title }}
                 </a>
@@ -60,7 +62,8 @@
             
             <!-- 置顶标记 -->
             {{ if $post.Params.featured }}
-            <span class="inline-flex items-center gap-1 text-primary/80">
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full 
+                bg-primary/10 dark:bg-primary/20 text-primary/80">
                 <div class="i-carbon-star-filled w-3.5 h-3.5"></div>
                 <span>置顶</span>
             </span>

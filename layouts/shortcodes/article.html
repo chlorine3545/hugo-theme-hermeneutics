@@ -1,12 +1,13 @@
 {{ $path := .Get "path" | default (.Get 0) }}
 {{ with .Site.GetPage $path }}
-{{/*  TODO: 去除卡片的下划线  */}}
+{{/* TODO: 去除卡片的下划线 */}}
 
 <div class="custom-card article-card p-6 rounded-xl border-2 border-border/50 dark:border-border-dark/50 
     bg-card/50 dark:bg-card-dark/50 backdrop-blur
-    shadow-sm shadow-accent/5 dark:shadow-accent-dark/5
+    shadow-sm shadow-accent/10 dark:shadow-accent-dark/10
+    ring-1 ring-accent/20 dark:ring-accent-dark/20
     transition duration-300 
-    hover:(border-border/60 dark:border-border-dark/60
+    hover:(ring-accent/30 dark:ring-accent-dark/30
     bg-card/80 dark:bg-card-dark/80 translate-y-[-2px]
     shadow-md shadow-accent/10 dark:shadow-accent-dark/10)">
 
@@ -49,14 +50,6 @@
                     </a>
                     {{ end }}
                 </div>
-            </div>
-            {{ end }}
-
-            <!-- 地点 -->
-            {{ with .Params.location }}
-            <div class="inline-flex items-center gap-1.5">
-                <div class="i-carbon-location w-4 h-4"></div>
-                <span>{{ . }}</span>
             </div>
             {{ end }}
         </div>

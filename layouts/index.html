@@ -25,7 +25,6 @@
                         <span class="animate-text-reveal" style="--index: {{ add 8 $index }}">{{ $char }}</span>
                         {{ end }}
                         
-                        <!-- 挥手表情 -->
                         <span class="animate-text-reveal" style="--index: {{ add 8 (len $nameChars) }}">&nbsp;</span>
                         <span class="animate-text-reveal" style="--index: {{ add 9 (len $nameChars) }}">👋</span>
                     </span>
@@ -57,7 +56,6 @@
     </div>
 </section>
 
-<!-- 最新文章 -->
 {{ partial "sections/recent-posts.html" . }}
 
 {{ end }}

@@ -2,11 +2,10 @@
 <article class="prose prose-neutral dark:prose-invert max-w-4xl mx-auto px-4 py-20">
     <header class="not-prose mb-16">
         <h1 class="text-3xl font-bold mb-6">{{ .Title }}</h1>
-        {{ with .Description }}
-        <p class="text-lg text-muted-foreground">{{ . }}</p>
-        {{ end }}
     </header>
 
     {{ .Content }}
+
+    {{ partial "components/comments.html" . }}
 </article>
 {{ end }}

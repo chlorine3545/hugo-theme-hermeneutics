@@ -1,4 +1,3 @@
-<!-- 移动端阅读进度球 -->
 <div id="reading-progress-ball" class="lg:hidden fixed right-4 bottom-20 w-12 h-12 rounded-full 
                 bg-card/95 dark:bg-card-dark/95 backdrop-blur 
                 shadow-lg border border-border/20 dark:border-border-dark/20
@@ -8,5 +7,7 @@
 </div>
 
 {{ with resources.Get "js/components/reading-progress-ball.js" }}
-    <script src="{{ .RelPermalink }}"></script>
+<script>
+    {{ .Content | safeJS }}
+</script>
 {{ end }}

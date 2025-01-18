@@ -1,3 +1,4 @@
+<!-- Make the distance between the text and the border slightly larger -->
 {{ if eq .Type "alert" }}
 <div class="my-6 rounded-lg border-l-4 p-4
     {{- if eq .AlertType "note" }} border-blue-500 bg-blue-50/50 dark:bg-blue-500/10
@@ -6,7 +7,7 @@
     {{- else if eq .AlertType "warning" }} border-amber-500 bg-amber-50/50 dark:bg-amber-500/10
     {{- else if eq .AlertType "caution" }} border-red-500 bg-red-50/50 dark:bg-red-500/10
     {{- end }}">
-    <div class="mb-2 flex items-center gap-2 font-medium
+    <div class="mb-2 flex items-center gap-2 font-medium pl-2
         {{- if eq .AlertType "note" }} text-blue-700 dark:text-blue-300
         {{- else if eq .AlertType "tip" }} text-green-700 dark:text-green-300
         {{- else if eq .AlertType "important" }} text-purple-700 dark:text-purple-300
@@ -23,7 +24,7 @@
         </div>
         <span>{{ with .AlertTitle }}{{ . }}{{ else }}{{ or (i18n .AlertType) (title .AlertType) }}{{ end }}</span>
     </div>
-    <div class="text-foreground/80 dark:text-foreground-dark/80">
+    <div class="text-foreground/80 dark:text-foreground-dark/80 pl-2">
         {{ .Text }}
     </div>
 </div>

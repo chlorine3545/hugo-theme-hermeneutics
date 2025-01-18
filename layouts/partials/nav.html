@@ -5,7 +5,8 @@
                 class="w-8 h-8 rounded-full object-cover ring-2 ring-background dark:ring-background-dark shadow-sm">
         </a>
         <div class="flex mx-auto transition-all duration-300" id="nav-menu">
-            <div class="flex items-center bg-accent/50 dark:bg-accent-dark/50 backdrop-blur rounded-full px-4 h-9 gap-6 text-sm font-medium">
+            <div
+                class="flex items-center bg-accent/50 dark:bg-accent-dark/50 backdrop-blur rounded-full px-4 h-9 gap-6 text-sm font-medium">
                 {{ $currentPage := . }}
                 {{ range .Site.Menus.main }}
                 {{ if .HasChildren }}
@@ -21,10 +22,10 @@
                                 bg-card/95 dark:bg-card-dark/95 backdrop-blur
                                 shadow-lg shadow-accent/5 flex flex-col overflow-hidden">
                             {{ range .Children }}
-                            <a a aria-label="{{ .Name }}" href="{{ .URL | absURL}}" 
-                                class="px-2 py-1.5 text-center text-muted-foreground/70 dark:text-muted-foreground-dark/70 
+                            <a a aria-label="{{ .Name }}" href="{{ .URL | absURL}}" class="px-2 py-1.5 text-center text-muted-foreground/70 dark:text-muted-foreground-dark/70 
                                 hover:text-primary hover:bg-accent/40 dark:hover:bg-accent-dark/40 transition-colors
-                                {{ if $currentPage.IsMenuCurrent "main" . }}text-primary bg-accent/50 dark:bg-accent-dark/50{{ end }}">
+                                {{ if $currentPage.IsMenuCurrent " main" . }}text-primary bg-accent/50
+                                dark:bg-accent-dark/50{{ end }}">
                                 {{ .Name }}
                             </a>
                             {{ end }}
@@ -32,9 +33,8 @@
                     </div>
                 </div>
                 {{ else }}
-                <a aria-label="{{ .Name }}" href="{{ .URL | absURL}}" 
-                    class="text-muted-foreground dark:text-muted-foreground-dark hover:text-primary transition-colors
-                    {{ if $currentPage.IsMenuCurrent "main" . }}text-primary{{ end }}">
+                <a aria-label="{{ .Name }}" href="{{ .URL | absURL}}" class="text-muted-foreground dark:text-muted-foreground-dark hover:text-primary transition-colors
+                    {{ if $currentPage.IsMenuCurrent " main" . }}text-primary{{ end }}">
                     {{ .Name }}
                 </a>
                 {{ end }}
@@ -46,42 +46,24 @@
             <h1 class="text-base font-medium truncate">{{ .Title }}</h1>
         </div>
         <div class="relative group">
-            <button id="theme-toggle"
-                class="shrink-0 inline-flex items-center justify-center rounded-full w-9 h-9 transition-colors 
-                    hover:bg-accent/50 dark:hover:bg-accent-dark/50"
-                aria-label="切换主题">
-                <div class="i-carbon-sun w-4 h-4 text-muted-foreground/70 dark:text-muted-foreground-dark/70"></div>
+            <!-- 主按钮 -->
+            <button id="theme-toggle" class="shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full
+        bg-background/80 dark:bg-background-dark/80
+        ring-0 dark:ring-0 border-0 dark:border-0
+        text-muted-foreground/70 dark:text-muted-foreground-dark/70
+        hover:bg-accent/50 dark:hover:bg-accent-dark/50
+        transition-colors" aria-label="切换主题">
+                <div class="i-carbon-sun w-4 h-4"></div>
             </button>
 
             <!-- 主题选择菜单 -->
-            <div class="absolute right-0 top-full pt-2 opacity-0 invisible 
+            <div class="absolute right-0 top-full mt-2 opacity-0 invisible 
                 group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <div class="p-1.5 rounded-xl border border-border/20 bg-card/95 dark:border-border-dark/20 dark:bg-card-dark/95
-                    shadow-lg shadow-accent/5 dark:shadow-accent-dark/5 flex flex-col gap-1">
-                    <button class="group/item flex flex-col items-center gap-1.5"
-                        onclick="setTheme('light')">
-                        <div class="p-2 rounded-lg text-muted-foreground/70 dark:text-muted-foreground-dark/70
-                            hover:bg-accent/50 dark:hover:bg-accent-dark/50 
-                            hover:text-primary dark:hover:text-primary-dark transition-all">
-                            <div class="i-carbon-sun w-4 h-4"></div>
-                        </div>
-                    </button>
-                    <button class="group/item flex flex-col items-center gap-1.5"
-                        onclick="setTheme('dark')">
-                        <div class="p-2 rounded-lg text-muted-foreground/70 dark:text-muted-foreground-dark/70
-                            hover:bg-accent/50 dark:hover:bg-accent-dark/50 
-                            hover:text-primary dark:hover:text-primary-dark transition-all">
-                            <div class="i-carbon-moon w-4 h-4"></div>
-                        </div>
-                    </button>
-                    <button class="group/item flex flex-col items-center gap-1.5"
-                        onclick="setTheme('auto')">
-                        <div class="p-2 rounded-lg text-muted-foreground/70 dark:text-muted-foreground-dark/70
-                            hover:bg-accent/50 dark:hover:bg-accent-dark/50 
-                            hover:text-primary dark:hover:text-primary-dark transition-all">
-                            <div class="i-carbon-screen w-4 h-4"></div>
-                        </div>
-                    </button>
+                <div class="w-9 flex flex-col rounded-xl border border-border/10 bg-card/95 dark:border-border-dark/10 dark:bg-card-dark/95
+                    shadow-sm shadow-accent/5 dark:shadow-accent-dark/5">
+                    {{ range slice "light" "dark" "auto" }}
+                    {{ partial "components/theme-button.html" (dict "theme" .) }}
+                    {{ end }}
                 </div>
             </div>
         </div>
@@ -121,13 +103,13 @@
 
     function updateThemeIcon(theme) {
         const themeToggle = document.getElementById('theme-toggle');
-        const iconClass = theme === 'dark' ? 'i-carbon-moon' : 
-                         theme === 'light' ? 'i-carbon-sun' : 
-                         'i-carbon-screen';
+        const iconClass = theme === 'dark' ? 'i-carbon-moon' :
+            theme === 'light' ? 'i-carbon-sun' :
+                'i-carbon-screen';
         themeToggle.innerHTML = `<div class="${iconClass} w-4 h-4 text-muted-foreground/70 dark:text-muted-foreground-dark/70"></div>`;
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const theme = getTheme();
         setTheme(theme);
 

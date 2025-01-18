@@ -3,6 +3,9 @@ languageCode = 'zh-cn'
 title = '园子里的日光'
 theme = 'hermeneutics'
 
+hasCJKLanguage = true
+enableCsrf = true
+
 [Permalinks]
     posts = "/:slug/"
 
@@ -90,3 +93,8 @@ theme = 'hermeneutics'
         enable = true
         version = "1.6.41"
         envId = "https://tk.viento.cc"
+
+    [params.beian]
+        icp = "浙ICP备XXXXXXXX号-1"
+        gongan = "浙公网安备 XXXXXXXXXXXX号"
+        moe = "萌ICP备20240101号"

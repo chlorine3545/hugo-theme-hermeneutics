@@ -1,1 +1,19 @@
-<p>Copyright {{ now.Year }}. All rights reserved.</p>
+<footer class="py-16 bg-accent/10 dark:bg-accent-dark/10 border-t border-border/10 dark:border-border-dark/10 [&_a]:text-inherit [&_a:visited]:text-inherit">
+    <div class="container max-w-6xl mx-auto px-4">
+        <div class="flex flex-col gap-12">
+            {{/*  <div class="flex flex-col lg:flex-row items-center gap-8">
+                <div class="w-full lg:w-2/3">
+                    {{ partial "footer/wowbook.html" . }}
+                </div>
+            </div>  */}}
+
+            <!-- 分隔线 -->
+            <div class="h-px bg-border/10 dark:bg-border-dark/10"></div>
+
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground/60">
+                {{ partial "footer/techstack.html" . }}
+                {{ partial "footer/beian.html" . }}
+            </div>
+        </div>
+    </div>
+</footer>

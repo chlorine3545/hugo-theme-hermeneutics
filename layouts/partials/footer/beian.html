@@ -1,0 +1,32 @@
+<!-- 右侧备案信息 -->
+{{ with .Site.Params.beian }}
+<div class="flex flex-col md:flex-row items-center gap-4">
+    <!-- ICP备案 -->
+    {{ with .icp }}
+    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 hover:text-primary transition-colors">
+        <span>{{ . }}</span>
+    </a>
+    {{ end }}
+
+    <!-- 公安备案 -->
+    {{ with .gongan }}
+    <span class="hidden md:inline text-border/40">|</span>
+    <a href="http://www.beian.gov.cn/" target="_blank" rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 hover:text-primary transition-colors">
+        <span>{{ . }}</span>
+    </a>
+    {{ end }}
+
+    <!-- 萌ICP备案 -->
+    {{ with .moe }}
+    <span class="hidden md:inline text-border/40">|</span>
+    <a href="https://icp.gov.moe/" target="_blank" rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 hover:text-primary transition-colors">
+        {{/* <img src="https://icp.gov.moe/images/ico64.png" alt="萌ICP备案"
+            class="h-4 w-4 transition-transform group-hover:rotate-12"> */}}
+        <span>{{ . }}</span>
+    </a>
+    {{ end }}
+</div>
+{{ end }}

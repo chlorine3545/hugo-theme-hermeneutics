@@ -10,7 +10,7 @@ theme = 'hermeneutics'
     identifier = "archives"
     name = "归档"
     weight = 10
-    
+
 [[menu.main]]
     identifier = "posts"
     name = "时间"
@@ -51,15 +51,41 @@ theme = 'hermeneutics'
     weight = 40
 
 [params]
-    author = "Chlorine"
-    bio = "Como el viento."
-    tags = [
-        "Undergraduate @ THU",
-        "Open Source Enthusiast",
-        "Indie Blogger",
-        "Alt-History Writer",
-        "Cyber Hermit"
-    ]
+
+    [params.author]
+        name = "Chlorine"
+        homepage = "https://chlor.me"
+        bio = "Como el viento."
+        avatar = "/img/avatar.jpg"
+        tags = [
+            "Undergraduate @ THU",
+            "Open Source Enthusiast",
+            "Indie Blogger",
+            "Alt-History Writer",
+            "Cyber Hermit",
+        ]
+
+    [[params.social]]
+        name = "GitHub"
+        url = "#"
+        icon = "i-carbon-logo-github"
+        color = "#181717"
+        enable = true
+
+    [[params.social]]
+        name = "RSS"
+        url = "#"
+        icon = "i-carbon-rss"
+        color = "#EE802F"
+        enable = true
+
+    [[params.social]]
+        name = "Email"
+        url = "#"
+        icon = "i-carbon-email"
+        color = "#EA4335"
+        enable = true
+
     [params.twikoo]
         enable = true
         version = "1.6.41"

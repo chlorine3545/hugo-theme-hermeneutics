@@ -7,5 +7,53 @@
         </div>
     </div>
 
+    <!-- 按年份分组的文章列表 -->
+    <div class="space-y-16">
+        {{ range .Pages.GroupByDate "2006" }}
+        <div class="space-y-6">
+            <!-- 年份标题 -->
+            <div class="flex items-center gap-4">
+                <time class="text-2xl font-medium tabular-nums">{{ .Key }}</time>
+                <div class="h-px flex-1 bg-gradient-to-r from-border to-transparent 
+                    dark:from-border-dark"></div>
+            </div>
+            
+            <!-- 文章列表 -->
+            <div class="space-y-1">
+                {{ range .Pages }}
+                <article>
+                    <a href="{{ .RelPermalink }}" 
+                        class="group flex items-center justify-between gap-4 px-4 py-3 rounded-lg
+                        hover:bg-card/50 dark:hover:bg-card-dark/50
+                        transition duration-300">
+                        <!-- 左侧：标题和分类 -->
+                        <div class="flex items-center gap-3 min-w-0">
+                            <h3 class="text-base font-medium truncate 
+                                group-hover:text-primary dark:group-hover:text-primary-dark">
+                                {{ .Title }}
+                            </h3>
+                            {{ with .Params.categories }}
+                            <span class="hidden sm:inline-block shrink-0 px-2 py-0.5 text-sm rounded-md
+                                text-muted-foreground/70 dark:text-muted-foreground-dark/70
+                                bg-muted/50 dark:bg-muted-dark/50">
+                                {{ index . 0 }}
+                            </span>
+                            {{ end }}
+                            {{ if .Params.featured }}
+                            <div class="shrink-0 w-4 h-4 i-carbon-star-filled text-primary/70"></div>
+                            {{ end }}
+                        </div>
+                        
+                        <!-- 右侧：发布日期 -->
+                        <time class="shrink-0 text-sm text-muted-foreground/60 tabular-nums">
+                            {{ .Date.Format "01-02" }}
+                        </time>
+                    </a>
+                </article>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
 </div>
 {{ end }}

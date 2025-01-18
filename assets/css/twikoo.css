@@ -2,10 +2,6 @@
     min-width: 31.25rem;
 }
 
-.twikoo svg {
-    color: var(--anzhiyu-fontcolor);
-}
-
 /* 评论区表情放大 */
 @keyframes owoIn {
     0% {
@@ -42,11 +38,10 @@
     padding: 0.75em;
     text-align: center;
     transition: all 0.5s;
-    border: var(--style-border);
+    
     box-shadow: 0 8px 16px -4px #2c2d300c;
     border-radius: 50px;
     letter-spacing: 5px;
-    background-color: var(--anzhiyu-card-bg);
 }
 
 #twikoo {
@@ -56,30 +51,17 @@
 
     .tk-comments {
         .OwO .OwO-body {
-            border: var(--style-border-always) !important;
             border-radius: 8px !important;
             overflow: hidden;
-            background-color: var(--anzhiyu-maskbg) !important;
             backdrop-filter: saturate(180%) blur(10px);
             cursor: auto;
-            top: 2.1em !important;
+            top: 2.1em;
             transform: translateZ(0);
             animation: .3s ease .1s 1 normal both running donate_effcet;
         }
 
         .OwO-items-show {
             margin: 12px 8px;
-        }
-
-        button.el-button.tk-cancel.el-button--default.el-button--small {
-            background: var(--anzhiyu-secondbg);
-            border-radius: 8px;
-            color: var(--anzhiyu-fontcolor);
-        }
-
-        button.el-button.tk-cancel.el-button--default.el-button--small:hover {
-            background: var(--anzhiyu-lighttext);
-            color: var(--anzhiyu-white);
         }
 
         a.tk-submit-action-icon.__markdown {
@@ -103,7 +85,7 @@
 
         .el-button--primary {
             border-color: var(--anzhiyu-fontcolor);
-            color: var(--anzhiyu-card-bg);
+           
             border-radius: 12px;
             box-shadow: var(--anzhiyu-shadow-black);
             transition: .3s;
@@ -126,17 +108,12 @@
                 box-sizing: border-box;
                 width: 100%;
                 font-size: inherit;
-                color: var(--anzhiyu-fontcolor);
-                background-color: var(--anzhiyu-secondbg);
-                border: var(--style-border-always);
                 transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
             }
         }
 
         .el-input__inner {
-            background: var(--anzhiyu-secondbg) !important;
             border: none !important;
-            color: var(--anzhiyu-fontcolor) !important;
             padding-left: 8px;
         }
 
@@ -144,6 +121,7 @@
             border: none;
         }
 
+        /* 这里控制了个人信息框 */
         .el-input-group__append,
         .el-input-group__prepend {
             background-color: var(--anzhiyu-card-bg);
@@ -277,41 +255,8 @@
             color: #f47466;
         }
 
-        .tk-comment .tk-submit .tk-avatar,
-        .tk-replies .tk-avatar {
-            height: 2.5rem !important;
-            width: 2.5rem !important;
-        }
-
-        .tk-comment {
-            pre {
-                background: #272822;
-                padding: 1em;
-                margin: 0.5em 0;
-                overflow: auto;
-                border-radius: 0.3em;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .tk-comments-container .tk-comment {
-                padding: 1rem;
-                border: var(--style-border-always);
-                box-shadow: var(--anzhiyu-shadow-border);
-                background: var(--anzhiyu-card-bg);
-            }
-
-            .tk-replies .tk-comment {
-                border: none;
-            }
-        }
-
         .tk-avatar {
             border-radius: 50px;
-
-            .tk-avatar-img {
-                height: 2.5rem !important;
-            }
         }
     }
 
@@ -320,14 +265,6 @@
 
         &.tk-replies-expand {
             max-height: none !important;
-        }
-
-        .tk-comment {
-            border-top: var(--style-border-dashed);
-            border-radius: 12px;
-            padding: 1rem 0px 0px;
-            margin-top: 0;
-            transition: all 0.3s ease 0s;
         }
 
         .tk-content span:first-child:not(.token) {
@@ -511,22 +448,6 @@
     color: currentColor;
 }
 
-#twikoo.twikoo .el-input__inner:focus,
-#twikoo.twikoo .el-textarea__inner:focus {
-    border-color: var(--anzhiyu-main);
-}
-
-.tk-comments-container>.tk-comment {
-    margin-top: 0 !important;
-    margin-bottom: 1rem !important;
-    transition: 0.3s;
-    border-radius: 12px;
-    padding: 0;
-    padding-top: 1rem;
-    border: none;
-    border-top: var(--style-border-dashed);
-}
-
 #post-comment .comment-tips {
     background-color: rgba(103, 194, 58, 0.13);
     border: var(--style-border-always);
@@ -541,19 +462,6 @@
 
 #post-comment .comment-tips.show {
     display: flex;
-}
-
-#page .tk-comments-container>.tk-comment {
-    background: var(--anzhiyu-card-bg);
-    padding: 1rem;
-    padding-bottom: 1rem;
-    border: var(--style-border);
-    border-top: var(--style-border);
-    box-shadow: var(--anzhiyu-shadow-border);
-
-    &:has(.OwO-open) {
-        z-index: 1;
-    }
 }
 
 .tk-content {
@@ -609,4 +517,27 @@
 .OwO .OwO-body .OwO-items .OwO-item:hover {
     box-shadow: var(--anzhiyu-shadow-lightblack) !important;
     border-radius: 8px;
+}
+
+/* 评论列表 */
+.tk-comment {
+    padding: 1.5rem;                /* 内边距 */
+    margin-bottom: 1rem;            /* 下方间距 */
+    border-radius: 1rem;            /* 圆角 */
+    background: var(--card);        /* 卡片背景色 */
+    border: 1px solid var(--border);/* 边框 */
+    transition: all 0.3s ease;      /* 平滑过渡效果 */
+}
+
+/* 卡片悬浮效果 */
+.tk-comment:hover {
+    border-color: var(--primary);   /* 悬浮时边框变色 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 悬浮阴影 */
+}
+
+/* 回复区域的卡片样式 */
+.tk-replies .tk-comment {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background: var(--accent);
 }

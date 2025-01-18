@@ -225,3 +225,8 @@
   border-color: rgba(var(--primary-dark), 0.3);
   color: var(--primary-dark);
 }
+
+.custom-card a {
+  text-decoration: none;
+  background-image: none;
+}

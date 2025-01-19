@@ -9,7 +9,7 @@
                     </header>
 
                     <!-- AI 摘要 -->
-                    {{ partial "components/ai-summary.html" . }}
+                    {{ partial "components/article/ai-summary.html" . }}
 
                     <!-- 文章内容 -->
                     <article class="prose prose-neutral dark:prose-invert max-w-none">
@@ -17,25 +17,25 @@
                     </article>
 
                     <!-- 系列文章导航 -->
-                    {{ partial "components/series-nav.html" . }}
+                    {{ partial "components/article/series-nav.html" . }}
 
                     <!-- 版权信息 -->
-                    {{ partial "components/copyright.html" . }}
+                    {{ partial "components/article/copyright.html" . }}
 
                     <!-- 评论区 -->
-                    {{ partial "components/comments.html" . }}
+                    {{ partial "components/article/comments.html" . }}
                 </div>
 
                 <!-- 侧边栏 -->
                 <aside class="hidden lg:block w-64 flex-shrink-0">
                     <div class="sticky top-24 flex flex-col gap-6">
-                        {{ partial "components/toc.html" . }}
-                        {{ partial "components/reading-progress.html" . }}
+                        {{ partial "components/article/toc.html" . }}
+                        {{ partial "components/article/reading-progress.html" . }}
                     </div>
                 </aside>
             </div>
 
-            {{ partial "components/reading-progress-ball.html" . }}
+            {{ partial "components/article/reading-progress-ball.html" . }}
         </div>
     </div>
 </div>

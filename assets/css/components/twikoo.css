@@ -127,3 +127,8 @@
         display: none;
     }
 }
+
+/* 隐藏 Powered By Twikoo */
+.tk-footer {
+    display: none;
+}

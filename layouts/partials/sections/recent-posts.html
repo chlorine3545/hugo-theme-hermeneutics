@@ -1,7 +1,4 @@
 <section class="relative -mt-24 pb-24">
-    <!-- 渐变背景 -->
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-accent/10 
-        dark:from-transparent dark:via-accent-dark/5 dark:to-accent-dark/10 pointer-events-none"></div>
 
     <div class="container relative max-w-6xl mx-auto px-4">
         <!-- 标题区域 -->
@@ -40,14 +37,10 @@
 
                 <!-- 文章封面 -->
                 <div class="aspect-[2/1] rounded-t-2xl overflow-hidden">
-                    {{ with $post.Params.featuredImage }}
-                    <img src="{{ . }}" alt="{{ $post.Title }}"
+                    <img src="{{ $post.Params.featuredImage | default "/img/default-cover.webp" }}"
+                        alt="{{ $post.Title }}"
                         class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.02]"
                         loading="lazy">
-                    {{ else }}
-                    <div class="w-full h-full bg-gradient-to-br from-primary/5 to-accent/5 
-                        dark:from-primary/10 dark:to-accent/10"></div>
-                    {{ end }}
                 </div>
 
                 <!-- 文章信息 -->
@@ -61,7 +54,7 @@
                             </a>
                         </h3>
                         <p class="text-muted-foreground/70 text-sm leading-relaxed line-clamp-2">
-                            {{ $post.Description }}
+                            {{ $post.Summary }}
                         </p>
                     </div>
 

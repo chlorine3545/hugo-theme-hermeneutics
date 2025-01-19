@@ -1,8 +1,10 @@
-<div class="flex justify-center lg:justify-start gap-4 animate-fade-up opacity-0"
+<div class="grid grid-cols-5 place-items-center gap-3 
+    animate-fade-up opacity-0" 
     style="animation-delay: 0.8s; animation-fill-mode: forwards;">
     {{ range .Site.Params.social }}
     {{ if .enable }}
-    <a href="{{ .url }}" title="{{ .name }}" target="_blank" class="hover:opacity-80 text-white p-3 rounded-full"
+    <a href="{{ .url }}" title="{{ .name }}" target="_blank"
+        class="flex items-center justify-center hover:opacity-80 text-white p-2.5 rounded-full"
         style="background-color: {{ .color }}">
         <div class="{{ .icon }} w-5 h-5"></div>
     </a>

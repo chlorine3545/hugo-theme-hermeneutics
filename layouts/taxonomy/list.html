@@ -66,7 +66,7 @@
 
                                 <!-- 标签 -->
                                 {{ with .Params.tags }}
-                                <div class="flex items-center gap-1">
+                                <div class="hidden sm:flex items-center gap-1">
                                     <div class="i-carbon-tag w-3.5 h-3.5"></div>
                                     <div class="flex items-center">
                                         {{ range $index, $tag := . }}

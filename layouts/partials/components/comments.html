@@ -1,4 +1,5 @@
-{{ if .Site.Params.twikoo.enable }}
+{{ $enableComments := .Params.comments | default .Site.Params.comments.enable }}
+{{ if $enableComments }}
 
 {{ partial "utils/loadcss.html" "css/twikoo.css" }}
 
@@ -14,10 +15,10 @@
 </div>
 
 <!-- Twikoo 脚本 -->
-<script src="https://cdn.jsdelivr.net/npm/twikoo@{{ .Site.Params.twikoo.version }}/dist/twikoo.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/twikoo@{{ .Site.Params.comments.twikoo.version }}/dist/twikoo.all.min.js"></script>
 <script>
     twikoo.init({
-        envId: '{{ .Site.Params.twikoo.envId }}',
+        envId: '{{ .Site.Params.Comments.Twikoo.envId }}',
         el: '#twikoo',
         lang: 'zh-CN'
     });

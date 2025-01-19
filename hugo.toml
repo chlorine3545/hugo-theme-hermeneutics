@@ -76,30 +76,76 @@ enableCsrf = true
         fullText = true # 是否输出全文
 
     [[params.social]]
-        name = "GitHub"
-        url = "#"
-        icon = "i-carbon-logo-github"
-        color = "#181717"
+        name = "Home"
+        url = "/"
+        icon = "i-carbon-home"
+        color = "#4A90E2"
+        enable = true
+
+    [[params.social]]
+        name = "Email"
+        url = "mailto:hi@chlor.me"
+        icon = "i-carbon-email"
+        color = "#EA4335"
         enable = true
 
     [[params.social]]
         name = "RSS"
-        url = "#"
+        url = "/index.xml"
         icon = "i-carbon-rss"
         color = "#EE802F"
         enable = true
 
     [[params.social]]
-        name = "Email"
-        url = "#"
-        icon = "i-carbon-email"
-        color = "#EA4335"
+        name = "GitHub"
+        url = "https://github.com/chlorine3545"
+        icon = "i-carbon-logo-github"
+        color = "#181717"
         enable = true
 
-    [params.twikoo]
+    [[params.social]]
+        name = "Codeberg"
+        url = "https://codeberg.org/chlorine3545"
+        icon = "i-simple-codeberg"
+        color = "#2185D0"
         enable = true
-        version = "1.6.41"
-        envId = "https://tk.viento.cc"
+
+    [[params.social]]
+        name = "YouTube"
+        url = "https://www.youtube.com/@hichlorine"
+        icon = "i-carbon-logo-youtube"
+        color = "#FF0000"
+        enable = true
+
+    [[params.social]]
+        name = "Bilibili"
+        url = "https://space.bilibili.com/1354054183"
+        icon = "i-simple-bilibili"
+        color = "#00A1D6"
+        enable = true
+
+    [[params.social]]
+        name = "ORCID"
+        url = "https://orcid.org/0009-0005-7611-1633"
+        icon = "i-simple-orcid"
+        color = "#A6CE39"
+        enable = true
+
+    [[params.social]]
+        name = "Fediverse"
+        url = "https://scg.owu.one/@yoghurtlee"
+        icon = "i-carbon-logo-mastodon"
+        color = "#6364FF"
+        enable = true
+
+    [params.comments]
+        enable = true
+        type = "twikoo"
+
+        [params.comments.twikoo]
+            enable = true
+            version = "1.6.41"
+            envId = "https://tk.viento.cc"
 
     [params.beian]
         icp = "京ICP备2024074926号-5"

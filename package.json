@@ -11,5 +11,8 @@
     "unocss": "latest",
     "@iconify-json/carbon": "^1.2.5",
     "@iconify-json/mdi": "^1.2.2"
+  },
+  "dependencies": {
+    "@iconify-json/simple-icons": "^1.2.20"
   }
 }

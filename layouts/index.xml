@@ -1,20 +1,23 @@
-{{ printf "<?xml version= \"1.0\" encoding= \"utf-8\" standalone= \"yes\"?>" | safeHTML }}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <rss version="2.0"
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>{{ if eq .Title site.Title }}{{ site.Title }}{{ else }}{{ with .Title }}{{ . }} - {{ end
-    }}{{ site.Title }}{{ end }}</title>
+    <title>
+      {{- if eq .Title site.Title -}}
+        {{- site.Title -}}
+      {{- else -}}
+        {{- with .Title -}}{{ . }} - {{- end -}}
+        {{- site.Title -}}
+      {{- end -}}
+    </title>
     <link>{{ .Permalink }}</link>
-    <description>{{ with
-    site.Params.description }}{{ . }}{{ end }}</description>
-    <language>{{ site.Language.LanguageCode
-    }}</language>
+    <description>{{ with site.Params.description }}{{ . }}{{ end }}</description>
+    <language>{{ site.Language.LanguageCode }}</language>
     <managingEditor>{{ site.Params.author.name }}</managingEditor>
     <webMaster>{{ site.Params.author.name }}</webMaster>
-    <copyright>{{ replace
-    site.Copyright "{year}" now.Year }}</copyright>
+    <copyright>{{ replace site.Copyright "{year}" now.Year }}</copyright>
     <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
     <category>Blog</category>
     <generator>Hugo -- gohugo.io</generator>
@@ -23,14 +26,13 @@
       <title>{{ site.Title }}</title>
       <link>{{ site.BaseURL }}</link>
     </image> {{- end }} {{ with .OutputFormats.Get "RSS" }} {{
-    printf "<atom:link href= %q rel= \"self\" type= %q />" .Permalink .MediaType | safeHTML }} {{ end }} {{-
-    range where site.RegularPages "Type" "in" site.Params.mainSections }} <item>
+    printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }} {{ end }} {{-
+    $posts := where site.RegularPages "Section" "posts" }} {{- range $posts }} <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
       <author>{{ site.Params.author.name }}</author>
-      <guid>{{ .Permalink }}</guid> {{- with .Params.categories }}
-    {{- range . }} <category>{{ . }}</category> {{- end }} {{- end }} {{- with .Params.tags }} {{-
+      <guid>{{ .Permalink }}</guid> {{- with .Params.tags }} {{-
     range . }} <category>{{ . }}</category> {{- end }} {{- end }} <description>{{ with .Description
     }}{{ . }}{{ else }}{{ .Summary | html }}{{ end }}</description> {{- if site.Params.rss.fullText
     }} <content:encoded>{{ `<![CDATA[` | safeHTML }}

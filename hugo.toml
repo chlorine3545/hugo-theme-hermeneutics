@@ -55,6 +55,8 @@ enableCsrf = true
 
 [params]
 
+    math = true
+
     [params.author]
         name = "Chlorine"
         homepage = "https://chlor.me"
@@ -67,6 +69,8 @@ enableCsrf = true
             "Alt-History Writer",
             "Cyber Hermit",
         ]
+    [params.rss]
+        fullText = true # 是否输出全文
 
     [[params.social]]
         name = "GitHub"
@@ -95,6 +99,6 @@ enableCsrf = true
         envId = "https://tk.viento.cc"
 
     [params.beian]
-        icp = "浙ICP备XXXXXXXX号-1"
-        gongan = "浙公网安备 XXXXXXXXXXXX号"
-        moe = "萌ICP备20240101号"
+        icp = "京ICP备2024074926号-5"
+        gongan = "京公网安备11010802044863号"
+        moe = "萌ICP备20240711号"

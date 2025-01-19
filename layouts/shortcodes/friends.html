@@ -1,63 +1,62 @@
 {{ $friends := .Site.Data.friends.friend }}
 
-<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
+<div class="plain-link grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4">
     {{ range $friends }}
-    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="group relative p-3 rounded-lg border border-gray-200 dark:border-gray-700
-      bg-white dark:bg-gray-800/70 backdrop-blur-md
-      transition duration-300 hover:border-gray-300 dark:hover:border-gray-600
-      hover:shadow-xl hover:shadow-gray-300/50 dark:hover:shadow-gray-700/50
-      hover:bg-gray-50 dark:hover:bg-gray-800
-      flex flex-col items-center text-center">
+    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }}" class="group relative p-3 sm:p-4 rounded-2xl sm:rounded-3xl
+           bg-gradient-to-b from-gray-50/80 to-gray-100/80 dark:from-gray-800/80 dark:to-gray-900/80
+           ring-1 ring-gray-200/50 dark:ring-gray-700/50
+           shadow-sm hover:shadow-md
+           transition-all duration-300
+           hover:bg-gray-100/50 dark:hover:bg-gray-700/30
+           flex flex-col items-center text-center
+           min-h-[160px] sm:min-h-[180px]">
+        {{ with .room }}
+        <div class="absolute top-2 sm:top-4 right-2 w-auto h-auto px-1.5 py-1.5
+                       border border-gray-400/80 dark:border-gray-500/80 rounded-md
+                       flex flex-col items-center justify-center">
+            <i class="i-carbon-home w-3 h-3 text-gray-500 dark:text-gray-400 mb-2"></i>
+            <span
+                class="mt-2 text-xs font-medium text-gray-600 dark:text-gray-400 tracking-tighter leading-none rotate-90">{{
+                . }}</span>
+        </div>
+        {{ end }}
 
-        <div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0
-      ring-2 ring-gray-100 dark:ring-gray-800 mt-2 mb-3">
+        <div class="mt-4 w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden flex-shrink-0
+                ring-1 ring-gray-200/50 dark:ring-gray-700/50 mb-2 sm:mb-3">
             {{ if .ava }}
             <img src="{{ .ava }}" alt="{{ .name }}"
-                class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
             {{ else if .hash }}
-            <img src="https://weavatar.com/avatar/{{ .hash }}?d=mp" alt="{{ .name }}"
-                class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+            <img src="https://weavatar.com/avatar/{{ .hash }}" alt="{{ .name }}"
+                class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
             {{ else }}
-            <div class="w-full h-full bg-gradient-to-br from-blue-100 to-blue-50
-          dark:from-blue-900 dark:to-blue-800
-          flex items-center justify-center">
-                <span class="text-xl font-medium text-blue-500 dark:text-blue-300">
-                    {{ substr .name 0 1 }}
-                </span>
+            <div class="w-full h-full bg-gray-200/80 dark:bg-gray-700/80 flex items-center justify-center">
+                <span class="text-lg sm:text-xl font-semibold text-gray-600 dark:text-gray-300 uppercase">{{ substr
+                    .name 0 1 }}</span>
             </div>
             {{ end }}
         </div>
 
-        <!-- 信息 -->
-        <div class="w-full">
-            <div class="flex items-center justify-center gap-2 mb-1">
-                <h4 class="font-medium text-gray-700 dark:text-gray-200">{{ .name }}</h4>
-                {{ with .room }}
-                <span class="text-xs px-2 py-0.5 rounded-full font-medium
-          bg-blue-50 dark:bg-blue-900/50
-          text-blue-600 dark:text-blue-200
-          ring-1 ring-blue-200 dark:ring-blue-800/50">
-                    {{ . }}
-                </span>
-                {{ end }}
+        <div class="w-full flex flex-col flex-grow">
+            <div class="flex items-center justify-center gap-1.5 sm:gap-2 mb-1">
+                <h4 class="font-bold text-base sm:text-lg text-gray-700 dark:text-gray-200">{{ .name }}</h4>
             </div>
 
-            <p class="text-sm text-gray-500 dark:text-gray-400
-        line-clamp-2 px-1">{{ .des }}</p>
+            <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 line-clamp-1 px-1">{{ .des }}</p>
+
+            <div class="flex-grow"></div>
 
             {{ with .note }}
-            <div class="mt-2 flex items-center justify-center gap-1 text-xs
-        text-gray-500 dark:text-gray-400">
-                <div class="i-carbon-notebook w-3.5 h-3.5 opacity-80 dark:opacity-70"></div>
+            <div
+                class="mt-1 sm:mt-2 flex items-center justify-center gap-1 text-[10px] sm:text-xs text-gray-500 dark:text-gray-400">
+                <div class="i-carbon-notebook w-2.5 sm:w-3 h-2.5 sm:h-3 opacity-70"></div>
                 <span>{{ . }}</span>
             </div>
             {{ end }}
         </div>
 
-        <!-- 悬浮提示 -->
-        <div class="absolute top-2 right-2 opacity-0
-      group-hover:opacity-100 transition-opacity">
-            <div class="i-carbon-launch w-4 h-4 text-gray-500 dark:text-gray-400"></div>
+        <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div class="i-carbon-arrow-up-right w-3 sm:w-4 h-3 sm:h-4 text-gray-500/80 dark:text-gray-400/80"></div>
         </div>
     </a>
     {{ end }}

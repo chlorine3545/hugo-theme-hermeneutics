@@ -315,6 +315,7 @@
 .hover\:bg-accent\/50:hover{background-color:var(--accent) /* var(--accent) */;}
 .hover\:bg-gray-100\/50:hover{background-color:rgb(243 244 246 / 0.5) /* #f3f4f6 */;}
 .hover\:bg-primary:hover{background-color:var(--primary) /* var(--primary) */;}
+.hover\:bg-primary\/80:hover{background-color:var(--primary) /* var(--primary) */;}
 .hover\:bg-primary\/90:hover{background-color:var(--primary) /* var(--primary) */;}
 .dark .dark\:from-gray-800\/80{--un-gradient-from-position:0%;--un-gradient-from:rgb(31 41 55 / 0.8) var(--un-gradient-from-position);--un-gradient-to-position:100%;--un-gradient-to:rgb(31 41 55 / 0) var(--un-gradient-to-position);--un-gradient-stops:var(--un-gradient-from), var(--un-gradient-to);}
 .from-border,

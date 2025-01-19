@@ -10,10 +10,10 @@
             <div class="space-y-1">
                 <div class="flex items-center gap-2">
                     <h1 class="text-3xl font-medium">{{ .Title }}</h1>
-                    <span class="px-2 py-1 text-sm rounded-full 
+                    {{/*  <span class="px-2 py-1 text-sm rounded-full 
                         bg-primary/10 dark:bg-primary-dark/20
                         text-primary/70 dark:text-primary-dark/80
-                        tabular-nums">{{ len .Pages }}</span>
+                        tabular-nums">{{ len .Pages }}</span>  */}}
                 </div>
                 <p class="text-sm text-muted-foreground/70">
                     {{ if eq .Data.Singular "category" }}
@@ -40,7 +40,7 @@
             
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {{ range .Pages }}
-                {{ partial "post-card.html" (dict "context" . "post" . "index" 0) }}
+                {{ partial "components/post-card.html" (dict "context" . "post" . "index" 0) }}
                 {{ end }}
             </div>
         </div>

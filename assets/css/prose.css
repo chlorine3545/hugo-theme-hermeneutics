@@ -58,7 +58,7 @@
   padding-left: 1.25em;
   margin: 2em 2em 2em 1em;
   color: rgba(var(--foreground), 0.7);
-  font-family: "STKaiti", "KaiTi", "楷体", "Noto Serif SC", serif;
+  font-family: "Times New Roman", "STKaiti", "KaiTi", "楷体", "Noto Serif SC", serif;
   background: rgba(var(--muted), 0.1);
   border-radius: 0 4px 4px 0;
   padding: 1em 1.25em;
@@ -176,8 +176,6 @@ html.dark .shiki span {
 .prose> :last-child {
   margin-bottom: 0;
 }
-
-
 
 /* 复制按钮 */
 .copy-button {

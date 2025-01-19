@@ -1,6 +1,5 @@
 {{ $path := .Get "path" | default (.Get 0) }}
 {{ with .Site.GetPage $path }}
-{{/* TODO: 去除卡片的下划线 */}}
 
 <div class="custom-card article-card p-6 rounded-xl border-2 border-border/50 dark:border-border-dark/50 
     bg-card/50 dark:bg-card-dark/50 backdrop-blur

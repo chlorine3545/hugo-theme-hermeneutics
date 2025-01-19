@@ -1,0 +1,32 @@
+<script type="text/javascript">
+    function formatNumber(n) {
+        return n < 10 ? '0' + n : n;
+    }
+    
+    function runtime() {
+        const startTime = new Date("{{ .Site.Params.Basic.startDate }}");
+        const currentTime = new Date();
+        const timeDifference = currentTime - startTime;
+        
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((timeDifference / (1000 * 60)) % 60);
+        const seconds = Math.floor((timeDifference / 1000) % 60);
+        
+        const timeString = `${days} 天 ${formatNumber(hours)} : ${formatNumber(minutes)} : ${formatNumber(seconds)}`;
+        document.getElementById("runningtime").innerHTML = timeString;
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        runtime();
+        setInterval(runtime, 1000);
+    });
+</script>
+
+<div class="flex items-center gap-2">
+    <div class="i-carbon-time w-4 h-4"></div>
+    <span class="tabular-nums font-mono tracking-wider">
+        <span class="text-primary/70">已运行</span>
+        <span id="runningtime" class="ml-1"></span>
+    </span>
+</div> 

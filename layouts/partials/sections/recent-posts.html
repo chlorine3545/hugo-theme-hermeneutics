@@ -29,7 +29,7 @@
             {{ $displayPosts := union $featuredPosts $recentPosts | first 6 }}
 
             {{ range $index, $post := $displayPosts }}
-            <article class="group relative rounded-2xl border border-border/40 
+            <article class="plain-link group relative rounded-2xl border border-border/40 
                 bg-card/50 dark:bg-card-dark/50 backdrop-blur transition-all duration-500 
                 hover:border-border/60 dark:hover:border-border-dark/60 
                 hover:shadow-lg hover:shadow-accent/5 dark:hover:shadow-accent-dark/5 

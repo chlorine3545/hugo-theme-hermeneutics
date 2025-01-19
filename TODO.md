@@ -1,7 +1,7 @@
-- [ ] 404.html
+- [x] 404.html
 - [ ] 订阅功能
 - [ ] Twikoo 美化
-- [ ] 修复 footer
+- [x] 修复 footer
 - [ ] 美化 terms 页面
 - [ ] 美化友链
 - [ ] 迁移文章

@@ -226,7 +226,14 @@
   color: var(--primary-dark);
 }
 
-.custom-card a {
+.plain-link a {
+  color: inherit;
+  text-decoration: none;
+  background-image: none;
+}
+
+.plain-link a:visited {
+  color: inherit;
   text-decoration: none;
   background-image: none;
 }

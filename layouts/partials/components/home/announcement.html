@@ -20,5 +20,7 @@
     </div>
 </div>
 
-{{ partial "utils/loadjs.html" (dict "src" "js/components/announcement.js") }}
+{{ with resources.Get "js/components/announcement.js" }}
+    <script>{{ .Content | safeJS }}</script>
+{{ end }}
 {{ end }}

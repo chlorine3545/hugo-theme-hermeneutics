@@ -23,7 +23,8 @@
                 {{ range .Pages }}
                 <article>
                     <a href="{{ .RelPermalink }}" 
-                        class="group flex items-center justify-between gap-4 px-4 py-3 rounded-lg
+                        class="group flex items-center justify-between gap-4 px-4 ml-2 md:ml-4 py-3 rounded-lg
+                        text-muted-foreground/70 group-hover:text-muted-foreground/90 
                         hover:bg-card/50 dark:hover:bg-card-dark/50
                         transition duration-300">
                         <!-- 左侧：标题和分类 -->
@@ -36,7 +37,7 @@
                             <span class="hidden sm:inline-block shrink-0 px-2 py-0.5 text-sm rounded-md
                                 text-muted-foreground/70 dark:text-muted-foreground-dark/70
                                 bg-muted/50 dark:bg-muted-dark/50">
-                                {{ index . 0 }}
+                                {{ . }}
                             </span>
                             {{ end }}
                             {{ if .Params.featured }}

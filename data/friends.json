@@ -2,246 +2,30 @@
     "friend": [
         {
             "name": "Chlorine",
-            "note": "我自己",
+            "note": "主题作者",
             "room": "408A",
             "url": "https://chlor.me",
-            "hash": "d7d0d3692d7101a555976dd07d4c8acd4b9868221cb7e47f24a4f1dc106cc67e",
+            "hash": "",
             "des": "Como el viento.",
-            "ava": ""
+            "ava": "https://img.viento.cc/avatar/01.webp"
         },
         {
-            "name": "ClF3的博客",
-            "note": "孙哥",
-            "room": "432A",
-            "url": "https://clf3.org",
+            "name": "Cursor",
+            "note": "主题的另一个「作者」",
+            "room": "000A",
+            "url": "https://www.cursor.com",
             "hash": "",
-            "des": "EE学牲/锦依卫",
-            "ava": "https://cdn.clf3.org/blog/avatar.webp"
+            "des": "The AI Code Editor",
+            "ava": "https://www.cursor.com/favicon.ico"
         },
         {
-            "name": "嗣檙",
-            "note": "cheng",
-            "room": "314A",
-            "url": "https://sicheng.taoooist.org",
-            "hash": "704dbe44b9de4401c0d2ae8a9d372323",
-            "des": "尘劫有尽，我愿无穷。",
-            "ava": ""
-        },
-        {
-            "name": "没有楼的楼长",
-            "note": "楼长",
-            "room": "112A",
-            "url": "https://blog.sdnie.fun/",
+            "name": "John Doe",
+            "note": "你的备注",
+            "room": "000A",
+            "url": "https://example.com",
             "hash": "",
-            "des": "事已至此，木已成舟",
-            "ava": "https://bu.dusays.com/2023/10/19/6530bb8a4fb8e.jpg"
-        },
-        {
-            "name": "Momo5418’s Blog",
-            "note": "莫莫",
-            "room": "204B",
-            "url": "https://blog.mocn.top",
-            "hash": "",
-            "des": "Momo5418’s Blog",
-            "ava": "https://gcore.jsdelivr.net/gh/momo54181/momo54181@main/avatar.webp"
-        },
-        {
-            "name": "维基萌",
-            "note": "广树",
-            "room": "777A",
-            "url": "https://www.wikimoe.com",
-            "hash": "fbb31d99a24cf9a56c48b44dd0797d22",
-            "des": "萌即是正义！",
-            "ava": "https://www.wikimoe.com/upload/siteImg/siteFavicon.png"
-        },
-        {
-            "name": "萬事屋",
-            "note": "鸢栀",
-            "room": "609A",
-            "url": "https://rjjr.cn",
-            "hash": "1dc444f85a6673099a47170588bbc6d7",
-            "des": "每天写下自己的喜好",
-            "ava": ""
-        },
-        {
-            "name": "清羽飞扬",
-            "note": "清扬",
-            "room": "310A",
-            "url": "https://blog.liushen.fun",
-            "hash": "",
-            "des": "柳影曳曳，清酒孤灯，扬笔撒墨，心境如霜",
-            "ava": "https://blog.liushen.fun/info/avatar.ico"
-        },
-        {
-            "name": "ZHI-BLOG",
-            "note": "ZHWEI",
-            "room": "128A",
-            "url": "https://blog.zhwei101.com",
-            "hash": "",
-            "des": "一个初中生部署的牛X的博客",
-            "ava": "https://blog.zhwei101.com/favicon.ico"
-        },
-        {
-            "name": "朽丘秋雨",
-            "note": "klcdm",
-            "room": "322A",
-            "url": "https://koxiuqiu.cn",
-            "hash": "",
-            "des": "一定会和喜欢的人在夏日夜晚牵手慢步",
-            "ava": "https://cdn.koxiuqiu.cn/koxiuqiu/img/favicon.webp"
-        },
-        {
-            "name": "晚夜的个人博客",
-            "note": "晚夜",
-            "room": "516A",
-            "url": "https://www.iczrx.cn",
-            "hash": "",
-            "des": "做好量变的准备，促进事物的质变。",
-            "ava": "https://q2.qlogo.cn/headimg_dl?dst_uin=1463656527&spec=640"
-        },
-        {
-            "name": "菲兹克斯喵",
-            "note": "Physnya",
-            "room": "302B",
-            "url": "https://physnya.top",
-            "hash": "8ab48309bf3986edc53ac1a52e94f9dcc11ef2919dd4687272b26ba9bbfb2b78",
-            "des": "Eclipse first, the rest nowhere.",
-            "ava": ""
-        },
-        {
-            "name": "那个码农",
-            "note": "钟意",
-            "room": "1024A",
-            "url": "https://blog.thatcoder.cn",
-            "hash": "e16823c15a2388047b589b38dd83b4eaa20afb779ae362052bf1fc4a6494fde9",
-            "des": "代码与苟且，诗歌与远方。",
-            "ava": ""
-        },
-        {
-            "name": "Hi,Moe_Nya",
-            "note": "MoeNya",
-            "room": "518B",
-            "url": "https://moenya.cat",
-            "hash": "",
-            "des": "古灵精怪，可可爱爱！",
-            "ava": "https://img.moenya.cat/NyaLog/siteset/user/new_head.png"
-        },
-        {
-            "name": "idealclover",
-            "note": "翠翠",
-            "room": "335A",
-            "url": "https://idealclover.top",
-            "hash": "",
-            "des": "Stay simple, stay naive.",
-            "ava": "https://image.idealclover.cn/blog/assets/icon.png"
-        },
-        {
-            "name": "青稚の空间",
-            "note": "青稚",
-            "room": "712B",
-            "url": "https://blog.linux-qitong.top",
-            "hash": "",
-            "des": "越努力，越幸运.",
-            "ava": "https://blog.linux-qitong.top/img/avatar.jpg"
-        },
-        {
-            "name": "璜珀的小屋",
-            "note": "HPCesia",
-            "room": "823A",
-            "url": "https://blog.hpcesia.com",
-            "hash": "",
-            "des": "一个想要摆烂却又不甘于躺平的人",
-            "ava": "https://blog.hpcesia.com/img/myavatar.webp"
-        },
-        {
-            "name": "ited博客",
-            "note": "minc",
-            "room": "525A",
-            "url": "https://ited.top",
-            "hash": "",
-            "des": "你不孤单,我们都在",
-            "ava": "https://static.ited.top/favicon.ico"
-        },
-        {
-            "name": "GLIMMER",
-            "note": "DuckXu",
-            "room": "811B",
-            "url": "https://i.duckxu.com",
-            "hash": "",
-            "des": "DuckXu's internet home",
-            "ava": "https://media.duckxu.com/blogfiles/public/iduckxucom.jpg"
-        },
-        {
-            "name": "SeaEpoch",
-            "note": "SeaYJ",
-            "room": "619A",
-            "url": "https://www.seayj.cn",
-            "hash": "",
-            "des": "她站在那里，就像一个小小的永恒！",
-            "ava": "https://www.seayj.cn/img/avatar.png"
-        },
-        {
-            "name": "子书沐晨",
-            "note": "Lake",
-            "room": "1105A",
-            "url": "https://zishu.is-cool.dev",
-            "hash": "",
-            "des": "霰雪纷其无垠兮，云霏霏而承宇",
-            "ava": "https://zishu.is-cool.dev/headimg/my_avatar.jpg"
-        },
-        {
-            "name": "Elykia's Blog",
-            "note": "Elykia",
-            "room": "305B",
-            "url": "https://blog.elykia.cn/",
-            "hash": "",
-            "des": "致以无暇之人",
-            "ava": "https://bu.dusays.com/2024/10/25/671b2438203a6.gif"
-        },
-        {
-            "name": "XINGYE's Blog",
-            "note": "星野",
-            "room": "519A",
-            "url": "https://blog.xing-ye.top/",
-            "hash": "",
-            "des": "不要放弃，坚持学习，坚守理想，等待时机！",
-            "ava": "https://blog.xing-ye.top/avatar.webp"
-        },
-        {
-            "name": "喵二の小博客",
-            "note": "喵二",
-            "room": "905B",
-            "url": "https://www.miaoer.net",
-            "hash": "",
-            "des": "缘，妙不可言",
-            "ava": "https://static.miaoer.net/logo/avatar.webp"
-        },
-        {
-            "name": "tinsir888's Blog",
-            "note": "tinsir888",
-            "room": "807B",
-            "url": "https://tinsir888.github.io",
-            "hash": "6b0d19c14806d948060eb975ef2dd97bf6de3f79aa5855b242d48f46e5b620df",
-            "des": "Ηλύσια Πεδία ;-)",
-            "ava": ""
-        },
-        {
-            "name": "咖啡豆子coffee的小站",
-            "note": "coffee",
-            "room": "1202A",
-            "url": "https://blog.kfdzcoffee.cn",
-            "hash": "",
-            "des": "所有奇迹的始发点",
-            "ava": "https://image.kfdzcoffee.cn/i/1/avatar.png"
-        },
-        {
-            "name": "Last Blog",
-            "note": "Last",
-            "room": "413A",
-            "url": "https://blog.imlast.top",
-            "hash": "",
-            "des": "void of myself",
-            "ava": "https://s2.loli.net/2024/01/08/aUYMZQjVfqLJTnr.jpg"
+            "des": "你的描述",
+            "ava": "https://ui-avatars.com/api/?name=John+Doe&size=128"
         }
     ]
 }

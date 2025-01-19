@@ -42,15 +42,15 @@ enableCsrf = true
     weight = 20
 
 [[menu.main]]
-    identifier = "whisper"
-    name = "碎语"
-    url = "whisper"
-    weight = 30
-
-[[menu.main]]
     identifier = "now"
     name = "如今"
     url = "now"
+    weight = 30
+
+[[menu.main]]
+    identifier = "about"
+    name = "关于"
+    url = "about"
     weight = 40
 
 [params]
@@ -58,7 +58,6 @@ enableCsrf = true
         startDate = "12/15/2023 12:00:00"
         announcement = true
         math = false
-        darkMode = true
 
     [params.author]
         name = "Chlorine"
@@ -138,6 +137,13 @@ enableCsrf = true
         color = "#6364FF"
         enable = true
 
+    [[params.social]]
+        name = "Travelling"
+        url = "https://www.travellings.cn/go.html"
+        icon = "i-carbon-train"
+        color = "#8CB1B3"
+        enable = true
+
     [params.comments]
         enable = true
         type = "twikoo"
@@ -146,6 +152,10 @@ enableCsrf = true
             enable = true
             version = "1.6.41"
             envId = "https://tk.viento.cc"
+
+    [params.search]
+        enable = true
+        type = "algolia" # 计划支持 Algolia、Algolia Docsearch、Meilisearch、Lunr.js 和引擎搜索（如 Google Custom Search）
 
     [params.beian]
         icp = "京ICP备2024074926号-5"

@@ -5,20 +5,14 @@
     hover:shadow-lg hover:shadow-accent/5 dark:hover:shadow-accent-dark/5 
     hover:bg-card/80 dark:hover:bg-card-dark/80
     hover:translate-y-[-2px]
-    animate-fade-up opacity-0" 
-    style="animation-delay: {{ mul .index 0.2 }}s; animation-fill-mode: forwards;">
-    
+    animate-fade-up opacity-0" style="animation-delay: {{ mul .index 0.2 }}s; animation-fill-mode: forwards;">
+
     <!-- 文章封面 -->
     <div class="aspect-[2/1] rounded-t-2xl overflow-hidden">
-        {{ with $post.Params.featuredImage }}
-        <img src="{{ . }}" alt="{{ $post.Title }}" 
+        <img src="{{ $post.Params.featuredImage | default "/img/default-cover.webp" }}" alt="{{ $post.Title }}"
             class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.02]" loading="lazy">
-        {{ else }}
-        <div class="w-full h-full bg-gradient-to-br from-primary/5 to-accent/5 
-            dark:from-primary/10 dark:to-accent/10"></div>
-        {{ end }}
     </div>
-    
+
     <!-- 文章信息 -->
     <div class="p-6 space-y-4">
         <!-- 标题和描述 -->
@@ -32,34 +26,33 @@
                 {{ $post.Description }}
             </p>
         </div>
-        
+
         <!-- 元信息 -->
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground/60">
             <!-- 日期 -->
             <time class="tabular-nums">{{ $post.Date.Format "2006-01-02" }}</time>
-            
+
             <!-- 阅读时间 -->
             <span class="inline-flex items-center gap-1">
                 <div class="i-carbon-time w-3.5 h-3.5 opacity-60"></div>
                 <span class="tabular-nums">{{ $post.ReadingTime }} min read</span>
             </span>
-            
+
             <!-- 标签 -->
             {{ with $post.Params.tags }}
             <div class="flex items-center gap-1.5 flex-wrap">
                 <div class="i-carbon-tag w-3.5 h-3.5 opacity-60"></div>
                 {{ range $index, $tag := . }}
-                    {{ if gt $index 0 }}
-                    <span class="opacity-40">·</span>
-                    {{ end }}
-                    <a href="/tags/{{ . | urlize }}" 
-                       class="hover:text-foreground/90 transition-colors">
-                        {{ . }}
-                    </a>
+                {{ if gt $index 0 }}
+                <span class="opacity-40">·</span>
+                {{ end }}
+                <a href="/tags/{{ . | urlize }}" class="hover:text-foreground/90 transition-colors">
+                    {{ . }}
+                </a>
                 {{ end }}
             </div>
             {{ end }}
-            
+
             <!-- 置顶标记 -->
             {{ if $post.Params.featured }}
             <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full 
@@ -70,6 +63,6 @@
             {{ end }}
         </div>
     </div>
-    
+
     <a href="{{ $post.RelPermalink }}" class="absolute inset-0" aria-label="阅读文章"></a>
-</article> 
+</article>

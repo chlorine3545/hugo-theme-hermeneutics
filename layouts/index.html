@@ -29,9 +29,9 @@
                         <span class="animate-text-reveal" style="--index: {{ add 9 (len $nameChars) }}">👋</span>
                     </span>
                 </h2>
-                <div class="flex flex-wrap gap-2">
+                <div class="flex flex-wrap justify-center lg:justify-start gap-2">
                     {{ range $index, $tag := .Site.Params.Author.tags }}
-                    <span class="mx-auto lg:mx-0 px-3 py-1 rounded-full bg-accent/50 dark:bg-accent-dark/50 
+                    <span class="px-3 py-1 rounded-full bg-accent/50 dark:bg-accent-dark/50 
                         text-sm text-muted-foreground/80 dark:text-muted-foreground-dark/80
                         animate-fade-up opacity-0" style="animation-delay: {{ add 0.5 (mul $index 0.1) }}s">
                         {{ $tag }}
@@ -44,7 +44,9 @@
                 </p>
                 {{ end }}
 
-                {{ partial "components/social.html" . }}
+                <div class="flex flex-wrap justify-center lg:justify-start gap-3">
+                    {{ partial "components/social.html" . }}
+                </div>
             </div>
 
             <div class="w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden flex-shrink-0 border-2 border-background shadow-xl animate-fade-left opacity-0"

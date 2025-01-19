@@ -1,6 +1,6 @@
 {{ define "main" }}
 <!-- 公告通知 -->
-{{ partial "components/announcement.html" . }}
+{{ partial "components/home/announcement.html" . }}
 
 <section class="h-screen flex items-center">
     <div class="container max-w-6xl mx-auto px-4">
@@ -46,7 +46,7 @@
                 {{ end }}
 
 
-                {{ partial "components/social.html" . }}
+                {{ partial "components/home/social.html" . }}
             </div>
 
             <div class="w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden flex-shrink-0 border-2 border-background shadow-xl animate-fade-left opacity-0"
@@ -58,6 +58,6 @@
     </div>
 </section>
 
-{{ partial "sections/recent-posts.html" . }}
+{{ partial "components/home/recent-posts.html" . }}
 
 {{ end }}

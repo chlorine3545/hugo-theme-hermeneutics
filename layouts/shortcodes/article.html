@@ -1,7 +1,7 @@
 {{ $path := .Get "path" | default (.Get 0) }}
 {{ with .Site.GetPage $path }}
 
-<div class="custom-card article-card p-6 rounded-xl border-2 border-border/50 dark:border-border-dark/50 
+<div class="plain-link article-card p-6 rounded-xl border-2 border-border/50 dark:border-border-dark/50 
     bg-card/50 dark:bg-card-dark/50 backdrop-blur
     shadow-sm shadow-accent/10 dark:shadow-accent-dark/10
     ring-1 ring-accent/20 dark:ring-accent-dark/20

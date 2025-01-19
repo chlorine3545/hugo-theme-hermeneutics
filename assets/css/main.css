@@ -38,10 +38,6 @@ img {
   height: auto;
 }
 
-a {
-  text-decoration: none;
-}
-
 @keyframes spin {
   from {
     transform: rotate(0deg);

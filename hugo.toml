@@ -54,8 +54,11 @@ enableCsrf = true
     weight = 40
 
 [params]
-
-    math = true
+    [params.basic]
+        startDate = "12/15/2023 12:00:00"
+        announcement = true
+        math = false
+        darkMode = true
 
     [params.author]
         name = "Chlorine"

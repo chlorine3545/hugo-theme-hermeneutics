@@ -1,16 +1,18 @@
-<footer class="py-16 bg-accent/10 dark:bg-accent-dark/10 border-t border-border/10 dark:border-border-dark/10 [&_a]:text-inherit [&_a:visited]:text-inherit">
-    <div class="container max-w-6xl mx-auto px-4">
-        <div class="flex flex-col gap-12">
-            {{/*  <div class="flex flex-col lg:flex-row items-center gap-8">
-                <div class="w-full lg:w-2/3">
-                    {{ partial "footer/wowbook.html" . }}
-                </div>
-            </div>  */}}
+<footer class="plain-link mt-auto py-4 bg-card/50 dark:bg-card-dark/50 backdrop-blur border-t border-border/50 dark:border-border-dark/50">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col gap-6">
+            <!-- 统计信息 -->
+            <div class="hidden mt-3 md:flex items-center gap-4 text-sm text-muted-foreground/70">
+                {{ partial "footer/runtime.html" . }}
+                <span class="w-1 h-1 rounded-full bg-muted-foreground/30"></span>
+                {{ partial "footer/wowbook.html" . }}
+            </div>
 
             <!-- 分隔线 -->
-            <div class="h-px bg-border/10 dark:bg-border-dark/10"></div>
+            <div class="hidden md:visible h-px bg-border/10 dark:bg-border-dark/10"></div>
 
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground/60">
+            <!-- 底部信息 -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-muted-foreground/60">
                 {{ partial "footer/techstack.html" . }}
                 {{ partial "footer/beian.html" . }}
             </div>

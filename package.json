@@ -8,9 +8,7 @@
   },
   "devDependencies": {
     "@unocss/cli": "latest",
-    "unocss": "latest"
-  },
-  "dependencies": {
+    "unocss": "latest",
     "@iconify-json/carbon": "^1.2.5",
     "@iconify-json/mdi": "^1.2.2"
   }

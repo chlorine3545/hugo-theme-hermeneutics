@@ -1,0 +1,14 @@
+<div class="gallery grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 prose">
+    {{ range (split (.Get 0) ",") }}
+    {{ $image := . | strings.TrimSpace }}
+    <div class="gallery-item relative aspect-square group">
+        <img 
+            src="{{ $image }}"
+            alt="Gallery Image"
+            class="w-full h-full object-cover rounded-lg transition-transform duration-300
+                   group-hover:scale-[1.02] group-hover:shadow-lg cursor-zoom-in"
+            loading="lazy"
+        >
+    </div>
+    {{ end }}
+</div> 

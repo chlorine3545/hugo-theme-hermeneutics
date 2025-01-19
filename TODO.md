@@ -1,2 +1,9 @@
-- [ ] partialize reading progress
-- [ ] restore current TOC title highlighting
+- [ ] 404.html
+- [ ] 订阅功能
+- [ ] Twikoo 美化
+- [ ] 修复 footer
+- [ ] 美化 terms 页面
+- [ ] 美化友链
+- [ ] 迁移文章
+- [ ] 主题 submodule 化
+- [ ] 主题文档

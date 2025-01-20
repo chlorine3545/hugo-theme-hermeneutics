@@ -30,7 +30,7 @@ Hermeneutics（解释学），一个 Hugo 主题，由我与 [Cursor](https://ww
     - 原生 Markdown 的 GitHub Alert 支持
     - 公告功能
     - 评论支持（目前仅支持 [Twikoo](https://twikoo.js.org)）
-    - YouTube / bilibili 视频卡片支持（注意不是播放器）
+    - bilibili 视频卡片支持（注意不是播放器）
     - GitHub / GitLab / Gitea 卡片支持（Codeberg 可以使用 Gitea）
     - 画廊
     - 纯原生 JavaScript 的图片灯箱

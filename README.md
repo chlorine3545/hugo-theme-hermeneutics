@@ -30,7 +30,7 @@ This theme doesn't have much to do with the religious or philosophical meaning o
     - GitHub Alert support for native Markdown
     - Announcement feature
     - Comment support (currently only supports [Twikoo](https://twikoo.js.org))
-    - YouTube / Bilibili video card support (note: not a player)
+    - bilibili video card support (note: not a player)
     - GitHub / GitLab / Gitea card support (Codeberg can use Gitea)
     - Gallery
     - Pure native JavaScript image lightbox

@@ -4,19 +4,21 @@
     --tk-card-border-width: 1px;
     --tk-cl-green: rgba(181, 206, 154, 0.8);
     --tk-border-color: #e3e8f7;
-    --tk-card-bg: #fff;
+    --tk-action-bg: #fff;
     --tk-card-border: #e3e8f7;
     --tk-owo-body-bg-color: rgba(255, 255, 255, 0.7);
     --style-border-always: 1px solid var(--tk-card-border);
+    --tk-comment-border: 0.5px solid var(--tk-card-border);
 }
 
 html.dark {
     --tk-border-color: #42444a;
-    --tk-card-bg: #2c2c2c;
+    --tk-action-bg: #2c2c2c;
     --tk-card-border: #42444a;
     --tk-owo-body-bg-color: rgba(0, 0, 0, 0.7);
     --tk-text: #ccb !important;
     --style-border-always: 1px solid var(--tk-card-border);
+    --tk-comment-border: 0.5px solid var(--tk-card-border);
     --tk-cl-green: rgba(143, 168, 116, 0.8);
 }
 
@@ -166,14 +168,24 @@ html.dark {
 }
 
 .tk-comment {
-    margin-top: 0.5rem !important;
-    margin-bottom: 0.5rem !important;
-    padding-top: 1rem;
+    margin: 0.5rem 0 !important;
+    padding: 1rem;
     font-size: inherit;
     line-height: 1.75 !important;
     display: flex;
     flex-direction: row;
     word-break: break-all;
+    background: var(--card);
+    border: var(--tk-comment-border);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+
+
+    &:hover {
+        border-color: rgba(144, 147, 153, 0.5);
+        transform: translateY(-1.5px);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+    }
 
     .tk-avatar.tk-has-avatar {
         border-radius: 50%;
@@ -220,7 +232,7 @@ html.dark {
         text-align: center;
 
         &:hover {
-            background-color: var(--tk-card-bg);
+            background-color: var(--tk-action-bg);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
@@ -235,10 +247,13 @@ html.dark {
 
     .tk-content {
         margin-top: 0.2rem;
-    }
 
-    .tk-content {
-        margin-top: 0.2rem;
+        img {
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
+            vertical-align: middle;
+        }
     }
 }
 
@@ -249,9 +264,23 @@ html.dark {
         max-height: none !important;
     }
 
+    .tk-comment {
+        padding: 1rem;
+        margin: 0.5rem 0 !important;
+        background: var(--accent);
+        border: var(--tk-comment-border);
+        opacity: 0.9;
+
+        &:hover {
+            transform: none;
+            border-color: var(--tk-cl-green);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+        }
+    }
+
     .tk-content span:first-child:not(.token) {
         font-size: .75rem;
-        color: var(--anzhiyu-secondtext);
+        color: var(--tk-text);
     }
 }
 
@@ -259,8 +288,14 @@ html.dark {
     color: var(--tk-cl-green);
 }
 
-.twikoo svg {
-    color: var(--tk-text);
+.twikoo {
+    svg {
+        color: var(--tk-text);
+    }
+
+    .tk-expand {
+        border-radius: var(--tk-radius);
+    }
 }
 
 .tk-tag-green {

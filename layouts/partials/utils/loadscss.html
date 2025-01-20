@@ -1,0 +1,11 @@
+{{- $file := . -}}
+{{- if eq hugo.Environment "development" }}
+{{- $opts := dict "enableSourceMap" true "sourceMapIncludeSources" true }}
+{{- $styles := resources.Get (printf "css/%s" $file) | toCSS $opts }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+{{- else }}
+{{- $opts := dict "enableSourceMap" false "sourceMapIncludeSources" false }}
+{{- $styles := resources.Get (printf "css/%s" $file) | toCSS $opts | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"
+    crossorigin="anonymous">
+{{- end }}

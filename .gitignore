@@ -3,3 +3,4 @@ node_modules
 exampleSite
 */.DS_Store
 .vscode
+public

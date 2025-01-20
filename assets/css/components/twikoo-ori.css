@@ -1,0 +1,129 @@
+:root {
+    --tk-radius: 12px;
+    --tk-card-border-width: 1px;
+}
+
+/* 主题颜色设置 */
+[data-theme=light] {
+    --tk-border-color: #e3e8f7;
+    --tk-card-bg: #fff;
+    --tk-card-border: #e3e8f7;
+    --style-border-always: 1px solid var(--tk-card-border);
+    --tk-blue: #425AEF;
+}
+
+[data-theme=dark] {
+    --tk-border-color: #42444a;
+    --tk-card-bg: #2c2c2c;
+    --tk-card-border: #42444a;
+    --style-border-always: 1px solid var(--tk-card-border);
+    --tk-blue: #0084FF;
+}
+
+/* 通用样式 */
+.tk-main .tk-content img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.tk-comment {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.tk-replies {
+    margin-left: 10px;
+}
+
+.tk-replies .tk-content {
+    font-size: inherit;
+}
+
+.tk-meta {
+    margin-bottom: 0.2rem !important;
+}
+
+/* .tk-nick-link {
+    color: #1a94bc;
+} */
+
+.tk-content {
+    margin-top: 0.2rem;
+}
+
+.tk-comments-title {
+    margin-bottom: 0.6rem !important;
+}
+
+/* 元输入样式 */
+.tk-meta-input input {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.tk-meta-input div {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+/* 输入框样式 */
+.tk-input.el-textarea textarea {
+    border-radius: 12px;
+    min-height: 150px !important;
+    height: auto;
+}
+
+/* 评论区按钮样式 */
+.tk-row.actions button.el-button {
+    border-radius: 12px !important;
+}
+
+/* 特定ID和类选择器 */
+#tcomment {
+    display: grid;
+    place-items: center;
+}
+
+#twikoo .tk-comments .tk-submit .tk-row.actions {
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+#twikoo .tk-comments .tk-submit .tk-avatar,
+#twikoo .tk-comments .tk-submit .tk-avatar .tk-has-avatar {
+    display: none;
+}
+
+#twikoo .tk-comment .tk-replies .tk-comment {
+    box-shadow: none;
+}
+
+.tk-main .tk-submit .tk-col .tk-meta-input,
+#twikoo .tk-comments .tk-submit .tk-col .tk-meta-input {
+    margin-bottom: 16px;
+}
+
+/* 加载更多按钮 */
+.twikoo .tk-expand {
+    border-radius: var(--tk-radius);
+}
+
+/* OwO 表情样式 */
+.OwO .OwO-body {
+    overflow: visible;
+}
+
+/* 媒体查询 */
+@media screen and (max-width: 420px) {
+    .tk-main .tk-submit .tk-row.actions button.el-button.tk-preview.el-button--default.el-button--small {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .tk-main .tk-extras {
+        display: none;
+    }
+}

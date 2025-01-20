@@ -1,32 +1,169 @@
+/* 一些变量 */
 :root {
     --tk-radius: 12px;
     --tk-card-border-width: 1px;
 }
 
-/* 主题颜色设置 */
-[data-theme=light] {
-    --tk-border-color: #e3e8f7;
-    --tk-card-bg: #fff;
-    --tk-card-border: #e3e8f7;
-    --style-border-always: 1px solid var(--tk-card-border);
-    --tk-blue: #425AEF;
+[data-theme] {
+    &[data-theme=light] {
+        --tk-border-color: #e3e8f7;
+        --tk-card-bg: #fff;
+        --tk-card-border: #e3e8f7;
+        --tk-owo-body-bg-color: rgba(255, 255, 255, 0.7);
+        --tk-owo-text-color: #444;
+        --style-border-always: 1px solid var(--tk-card-border);
+        --tk-blue: #425AEF;
+    }
+
+    &[data-theme=dark] {
+        --tk-border-color: #42444a;
+        --tk-card-bg: #2c2c2c;
+        --tk-card-border: #42444a;
+        --tk-owo-body-bg-color: rgba(0, 0, 0, 0.7);
+        --tk-owo-text-color: #ccc;
+        --style-border-always: 1px solid var(--tk-card-border);
+        --tk-blue: #0084FF;
+    }
 }
 
-[data-theme=dark] {
-    --tk-border-color: #42444a;
-    --tk-card-bg: #2c2c2c;
-    --tk-card-border: #42444a;
-    --style-border-always: 1px solid var(--tk-card-border);
-    --tk-blue: #0084FF;
+/* 动画 */
+@keyframes owoIn {
+    0% {
+        transform: translate(0, -95%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0, -112%);
+        opacity: 1;
+    }
 }
 
-/* 通用样式 */
-.tk-main .tk-content img {
-    max-width: 100%;
-    height: auto;
-    display: inline-block;
-    vertical-align: middle;
+@keyframes donate_effect {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: none;
+        transform: translateY(0);
+    }
 }
+
+/* 把个人信息翻下去 */
+.tk-row {
+    .tk-col {
+        flex-direction: column-reverse;
+    }
+}
+
+/* 个人信息 */
+.tk-meta-input {
+    min-height: 40px;
+    position: relative;
+    margin-top: 8px;
+
+    input {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        min-height: inherit;
+    }
+
+    .el-input__inner:focus {
+        border-color: rgba(144, 147, 153, 0.7);
+    }
+
+    .el-input-group__prepend {
+        background: inherit;
+    }
+
+    div {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        min-height: inherit;
+    }
+}
+
+/* 评论框 */
+.tk-input.el-textarea {
+    textarea {
+        padding-top: 16px;
+        border-radius: 12px;
+        min-height: 150px !important;
+        height: auto;
+        line-height: 1.5;
+    }
+}
+
+.tk-main {
+    .tk-content {
+        img {
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+    .tk-submit {
+        .tk-col {
+            .tk-meta-input {
+                margin-bottom: 16px;
+            }
+        }
+    }
+}
+
+/* 底下的一排按钮 */
+.tk-row.actions {
+    display: flex;
+    align-items: center;
+
+    button.el-button {
+        border-radius: 12px !important;
+    }
+
+    .__markdown {
+        display: none;
+    }
+}
+
+/* 表情面板 */
+.OwO {
+    .OwO-body {
+        overflow: visible;
+        min-width: 31.25px;
+        border-radius: 8px !important;
+        background-color: var(--tk-owo-body-bg-color);
+        backdrop-filter: saturate(150%) blur(15px) !important;
+        animation: .3s ease .1s 1 normal both running donate_effect;
+        color: var(--tk-owo-text-color);
+    }
+
+    /* 这颜文字我是修不好了，爱咋咋的吧 */
+    .OwO-items {
+        height: 197px;
+        overflow: auto;
+
+        .OwO-item {
+            display: inline-block;
+            white-space: nowrap;
+        }
+    }
+
+    .OwO-items-show {
+        margin: 12px 8px;
+    }
+}
+
+/* 隐藏 Powered By Twikoo */
+.tk-footer {
+    display: none;
+}
+
+/* --------------- */
 
 .tk-comment {
     font-size: 0.95rem;
@@ -35,19 +172,11 @@
 
 .tk-replies {
     margin-left: 10px;
-}
 
-.tk-replies .tk-content {
-    font-size: inherit;
+    .tk-content {
+        font-size: inherit;
+    }
 }
-
-.tk-meta {
-    margin-bottom: 0.2rem !important;
-}
-
-/* .tk-nick-link {
-    color: #1a94bc;
-} */
 
 .tk-content {
     margin-top: 0.2rem;
@@ -57,68 +186,48 @@
     margin-bottom: 0.6rem !important;
 }
 
-/* 元输入样式 */
-.tk-meta-input input {
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-}
-
-.tk-meta-input div {
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-}
-
-/* 输入框样式 */
-.tk-input.el-textarea textarea {
-    border-radius: 12px;
-    min-height: 150px !important;
-    height: auto;
-}
-
-/* 评论区按钮样式 */
-.tk-row.actions button.el-button {
-    border-radius: 12px !important;
-}
-
-/* 特定ID和类选择器 */
 #tcomment {
     display: grid;
     place-items: center;
 }
 
-#twikoo .tk-comments .tk-submit .tk-row.actions {
-    margin-bottom: 0;
-    margin-left: 0;
+#twikoo {
+    .tk-comments {
+        overflow: visible !important;
+
+        .tk-submit {
+            .tk-row.actions {
+                margin-bottom: 20px;
+                margin-left: 0;
+            }
+
+            .tk-avatar,
+            .tk-avatar .tk-has-avatar {
+                display: none;
+            }
+
+            .tk-col .tk-meta-input {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    .tk-comment .tk-replies .tk-comment {
+        box-shadow: none;
+    }
 }
 
-#twikoo .tk-comments .tk-submit .tk-avatar,
-#twikoo .tk-comments .tk-submit .tk-avatar .tk-has-avatar {
-    display: none;
+.twikoo {
+    .tk-expand {
+        border-radius: var(--tk-radius);
+    }
 }
 
-#twikoo .tk-comment .tk-replies .tk-comment {
-    box-shadow: none;
-}
-
-.tk-main .tk-submit .tk-col .tk-meta-input,
-#twikoo .tk-comments .tk-submit .tk-col .tk-meta-input {
-    margin-bottom: 16px;
-}
-
-/* 加载更多按钮 */
-.twikoo .tk-expand {
-    border-radius: var(--tk-radius);
-}
-
-/* OwO 表情样式 */
-.OwO .OwO-body {
-    overflow: visible;
-}
-
-/* 媒体查询 */
 @media screen and (max-width: 420px) {
-    .tk-main .tk-submit .tk-row.actions button.el-button.tk-preview.el-button--default.el-button--small {
-        display: none;
+    .tk-main .tk-submit .tk-row.actions {
+        button.el-button.tk-preview.el-button--default.el-button--small {
+            display: none;
+        }
     }
 }
 
@@ -126,9 +235,4 @@
     .tk-main .tk-extras {
         display: none;
     }
-}
-
-/* 隐藏 Powered By Twikoo */
-.tk-footer {
-    display: none;
 }

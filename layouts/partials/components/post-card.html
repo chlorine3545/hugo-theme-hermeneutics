@@ -10,7 +10,7 @@
                 animate-fade-up opacity-0"
     style="animation-delay: {{ add 1.2 (mul $index 0.1) }}s; animation-fill-mode: forwards;">
 
-    <!-- 文章封面 -->
+    {{/*  封面图，这个链接暂时是写死的  */}}
     <div class="aspect-[2/1] rounded-t-2xl overflow-hidden">
         <img src="{{ $post.Params.featuredImage | default "/img/default-cover.webp" }}" alt="{{ $post.Title }}"
             class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.02]" loading="lazy">

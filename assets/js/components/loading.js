@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         loadingScreen.style.opacity = '0';
         setTimeout(() => {
             loadingScreen.style.display = 'none';
-        }, 500);
+        }, 400);
     });
 
     // 页面跳转时显示

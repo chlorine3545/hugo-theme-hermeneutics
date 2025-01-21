@@ -203,6 +203,17 @@ html.dark {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+
+        .tk-action {
+            .tk-action-icon {
+                color: var(--tk-cl-green);
+            }
+        }
+
+        a {
+            text-decoration: none !important;
+            background-image: none !important;
+        }
     }
 
     .tk-meta {
@@ -285,7 +296,9 @@ html.dark {
 }
 
 .tk-ruser {
-    color: var(--tk-cl-green);
+    color: var(--tk-cl-green) !important;
+    text-decoration: none !important;
+    background-image: none !important;
 }
 
 .twikoo {
@@ -298,12 +311,15 @@ html.dark {
     }
 }
 
-.tk-tag-green {
+.tk-tag {
     border: none;
     border-radius: 4px;
-    color: #fff;
-    background-color: var(--tk-cl-green);
     margin-left: 6px;
+    color: #fff;
+}
+
+.tk-tag-green {
+    background-color: var(--tk-cl-green);
 }
 
 .tk-admin {

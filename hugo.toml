@@ -58,7 +58,7 @@ enableCsrf = false
         name = "John Doe"
         homepage = "https://example.com/about"
         bio = "A passionate blogger."
-        avatar = "/images/avatar.png"
+        avatar = "/img/avatar.jpg"
         tags = [
             "Blogger",
             "Developer",

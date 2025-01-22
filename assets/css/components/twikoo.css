@@ -265,6 +265,12 @@ html.dark {
             display: inline-block;
             vertical-align: middle;
         }
+
+        a {
+            color: var(--tk-cl-green);
+            text-decoration: none;
+            background-image: none;
+        }
     }
 }
 

@@ -12,5 +12,5 @@ hugo server \
   --navigateToChanged \
   --themesDir themes \
   --theme hermeneutics \
-  --tlsCertFile /Users/chlorine/Dev/Utils/cert/localhost+2.pem \
-  --tlsKeyFile /Users/chlorine/Dev/Utils/cert/localhost+2-key.pem
+  --tlsCertFile /Users/chlorine/Dev/assets/local-cert/localhost+2.pem \
+  --tlsKeyFile //Users/chlorine/Dev/assets/local-cert/localhost+2-key.pem

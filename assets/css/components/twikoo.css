@@ -310,6 +310,11 @@ html.dark {
         .tk-nick {
             font-size: 1rem !important;
             line-height: 32px;
+
+            &:hover {
+                color: var(--cl-green);
+                transition: color 0.2s ease;
+            }
         }
 
         .tk-time {
@@ -425,6 +430,7 @@ html.dark {
 
 .tk-admin {
     backdrop-filter: blur(5px);
+    z-index: 999;
 }
 
 /* 隐藏 Powered By Twikoo */

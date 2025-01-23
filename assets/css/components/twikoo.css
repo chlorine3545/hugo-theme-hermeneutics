@@ -385,14 +385,6 @@ html.dark {
             border-color: var(--cl-green);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
         }
-
-        /* 确保回复卡片中的表情面板也能正确显示 */
-        .OwO {
-            .OwO-body {
-                bottom: 100%;
-                left: 0;
-            }
-        }
     }
 
     .tk-content span:first-child:not(.token) {

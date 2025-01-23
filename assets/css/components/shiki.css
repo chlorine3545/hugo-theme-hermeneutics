@@ -1,6 +1,11 @@
 .shiki,
 .shiki span {
     font-size: 0.85rem;
+    /* 允许换行，适应屏幕宽度 */
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-break: break-word;
 
     html.dark & {
         font-size: 0.85rem;

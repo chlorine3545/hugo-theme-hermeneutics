@@ -11,6 +11,7 @@
   --card: hsl(0 0% 100%);
   --card-foreground: hsl(222 25% 12%);
   --border: hsl(214 15% 94%);
+  --cl-green: rgba(181, 206, 154, 0.8);
 }
 
 .dark {
@@ -25,6 +26,7 @@
   --card: hsl(222 25% 8%);
   --card-foreground: hsl(210 25% 92%);
   --border: hsl(217 20% 15%);
+  --cl-green: rgba(143, 168, 116, 0.8);
 }
 
 * {

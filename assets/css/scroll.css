@@ -1,0 +1,14 @@
+/* 全局平滑滚动 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 标题滚动边距 */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+    scroll-margin-top: 5rem;
+} 

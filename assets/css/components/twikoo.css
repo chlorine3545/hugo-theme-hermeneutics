@@ -2,7 +2,6 @@
     --tk-radius: 12px;
     --tk-second-radius: 6px;
     --tk-card-border-width: 1px;
-    --tk-cl-green: rgba(181, 206, 154, 0.8);
     --tk-border-color: #e3e8f7;
     --tk-action-bg: #fff;
     --tk-card-border: #e3e8f7;
@@ -19,7 +18,6 @@ html.dark {
     --tk-text: #ccb !important;
     --style-border-always: 1px solid var(--tk-card-border);
     --tk-comment-border: 0.5px solid var(--tk-card-border);
-    --tk-cl-green: rgba(143, 168, 116, 0.8);
 }
 
 /* 动画 */
@@ -114,7 +112,7 @@ html.dark {
     }
 
     .tk-send {
-        background-color: var(--tk-cl-green);
+        background-color: var(--cl-green);
     }
 }
 
@@ -294,7 +292,7 @@ html.dark {
 
         .tk-action {
             .tk-action-icon {
-                color: var(--tk-cl-green);
+                color: var(--cl-green);
             }
         }
 
@@ -340,7 +338,7 @@ html.dark {
         }
 
         .tk-action-count {
-            color: var(--tk-cl-green);
+            color: var(--cl-green);
         }
     }
 
@@ -355,7 +353,7 @@ html.dark {
         }
 
         a {
-            color: var(--tk-cl-green);
+            color: var(--cl-green);
             text-decoration: none;
             background-image: none;
         }
@@ -379,7 +377,7 @@ html.dark {
 
         &:hover {
             transform: none;
-            border-color: var(--tk-cl-green);
+            border-color: var(--cl-green);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
         }
 
@@ -399,7 +397,7 @@ html.dark {
 }
 
 .tk-ruser {
-    color: var(--tk-cl-green) !important;
+    color: var(--cl-green) !important;
     text-decoration: none !important;
     background-image: none !important;
 }
@@ -422,7 +420,7 @@ html.dark {
 }
 
 .tk-tag-green {
-    background-color: var(--tk-cl-green);
+    background-color: var(--cl-green);
 }
 
 .tk-admin {

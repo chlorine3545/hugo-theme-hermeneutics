@@ -53,6 +53,7 @@ Hermeneutics（解释学），一个 Hugo 主题，由我与 [Cursor](https://ww
 
 - 主题样式大量参考了 [白い](https://innei.in)，感谢 Innei 老师天才的设计与审美。「白い」是闭源的，我也并未参考其开源版本 [Shiro](https://github.com/innei/Shiro)的任何代码。因此，我认为本主题不受 Shiro 的 AGPLv3 「传染性」的制约。
 - 代码完成和项目构建重度依赖 Cursor。
+- `twikoo.css` 参考了 [AnZhiYu](https://github.com/anzhiyu-c/hexo-theme-anzhiyu) 的部分样式。
 
 ## 许可
 

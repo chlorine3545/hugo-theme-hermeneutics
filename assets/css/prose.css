@@ -163,11 +163,43 @@
   overflow-wrap: break-word;
 }
 
-/* 水平线 */
 .prose hr {
   border: none;
-  border-top: 1px solid rgba(var(--border), 0.2);
-  margin: 3em 0;
+  height: 1.2px;
+  margin: 3em auto;
+  width: 90%;
+  max-width: 600px;
+  background: linear-gradient(90deg, rgba(var(--border), 0), rgba(var(--border), 0.2) 50%, rgba(var(--border), 0));
+  overflow: visible;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 3px;
+    background-color: rgba(var(--border), 0.6);
+    border-radius: 3px;
+  }
+
+  @media (max-width: 768px) {
+    width: 95%;
+    margin: 2em auto;
+
+    &::before {
+      width: 40px;
+      height: 2px;
+    }
+  }
+
+  html.dark & {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0));
+    &::before {
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+  }
 }
 
 /* 其他元素间距 */
@@ -178,8 +210,6 @@
 .prose> :last-child {
   margin-bottom: 0;
 }
-
-
 
 .plain-link a {
   color: inherit;

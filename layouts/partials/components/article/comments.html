@@ -23,4 +23,10 @@
         lang: 'zh-CN'
     });
 </script>
+
+<!-- 表情面板交互脚本 -->
+{{ with resources.Get "js/components/twikoo-owo.js" }}
+<script src="{{ .RelPermalink }}" defer></script>
+{{ end }}
+
 {{ end }} 

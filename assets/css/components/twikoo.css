@@ -25,26 +25,25 @@ html.dark {
 /* 动画 */
 @keyframes owoIn {
     0% {
-        transform: translate(0, -95%);
         opacity: 0;
+        transform: translate(-50%, -45%) scale(0.95);
     }
 
     100% {
-        transform: translate(0, -112%);
         opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
     }
 }
 
-@keyframes donate_effect {
+@keyframes modal_effect {
     0% {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translate(-50%, -60%);
     }
 
     100% {
         opacity: 1;
-        filter: none;
-        transform: translateY(0);
+        transform: translate(-50%, -50%);
     }
 }
 
@@ -122,28 +121,112 @@ html.dark {
 /* 表情面板 */
 .OwO {
     .OwO-body {
-        overflow: visible;
-        min-width: 31.25px;
+        position: fixed;
+        z-index: 9999;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: min(90vw, 420px);
+        border: var(--style-border-always);
+        opacity: 0;
+        visibility: hidden;
         border-radius: 8px !important;
         background-color: var(--tk-owo-body-bg-color);
         backdrop-filter: saturate(150%) blur(15px) !important;
-        animation: .3s ease .1s 1 normal both running donate_effect;
+        animation: .3s ease .1s 1 normal both running modal_effect;
         color: var(--tk-text);
-    }
 
-    /* 这颜文字我是修不好了，爱咋咋的吧 */
-    .OwO-items {
-        height: 197px;
-        overflow: auto;
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
 
-        .OwO-item {
-            display: inline-block;
-            white-space: nowrap;
+        &.active::before {
+            opacity: 1;
         }
     }
 
-    .OwO-items-show {
-        margin: 12px 8px;
+    .OwO-items {
+        height: min(60vh, 420px);
+        overflow: auto;
+        padding: 1rem;
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 30px);
+        gap: 0.5rem;
+
+        /* 滚动条美化 */
+        &::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(144, 147, 153, 0.2);
+            border-radius: 4px;
+
+            &:hover {
+                background-color: rgba(144, 147, 153, 0.3);
+            }
+        }
+
+        .OwO-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            font-size: 1.1em;
+            aspect-ratio: auto;
+
+            &:hover {
+                background-color: rgba(144, 147, 153, 0.1);
+                transform: translateY(-2px);
+            }
+
+            &:active {
+                transform: translateY(0) scale(0.95);
+            }
+        }
+    }
+
+    /* 表情分类栏 */
+    .OwO-bar {
+        position: relative;
+        padding: 0.5rem;
+        display: flex;
+        gap: 0.5rem;
+        overflow-x: auto;
+
+        /* 简化的滚动条样式 */
+        &::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(144, 147, 153, 0.2);
+            border-radius: 2px;
+        }
+
+        .OwO-packages {
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s ease;
+
+            &.active {
+                background: rgba(144, 147, 153, 0.15);
+            }
+        }
     }
 }
 
@@ -179,12 +262,17 @@ html.dark {
     border: var(--tk-comment-border);
     border-radius: 1rem;
     transition: all 0.3s ease;
-
+    position: relative;
+    z-index: 1;
 
     &:hover {
         border-color: rgba(144, 147, 153, 0.5);
-        transform: translateY(-1.5px);
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    /* 确保回复框中的表情面板正确显示 */
+    .OwO {
+        position: relative;
     }
 
     .tk-avatar.tk-has-avatar {
@@ -274,7 +362,7 @@ html.dark {
     }
 }
 
-/* TODO: 回复卡片的表情面板总是被遮挡，不知道怎么回事 */
+/* 回复卡片的表情面板 */
 .tk-replies {
     max-height: 10rem !important;
 
@@ -293,6 +381,14 @@ html.dark {
             transform: none;
             border-color: var(--tk-cl-green);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+        }
+
+        /* 确保回复卡片中的表情面板也能正确显示 */
+        .OwO {
+            .OwO-body {
+                bottom: 100%;
+                left: 0;
+            }
         }
     }
 
@@ -336,4 +432,9 @@ html.dark {
 /* 隐藏 Powered By Twikoo */
 .tk-footer {
     display: none;
+}
+
+/* 当表情面板打开时禁止页面滚动 */
+body.owo-active {
+    overflow: hidden;
 }

@@ -57,28 +57,71 @@
 
 /* 引用块 */
 .prose blockquote {
-  border-left: 2px solid rgba(var(--border), 0.3);
-  padding-left: 1.25em;
-  margin: 2em 2em 2em 1em;
-  color: rgba(var(--foreground), 0.7);
+  position: relative;
+  margin: 2rem 0;
+  padding: 1.5rem;
   font-family: "Times New Roman", "STKaiti", "KaiTi", "楷体", "Noto Serif SC", serif;
-  background: rgba(var(--muted), 0.1);
-  border-radius: 0 4px 4px 0;
-  padding: 1em 1.25em;
+  color: var(--foreground);
+
+  /* 左边装饰线 */
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--accent);
+    border-top-left-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+    opacity: 0.8;
+  }
+
+  p {
+    margin: 0.75rem 0;
+    line-height: 1.7;
+    font-size: 0.95em;
+    opacity: 0.9;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  /* 移动端适配 */
+  @media (max-width: 768px) {
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+
+    &::after {
+      font-size: 3rem;
+      opacity: 0.1;
+    }
+
+    p {
+      font-size: 0.9em;
+    }
+  }
 }
 
-.prose blockquote p {
-  margin: 0.75em 0;
-  line-height: 1.7;
-  font-size: 0.95em;
-}
+/* 嵌套引用 */
+.prose blockquote blockquote {
+  margin: 1rem 0;
+  background: var(--background);
+  border: 1px solid var(--border);
 
-.prose blockquote> :first-child {
-  margin-top: 0;
-}
+  &::before {
+    width: 3px;
+    opacity: 0.6;
+  }
 
-.prose blockquote> :last-child {
-  margin-bottom: 0;
+  &::after {
+    display: none;
+  }
 }
 
 /* 代码 */
@@ -196,6 +239,7 @@
 
   html.dark & {
     background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0));
+
     &::before {
       background-color: rgba(255, 255, 255, 0.6);
     }

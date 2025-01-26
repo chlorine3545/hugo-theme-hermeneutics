@@ -319,10 +319,12 @@ html.dark {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+        gap: 0.5rem;
 
         .tk-nick {
             font-size: 1rem !important;
-            line-height: 32px;
+            line-height: 1.5;
+            font-weight: 500;
 
             &:hover {
                 color: var(--cl-green);
@@ -331,15 +333,13 @@ html.dark {
 
             @media (max-width: 768px) {
                 font-size: 0.875rem !important;
-                white-space: nowrap;
             }
         }
 
         .tk-time {
             font-size: 0.8rem;
-            color: #666;
-            margin-left: 8px;
-            overflow: hidden;
+            color: var(--muted-foreground);
+            margin-left: auto;
         }
     }
 
@@ -365,7 +365,7 @@ html.dark {
         }
 
         @media (max-width: 768px) {
-            padding: 1px 3px;
+            display: none;
         }
     }
 
@@ -432,31 +432,27 @@ html.dark {
 }
 
 .tk-tag {
-    border: none;
-    border-radius: 4px;
-    margin: 0.5rem; /* 使用统一的外边距 */
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 500;
     color: #fff;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem; /* 设置字体大小 */
-    flex: 1; /* 使标签在容器中可伸缩 */
-    box-sizing: border-box; /* 包含内边距和边框在内的宽度计算 */
-    display: inline-block; /* 使标签在移动端横置 */
-    align-items: center; /* 垂直居中对齐 */
-    text-align: center;
+    background: var(--cl-green);
+    white-space: nowrap;
+    margin: 0;
+    line-height: 1.2;
 }
 
-.tk-tag-green {
-    background-color: var(--cl-green);
-}
-
-/* 响应式设计 */
 @media (max-width: 768px) {
     .tk-tag {
-        margin-left: 0;
-        margin-bottom: 0.5rem;
+        padding: 0.125rem 0.375rem;
         font-size: 0.75rem;
-        padding: 0 0.5rem;
-        white-space: nowrap;
+    }
+    
+    .tk-meta {
+        gap: 0.375rem !important;
     }
 }
 

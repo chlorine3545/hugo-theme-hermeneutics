@@ -1,66 +1,68 @@
 {{ with .Params.series }}
-    {{ $series := . }}
-    {{ $currentPage := $.Page }}
-    
-    <!-- 获取同系列的所有文章并按日期排序 -->
-    {{ $seriesPages := where $.Site.RegularPages "Params.series" "intersect" (slice $series) }}
-    {{ $sortedPages := $seriesPages.ByDate }}
-    
-    <!-- 找到当前文章在系列中的位置 -->
-    {{ $currentIndex := 0 }}
-    {{ range $index, $page := $sortedPages }}
-        {{ if eq $page $currentPage }}
-            {{ $currentIndex = $index }}
-        {{ end }}
-    {{ end }}
-    
-    <!-- 获取上一篇和下一篇 -->
-    {{ $prevPage := index $sortedPages (sub $currentIndex 1) }}
-    {{ $nextPage := index $sortedPages (add $currentIndex 1) }}
-    
-    <div class="mt-16 pt-8 border-t border-border/40 dark:border-border-dark/40">
-        <div class="space-y-4">
-            <!-- 系列标题 -->
-            <div class="flex items-center gap-2 text-sm">
-                <div class="i-carbon-notebook w-4 h-4 text-primary/80"></div>
-                <span class="font-medium">系列文章：{{ $series }}</span>
-                <span class="text-muted-foreground/60">({{ len $sortedPages }} 篇)</span>
+{{ $series := . }}
+{{ $currentPage := $.Page }}
+
+<!-- 获取同系列的所有文章并按日期排序 -->
+{{ $seriesPages := where $.Site.RegularPages "Params.series" $series }}
+{{ $sortedPages := $seriesPages.ByDate }}
+
+<!-- 找到当前文章在系列中的位置 -->
+{{ $currentIndex := 0 }}
+{{ range $index, $page := $sortedPages }}
+{{ if eq $page $currentPage }}
+{{ $currentIndex = $index }}
+{{ end }}
+{{ end }}
+
+<!-- 获取上一篇和下一篇 -->
+{{ $prevPage := index $sortedPages (sub $currentIndex 1) }}
+{{ $nextPage := index $sortedPages (add $currentIndex 1) }}
+
+<div class="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-border/40 dark:border-border-dark/40">
+    <div class="space-y-6">
+        <!-- 系列标题 -->
+        <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-full 
+                text-primary/80 dark:text-primary-dark/80">
+                <div class="i-carbon-notebook w-4 h-4"></div>
+                <span class="text-sm font-medium">系列文章：{{ $series }}</span>
             </div>
-            
-            <!-- 导航链接 -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {{ with $prevPage }}
-                <a href="{{ .RelPermalink }}" 
-                    class="group p-4 rounded-lg border border-border/40 dark:border-border-dark/40 
-                    bg-card/50 dark:bg-card-dark/50 backdrop-blur
-                    hover:bg-card/80 dark:hover:bg-card-dark/80
-                    transition duration-300">
-                    <div class="flex items-center gap-2 text-sm text-muted-foreground/70 mb-1">
-                        <div class="i-carbon-arrow-left w-4 h-4"></div>
-                        <span>上一篇</span>
-                    </div>
-                    <h3 class="text-base font-medium line-clamp-1 group-hover:text-primary transition-colors">
-                        {{ .Title }}
-                    </h3>
-                </a>
-                {{ end }}
-                
-                {{ with $nextPage }}
-                <a href="{{ .RelPermalink }}" 
-                    class="group p-4 rounded-lg border border-border/40 dark:border-border-dark/40 
-                    bg-card/50 dark:bg-card-dark/50 backdrop-blur
-                    hover:bg-card/80 dark:hover:bg-card-dark/80
-                    transition duration-300">
-                    <div class="flex items-center justify-end gap-2 text-sm text-muted-foreground/70 mb-1">
-                        <span>下一篇</span>
-                        <div class="i-carbon-arrow-right w-4 h-4"></div>
-                    </div>
-                    <h3 class="text-base font-medium line-clamp-1 text-right group-hover:text-primary transition-colors">
-                        {{ .Title }}
-                    </h3>
-                </a>
-                {{ end }}
-            </div>
+            <span class="px-2 py-0.5 text-xs rounded-md
+                text-muted-foreground/60 dark:text-muted-foreground-dark/60
+                ring-1 ring-border/30 dark:ring-border-dark/30">
+                {{ len $sortedPages }} 篇
+            </span>
+        </div>
+
+        <!-- 导航链接 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 plain-link">
+            {{ with $prevPage }}
+            <a href="{{ .RelPermalink }}"
+                class="group p-4 rounded-lg ring-1.5 ring-gray-500/20 dark:ring-gray-600/40 backdrop-blur transition duration-300 hover:ring-gray-600/30 dark:hover:ring-gray-500/30">
+                <div class="flex items-center gap-2 text-sm text-muted-foreground/70 mb-1">
+                    <div class="i-carbon-arrow-left w-4 h-4"></div>
+                    <span>上一篇</span>
+                </div>
+                <h3 class="mt-1 text-base font-medium line-clamp-1 transition-colors">
+                    {{ .Title }}
+                </h3>
+            </a>
+            {{ end }}
+
+            {{ with $nextPage }}
+            <a href="{{ .RelPermalink }}" class="group p-4 rounded-lg
+                backdrop-blur ring-1.5 ring-gray-500/20 dark:ring-gray-600/40 
+                transition duration-300 hover:ring-gray-600/30 dark:hover:ring-gray-500/30">
+                <div class="flex items-center justify-end gap-2 text-sm text-muted-foreground/70 mb-1">
+                    <span>下一篇</span>
+                    <div class="i-carbon-arrow-right w-4 h-4"></div>
+                </div>
+                <h3 class="mt-1 text-base font-medium line-clamp-1 text-right transition-colors">
+                    {{ .Title }}
+                </h3>
+            </a>
+            {{ end }}
         </div>
     </div>
-{{ end }} 
+</div>
+{{ end }}

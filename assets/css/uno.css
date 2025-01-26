@@ -73,7 +73,6 @@
 .container{max-width:1536px;}
 }
 /* layer: default */
-.pointer-events-none{pointer-events:none;}
 .group:hover .group-hover\:visible{visibility:visible;}
 .invisible{visibility:hidden;}
 .absolute{position:absolute;}
@@ -211,6 +210,7 @@
 @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .animate-pulse{animation:pulse 2s cubic-bezier(0.4,0,.6,1) infinite;}
 .animate-spin{animation:spin 1s linear infinite;}
+.cursor-pointer{cursor:pointer;}
 .cursor-zoom-in{cursor:zoom-in;}
 .select-all{-webkit-user-select:all;user-select:all;}
 .resize{resize:both;}

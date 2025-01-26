@@ -41,9 +41,12 @@
                 {{ end }}
             </div>
         </div>
-        <div class="absolute left-1/2 -translate-x-1/2 opacity-0 pointer-events-none transition-all duration-300 
+        <div class="absolute left-1/2 -translate-x-1/2 opacity-0 cursor-pointer transition-all duration-300 
             max-w-[50%] sm:max-w-[60%]" id="nav-title">
-            <h1 class="text-base font-medium truncate">{{ .Title }}</h1>
+            <h2 class="text-base font-medium truncate hover:text-primary transition-colors"
+                onclick="scrollToTop()" aria-label="返回顶部">
+                {{ .Title }}
+            </h2>
         </div>
         <div class="relative group">
             <!-- 主按钮 -->
@@ -107,6 +110,14 @@
             theme === 'light' ? 'i-carbon-sun' :
                 'i-carbon-screen';
         themeToggle.innerHTML = `<div class="${iconClass} w-4 h-4 text-muted-foreground/70 dark:text-muted-foreground-dark/70"></div>`;
+    }
+
+    // 平滑滚动到顶部
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
 
     document.addEventListener('DOMContentLoaded', function () {

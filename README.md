@@ -31,7 +31,7 @@ This theme doesn't have much to do with the religious or philosophical meaning o
     - Announcement feature
     - Comment support (currently only supports [Twikoo](https://twikoo.js.org))
     - bilibili video card support (note: not a player)
-    - GitHub / GitLab / Gitea card support (Codeberg can use Gitea)
+    - GitHub / GitLab / Gitea card support
     - Gallery
     - Pure native JavaScript image lightbox
     - Wowbook word count

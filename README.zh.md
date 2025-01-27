@@ -31,7 +31,7 @@ Hermeneutics（解释学），一个 Hugo 主题，由我与 [Cursor](https://ww
     - 公告功能
     - 评论支持（目前仅支持 [Twikoo](https://twikoo.js.org)）
     - bilibili 视频卡片支持（注意不是播放器）
-    - GitHub / GitLab / Gitea 卡片支持（Codeberg 可以使用 Gitea）
+    - GitHub / GitLab / Gitea 卡片支持
     - 画廊
     - 纯原生 JavaScript 的图片灯箱
     - Wowbook 字数统计

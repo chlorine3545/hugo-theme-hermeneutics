@@ -228,6 +228,11 @@ html.dark {
     }
 }
 
+/* 当表情面板打开时禁止页面滚动 */
+body.owo-active {
+    overflow: hidden;
+}
+
 /*~ tk-comments-container ~*/
 
 /* 评论区主题样式 */
@@ -439,10 +444,13 @@ html.dark {
     font-size: 0.75rem;
     font-weight: 500;
     color: #fff;
-    background: var(--cl-green);
     white-space: nowrap;
     margin: 0;
     line-height: 1.2;
+}
+
+.tk-tag-green {
+    background: var(--cl-green);
 }
 
 @media (max-width: 768px) {
@@ -464,9 +472,4 @@ html.dark {
 /* 隐藏 Powered By Twikoo */
 .tk-footer {
     display: none;
-}
-
-/* 当表情面板打开时禁止页面滚动 */
-body.owo-active {
-    overflow: hidden;
 }

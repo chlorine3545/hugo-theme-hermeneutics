@@ -15,12 +15,14 @@
 </div>
 
 <!-- Twikoo 脚本 -->
-<script src="https://cdn.jsdmirror.com/gh/chlorine3545/customcdn@2b63d63/js/twikoo/1_6_41.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdmirror.com/gh/chlorine3545/customcdn@2b63d63/js/twikoo/1_6_41.min.js" crossorigin="anonymous" defer></script>
 <script>
-    twikoo.init({
-        envId: '{{ .Site.Params.Comments.Twikoo.envId }}',
-        el: '#twikoo',
-        lang: 'zh-CN'
+    window.addEventListener('load', () => {
+        twikoo.init({
+            envId: '{{ .Site.Params.Comments.Twikoo.envId }}',
+            el: '#twikoo',
+            lang: 'zh-CN'
+        });
     });
 </script>
 

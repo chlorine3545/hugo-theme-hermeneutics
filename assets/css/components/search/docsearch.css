@@ -1,0 +1,198 @@
+/* DocSearch 样式定制 */
+:root {
+    --docsearch-primary-color: var(--cl-green);
+    --docsearch-text-color: var(--foreground);
+    --docsearch-spacing: 12px;
+    --docsearch-icon-stroke-width: 1.4;
+    --docsearch-highlight-color: var(--cl-green);
+    --docsearch-muted-color: var(--muted-foreground);
+    --docsearch-container-background: rgba(0, 0, 0, 0.4);
+    --docsearch-modal-background: var(--card);
+    --docsearch-modal-shadow: 0 0 0 1px var(--border), 0 8px 32px rgba(0, 0, 0, 0.12);
+    --docsearch-searchbox-background: var(--accent);
+    --docsearch-searchbox-focus-background: var(--background);
+    --docsearch-hit-color: var(--foreground);
+    --docsearch-hit-active-color: var(--background);
+    --docsearch-hit-background: var(--card);
+    --docsearch-hit-shadow: none;
+    --docsearch-footer-background: var(--card);
+    --docsearch-footer-shadow: none;
+    --docsearch-logo-color: var(--muted-foreground);
+    --docsearch-key-gradient: var(--accent);
+    --docsearch-key-shadow: none;
+    --docsearch-modal-width: min(90vw, 640px);
+    --docsearch-modal-height: min(80vh, 600px);
+}
+
+/* 隐藏默认的搜索按钮 */
+.DocSearch-Button {
+    display: none !important;
+}
+
+/* 自定义搜索按钮 */
+.search-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 36px;
+    padding: 0 0.75rem;
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    background: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.search-button:hover {
+    color: var(--foreground);
+    background: var(--accent);
+    border-color: var(--border);
+    transform: translateY(-1px);
+}
+
+.search-button kbd {
+    padding: 0.125rem 0.375rem;
+    font-family: ui-monospace, monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--muted-foreground);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    white-space: nowrap;
+}
+
+.DocSearch-Modal {
+    border-radius: 16px;
+    overflow: hidden;
+    animation: dsModalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dsModalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.98) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.DocSearch-Modal[aria-hidden="true"] {
+    animation: dsModalFadeOut 0.3s cubic-bezier(0.3, 0, 0.2, 1);
+}
+
+@keyframes dsModalFadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.98) translateY(10px);
+    }
+}
+
+.DocSearch-SearchBar {
+    padding: var(--docsearch-spacing);
+}
+
+.DocSearch-Form {
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+}
+
+.DocSearch-Input {
+    padding-left: 1rem;
+}
+
+.DocSearch-Hit-source {
+    padding: 0.75rem var(--docsearch-spacing);
+    font-weight: 500;
+    color: var(--foreground);
+    background: var(--accent);
+}
+
+.DocSearch-Hit {
+    padding: 0;
+}
+
+.DocSearch-Hit a {
+    padding: 0.75rem var(--docsearch-spacing);
+    border: none;
+    border-radius: 0;
+}
+
+.DocSearch-Hit[aria-selected=true] a {
+    background: var(--cl-green);
+}
+
+.DocSearch-Hit-Container {
+    gap: 0.75rem;
+}
+
+.DocSearch-Hit-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.DocSearch-Hit-action {
+    width: 20px;
+    height: 20px;
+}
+
+.DocSearch-Footer {
+    border-top: 1px solid var(--border);
+}
+
+.DocSearch-Commands {
+    display: none;
+}
+
+.DocSearch-Logo svg path {
+    fill: var(--muted-foreground);
+}
+
+/* 暗色模式适配 */
+html.dark {
+    --docsearch-modal-background: var(--card);
+    --docsearch-footer-background: var(--card);
+    --docsearch-hit-background: var(--card);
+    --docsearch-hit-color: var(--foreground);
+    --docsearch-hit-active-color: var(--background);
+    --docsearch-logo-color: var(--muted-foreground);
+    --docsearch-hit-shadow: none;
+}
+
+/* 移动端适配 */
+@media (max-width: 640px) {
+    .DocSearch-Modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        max-height: none;
+        border-radius: 0;
+    }
+
+    .DocSearch-Container {
+        height: 100%;
+    }
+
+    .DocSearch-Hit-content-wrapper {
+        flex: 1;
+        min-width: 0;
+    }
+}

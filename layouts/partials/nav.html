@@ -22,7 +22,7 @@
                                 bg-card/95 dark:bg-card-dark/95 backdrop-blur
                                 shadow-lg shadow-accent/5 flex flex-col overflow-hidden">
                             {{ range .Children }}
-                            <a a aria-label="{{ .Name }}" href="{{ .URL | absURL}}" class="px-2 py-1.5 text-center text-muted-foreground/70 dark:text-muted-foreground-dark/70 
+                            <a aria-label="{{ .Name }}" href="{{ .URL | absURL}}" class="px-2 py-1.5 text-center text-muted-foreground/70 dark:text-muted-foreground-dark/70 
                                 hover:text-primary hover:bg-accent/40 dark:hover:bg-accent-dark/40 transition-colors
                                 {{ if $currentPage.IsMenuCurrent " main" . }}text-primary bg-accent/50
                                 dark:bg-accent-dark/50{{ end }}">
@@ -43,120 +43,48 @@
         </div>
         <div class="absolute left-1/2 -translate-x-1/2 opacity-0 cursor-pointer transition-all duration-300 
             max-w-[50%] sm:max-w-[60%]" id="nav-title">
-            <h2 class="text-base font-medium truncate hover:text-primary transition-colors"
-                onclick="scrollToTop()" aria-label="返回顶部">
+            <h2 class="text-base font-medium truncate hover:text-primary transition-colors" onclick="scrollToTop()"
+                aria-label="返回顶部">
                 {{ .Title }}
             </h2>
         </div>
-        <div class="relative group">
-            <!-- 主按钮 -->
-            <button id="theme-toggle" class="shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full
-        bg-background/80 dark:bg-background-dark/80
-        ring-0 dark:ring-0 border-0 dark:border-0
-        text-muted-foreground/70 dark:text-muted-foreground-dark/70
-        hover:bg-accent/50 dark:hover:bg-accent-dark/50
-        transition-colors" aria-label="切换主题">
-                <div class="i-carbon-sun w-4 h-4"></div>
+        <div class="flex items-center gap-2">
+            <!-- 搜索按钮 -->
+            <button type="button" id="search-button" class="shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full
+                bg-background/80 dark:bg-background-dark/80
+                ring-0 dark:ring-0 border-0 dark:border-0
+                text-muted-foreground/70 dark:text-muted-foreground-dark/70
+                hover:bg-accent/50 dark:hover:bg-accent-dark/50
+                transition-colors" aria-label="搜索" onclick="document.querySelector('.DocSearch-Button').click()">
+                <div class="i-carbon-search w-4 h-4"></div>
             </button>
 
-            <!-- 主题选择菜单 -->
-            <div class="absolute right-0 top-full mt-2 opacity-0 invisible 
-                group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <div class="w-9 flex flex-col rounded-xl border border-border/10 bg-card/95 dark:border-border-dark/10 dark:bg-card-dark/95
-                    shadow-sm shadow-accent/5 dark:shadow-accent-dark/5">
-                    {{ range slice "light" "dark" "auto" }}
-                    {{ partial "components/home/theme-button.html" (dict "theme" .) }}
-                    {{ end }}
+            <!-- 主题切换按钮 -->
+            <div class="relative group">
+                <button id="theme-toggle" class="shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full
+            bg-background/80 dark:bg-background-dark/80
+            ring-0 dark:ring-0 border-0 dark:border-0
+            text-muted-foreground/70 dark:text-muted-foreground-dark/70
+            hover:bg-accent/50 dark:hover:bg-accent-dark/50
+            transition-colors" aria-label="切换主题">
+                    <div class="i-carbon-sun w-4 h-4"></div>
+                </button>
+
+                <!-- 主题选择菜单 -->
+                <div class="absolute right-0 top-full mt-2 opacity-0 invisible 
+                    group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <div class="w-9 flex flex-col rounded-xl border border-border/10 bg-card/95 dark:border-border-dark/10 dark:bg-card-dark/95
+                        shadow-sm shadow-accent/5 dark:shadow-accent-dark/5">
+                        {{ range slice "light" "dark" "auto" }}
+                        {{ partial "components/nav/theme-button.html" (dict "theme" .) }}
+                        {{ end }}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </nav>
 
-<script>
-    function getTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            return savedTheme;
-        }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
+{{ partial "components/nav/search.html" . }}
 
-    function setTheme(theme) {
-        const htmlElement = document.documentElement;
-        // 先移除所有可能的主题类
-        htmlElement.classList.remove('light', 'dark');
-
-        if (theme === 'dark') {
-            htmlElement.classList.add('dark');
-        } else if (theme === 'light') {
-            htmlElement.classList.add('light');
-        } else {
-            // 自动模式
-            const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (isDark) {
-                htmlElement.classList.add('dark');
-            } else {
-                htmlElement.classList.add('light');
-            }
-        }
-        localStorage.setItem('theme', theme);
-        updateThemeIcon(theme);
-    }
-
-    function updateThemeIcon(theme) {
-        const themeToggle = document.getElementById('theme-toggle');
-        const iconClass = theme === 'dark' ? 'i-carbon-moon' :
-            theme === 'light' ? 'i-carbon-sun' :
-                'i-carbon-screen';
-        themeToggle.innerHTML = `<div class="${iconClass} w-4 h-4 text-muted-foreground/70 dark:text-muted-foreground-dark/70"></div>`;
-    }
-
-    // 平滑滚动到顶部
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const theme = getTheme();
-        setTheme(theme);
-
-        // 监听系统主题变化
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            if (localStorage.getItem('theme') === 'auto') {
-                setTheme('auto');
-            }
-        });
-    });
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const navMenu = document.getElementById('nav-menu');
-        const navTitle = document.getElementById('nav-title');
-        let lastScrollY = window.scrollY;
-        const scrollThreshold = 100; // 滚动阈值
-
-        function updateNav() {
-            const currentScrollY = window.scrollY;
-
-            if (currentScrollY > scrollThreshold) {
-                navMenu.style.opacity = '0';
-                navMenu.style.pointerEvents = 'none';
-                navTitle.style.opacity = '1';
-                navTitle.style.pointerEvents = 'auto';
-            } else {
-                navMenu.style.opacity = '1';
-                navMenu.style.pointerEvents = 'auto';
-                navTitle.style.opacity = '0';
-                navTitle.style.pointerEvents = 'none';
-            }
-
-            lastScrollY = currentScrollY;
-        }
-
-        window.addEventListener('scroll', updateNav);
-        updateNav();
-    });
-</script>
+{{ partial "utils/loadjs.html" (dict "src" "js/theme.js" "defer" true) }}

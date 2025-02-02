@@ -9,6 +9,4 @@
     </div>
 </div>
 
-{{ with resources.Get "js/components/reading-progress.js" }}
-<script src="{{ .RelPermalink }}" defer></script>
-{{ end }}
+{{ partial "utils/loadjs.html" (dict "src" "js/components/reading-progress.js" "defer" true) }}

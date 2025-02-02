@@ -36,14 +36,6 @@ function updateThemeIcon(theme) {
     themeToggle.innerHTML = `<div class="${iconClass} w-4 h-4 text-muted-foreground/70 dark:text-muted-foreground-dark/70"></div>`;
 }
 
-// 平滑滚动到顶部
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
-
 document.addEventListener('DOMContentLoaded', function () {
     const theme = getTheme();
     setTheme(theme);

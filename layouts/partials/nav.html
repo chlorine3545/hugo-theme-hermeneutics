@@ -43,8 +43,7 @@
         </div>
         <div class="absolute left-1/2 -translate-x-1/2 opacity-0 cursor-pointer transition-all duration-300 
             max-w-[50%] sm:max-w-[60%]" id="nav-title">
-            <h2 class="text-base font-medium truncate hover:text-primary transition-colors" onclick="scrollToTop()"
-                aria-label="返回顶部">
+            <h2 class="text-base font-medium truncate hover:text-primary transition-colors" onclick="window.scrollTo({ top: 0, behavior: 'smooth'});" aria-label="返回顶部">
                 {{ .Title }}
             </h2>
         </div>

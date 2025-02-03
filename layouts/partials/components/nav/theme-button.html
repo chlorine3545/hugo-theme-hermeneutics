@@ -1,24 +1,22 @@
-{{ $params := dict 
-    "light" (dict 
-        "icon" "sun"
-    )
-    "dark" (dict 
-        "icon" "moon"
-    )
-    "auto" (dict 
-        "icon" "screen"
-    )
+{{ $params := dict
+"light" (dict
+"icon" "sun"
+)
+"dark" (dict
+"icon" "moon"
+)
+"auto" (dict
+"icon" "screen"
+)
 }}
 
 {{ with index $params .theme }}
 <button class="w-9 h-9 flex items-center justify-center rounded-full
-    bg-background ring-0 dark:ring-0 border-1 dark:border-1
-    text-muted-foreground/70 dark:text-muted-foreground-dark/70
-    hover:bg-accent/50 dark:hover:bg-accent-dark/50 
-    hover:text-foreground dark:hover:text-foreground-dark
-    transition-colors"
-    onclick="setTheme('{{ $.theme }}')"
-    aria-label="{{ .label }}">
+    bg-background ring-1 ring-border dark:ring-white/40 border-0
+    text-muted-foreground/70
+    hover:bg-accent/50
+    hover:text-foreground
+    transition-colors my-0.5" onclick="setTheme('{{ $.theme }}')" aria-label="{{ .label }}">
     <div class="i-carbon-{{ .icon }} w-4 h-4"></div>
 </button>
-{{ end }} 
+{{ end }}

@@ -1,6 +1,6 @@
 User-agent: *
 Disallow: /index.xml
-Disallow: /category/
+Disallow: /categories/
 Disallow: /tags/
 Disallow: /posts/
 Disallow: /series/

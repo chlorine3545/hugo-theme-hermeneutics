@@ -1,5 +1,5 @@
 baseURL = 'https://example.com/'
-languageCode = 'en-us'
+languageCode = 'en-US'
 title = 'My Awesome Site'
 theme = 'hermeneutics'
 
@@ -53,6 +53,14 @@ enableCsrf = false
         startDate = "01/01/2023 00:00:00"
         announcement = false
         math = false
+        description = "A Hugo theme for bloggers."
+        keywords = [
+            "Hugo",
+            "Blog",
+            "Developer",
+            "Open Source",
+            "Tech"
+        ]
 
     [params.author]
         name = "John Doe"

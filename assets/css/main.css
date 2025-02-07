@@ -29,6 +29,17 @@
   --cl-green: rgba(143, 168, 116, 0.8);
 }
 
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  font-feature-settings: "liga" 1, "dlig" 1;
+  font-variant-east-asian: simplified;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -75,5 +75,3 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', updateNav);
     updateNav();
 });
-
-console.log("theme.js loaded");

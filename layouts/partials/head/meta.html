@@ -1,11 +1,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 添加X-UA-Compatible以支持旧版IE -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="referrer" content="no-referrer">
 
 {{- $params := .Scratch.Get "params" -}}
 
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
-<meta name="keywords" content="{{ if .IsPage}}{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}{{ else }}{{ with .Site.Params.keywords }}{{ . }}{{ end }}{{ end }}">
+<meta name="description"
+    content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.Basic.description }}{{ . }}{{ end }}{{ end }}">
+
+<meta name="keywords" content="{{ if .IsPage }}
+    {{- with .Params.keywords }}{{ delimit . ", " }}
+    {{- else }}{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}
+    {{- end }}
+{{- else }}
+    {{- with .Site.Params.Basic.keywords }}{{ delimit . ", " }}{{ end }}
+{{- end }}">
+
+<!-- 添加作者信息 -->
+{{ with .Site.Author.name }}
+<meta name="author" content="{{ . }}">{{ end }}
 
 <meta name="application-name" content="{{ .Site.Params.app.title | default .Site.Title }}">
 <meta name="apple-mobile-web-app-title" content="{{ .Site.Params.app.title | default .Site.Title }}">

@@ -40,7 +40,7 @@ This theme doesn't have much to do with the religious or philosophical meaning o
 ## WIP (Work in Progress)
 
 - [ ] Support for more commenting systems
-- [ ] Comprehensive, CJK-friendly search functionality
+- [ ] Comprehensive, CJK-friendly search functionality (Algolia Docsearch has been tested and merged)
 - [ ] Refactor code for consistent code style
 - [ ] Further SEO optimization
 - [ ] Theme documentation
@@ -52,7 +52,7 @@ The original intention of this theme was to create a self-use theme according to
 ## Acknowledgements
 
 - The theme's design draws heavily from [白い](https://innei.in). Many thanks to Innei for his brilliant design and aesthetics. "白い" is closed-source, and I did not refer to any code from its open-source version, [Shiro](https://github.com/innei/Shiro). Therefore, I believe this theme is not subject to the "copyleft" provisions of Shiro's AGPLv3 license.
-- Code completion and project construction heavily relied on Cursor.
+- Code completion and project construction relied on Cursor.
 - `twikoo.css` references some styles from [AnZhiYu](https://github.com/anzhiyu-c/hexo-theme-anzhiyu).
 
 ## License

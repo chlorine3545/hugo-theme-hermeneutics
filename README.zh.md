@@ -26,10 +26,12 @@ Hermeneutics（解释学），一个 Hugo 主题，由我与 [Cursor](https://ww
 - 极度美观的界面和动效（至少我自己是这么认为的）
 - 完全响应式
 - 丰富的短代码和附加功能
+    - Obsidian 风格的 Wiki Links（`[[文件|显示]]`）（仅限 Markdown 文件）
     - LaTeX 支持
     - 原生 Markdown 的 GitHub Alert 支持
     - 公告功能
     - 评论支持（目前仅支持 [Twikoo](https://twikoo.js.org)）
+    - Algolia Docsearch
     - bilibili 视频卡片支持（注意不是播放器）
     - GitHub / GitLab / Gitea 卡片支持
     - 画廊
@@ -40,7 +42,7 @@ Hermeneutics（解释学），一个 Hugo 主题，由我与 [Cursor](https://ww
 ## WIP
 
 - [ ] 更多评论系统的支持
-- [ ] 完善的、CJK 友好的搜索功能（目前已添加 Algolia Docsearch）
+- [ ] 更多完善的、CJK 友好的搜索功能
 - [ ] 重构代码，统一代码风格
 - [ ] 进一步的 SEO 优化
 - [ ] 主题文档

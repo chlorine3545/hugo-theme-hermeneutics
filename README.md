@@ -26,10 +26,12 @@ This theme doesn't have much to do with the religious or philosophical meaning o
 - Extremely beautiful interface and animations (at least in my opinion)
 - Fully responsive
 - Rich shortcodes and additional features:
+    - Obsidian Style Wiki Links (`[[Link|Display]]`) (Markdown file only)
     - LaTeX support
     - GitHub Alert support for native Markdown
     - Announcement feature
     - Comment support (currently only supports [Twikoo](https://twikoo.js.org))
+    - Algolia Docsearch
     - bilibili video card support (note: not a player)
     - GitHub / GitLab / Gitea card support
     - Gallery
@@ -40,7 +42,7 @@ This theme doesn't have much to do with the religious or philosophical meaning o
 ## WIP (Work in Progress)
 
 - [ ] Support for more commenting systems
-- [ ] Comprehensive, CJK-friendly search functionality (Algolia Docsearch has been tested and merged)
+- [ ] Comprehensive, CJK-friendly search functionality
 - [ ] Refactor code for consistent code style
 - [ ] Further SEO optimization
 - [ ] Theme documentation

@@ -31,7 +31,9 @@
 
     <!-- 文章分类 -->
     {{ with .Params.categories }}
+    {{ range . }}
     <meta property="article:section" content="{{ . }}">
+    {{ end }}
     {{ end }}
 {{ end }}
 

@@ -19,3 +19,8 @@
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
 {{ partial "head/vendor.html" . }}
+
+{{ if templates.Exists "partials/extended-head.html" }}
+{{ partialCached "extended-head.html" . }}
+{{ printf "<!-- LXGW Debug Info: Title: %s, IsHome: %v -->" .Title .IsHome }}
+{{ end }}

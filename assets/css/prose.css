@@ -155,34 +155,23 @@
   color: rgba(var(--foreground), 0.8);
 }
 
+
 .prose a {
-  color: var(--foreground);
+  color: inherit;
   text-decoration: none;
-  /* 移除默认下划线 */
-  background-image:
-    linear-gradient(to right, rgba(15, 23, 41, 0.2), rgba(15, 23, 41, 0.2)),
-    linear-gradient(to right, rgba(29, 40, 58, 0.8), rgba(29, 40, 58, 0.8));
-  background-repeat: no-repeat;
-  background-position: 0% 100%, 0% 100%;
-  /* 两个渐变的初始位置都在左下角 */
-  background-size: 100% 1px, 0% 1px;
-  /* 浅色下划线初始宽度100%，深色下划线初始宽度0% */
-  transition: all 0.2s ease;
-  padding-bottom: 2px;
-  /* 使得链接允许换行 */
+  font-weight: inherit;
   word-break: break-word;
   word-wrap: break-word;
+  border-bottom: 1px solid rgba(125, 125, 125, 0.3);
+  transition: border 0.3s ease-in-out;
 
-  html.dark & {
-    background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
-      linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+  &:hover {
+    border-bottom: 1px solid var(--foreground);
   }
-}
 
-.prose a:hover {
-  color: var(--primary);
-  background-size: 0% 1px, 100% 1px;
+  code {
+    color: inherit;
+  }
 }
 
 /* 表格 */

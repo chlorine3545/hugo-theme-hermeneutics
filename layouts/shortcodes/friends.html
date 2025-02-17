@@ -1,4 +1,4 @@
-{{ $friends := .Site.Data.friends.friend }}
+{{ $friends := .Site.Data.internal.friends.friend }}
 
 <div class="plain-link grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4">
     {{ range $friends }}
@@ -25,9 +25,6 @@
                 ring-1 ring-gray-200/50 dark:ring-gray-700/50 mb-2 sm:mb-3">
             {{ if .ava }}
             <img src="{{ .ava }}" alt="{{ .name }}"
-                class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
-            {{ else if .hash }}
-            <img src="https://weavatar.com/avatar/{{ .hash }}" alt="{{ .name }}"
                 class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
             {{ else }}
             <div class="w-full h-full bg-gray-200/80 dark:bg-gray-700/80 flex items-center justify-center">

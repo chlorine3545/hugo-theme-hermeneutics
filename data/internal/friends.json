@@ -5,7 +5,6 @@
             "note": "主题作者",
             "room": "408A",
             "url": "https://chlor.me",
-            "hash": "",
             "des": "Como el viento.",
             "ava": "https://img.viento.cc/avatar/01.webp"
         },
@@ -14,7 +13,6 @@
             "note": "主题的另一个「作者」",
             "room": "000A",
             "url": "https://www.cursor.com",
-            "hash": "",
             "des": "The AI Code Editor",
             "ava": "https://www.cursor.com/favicon.ico"
         },
@@ -23,7 +21,6 @@
             "note": "你的备注",
             "room": "000A",
             "url": "https://example.com",
-            "hash": "",
             "des": "你的描述",
             "ava": "https://ui-avatars.com/api/?name=John+Doe&size=128"
         }

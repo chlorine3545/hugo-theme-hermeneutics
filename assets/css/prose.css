@@ -231,10 +231,8 @@
   color: inherit;
   text-decoration: none;
   background-image: none;
-}
 
-.plain-link a:visited {
-  color: inherit;
-  text-decoration: none;
-  background-image: none;
+  &:visited {
+    color: inherit;
+  }
 }

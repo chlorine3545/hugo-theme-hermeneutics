@@ -1,7 +1,7 @@
 :root {
   /* 亮色模式变量 */
   --background: hsl(0 0% 100%);
-  --foreground: hsl(222 25% 12%);
+  --foreground: hsl(222 25% 25%);
   --primary: hsl(222 35% 25%);
   --primary-foreground: hsl(210 25% 98%);
   --muted: hsl(210 25% 96%);
@@ -16,7 +16,7 @@
 
 .dark {
   --background: hsl(222 25% 8%);
-  --foreground: hsl(210 25% 92%);
+  --foreground: hsl(210 25% 96%);
   --primary: hsl(210 25% 92%);
   --primary-foreground: hsl(222 35% 12%);
   --muted: hsl(217 20% 15%);

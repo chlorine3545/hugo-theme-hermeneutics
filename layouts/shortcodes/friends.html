@@ -25,7 +25,7 @@
                 ring-1 ring-gray-200/50 dark:ring-gray-700/50 mb-2 sm:mb-3">
             {{ if .ava }}
             <img src="{{ .ava }}" alt="{{ .name }}"
-                class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
+                class="w-full h-full object-cover transition duration-300 group-hover:scale-105 no-lightbox">
             {{ else }}
             <div class="w-full h-full bg-gray-200/80 dark:bg-gray-700/80 flex items-center justify-center">
                 <span class="text-lg sm:text-xl font-semibold text-gray-600 dark:text-gray-300 uppercase">{{ substr

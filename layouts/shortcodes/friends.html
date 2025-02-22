@@ -1,6 +1,6 @@
 {{ $friends := .Site.Data.internal.friends.friend }}
 
-<div class="plain-link grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4">
+<div class="plain-link-container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4">
     {{ range $friends }}
     <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }}" class="group relative p-3 sm:p-4 rounded-2xl sm:rounded-3xl
            bg-gradient-to-b from-gray-50/80 to-gray-100/80 dark:from-gray-800/80 dark:to-gray-900/80

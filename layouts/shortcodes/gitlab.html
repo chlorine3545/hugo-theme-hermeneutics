@@ -1,59 +1,57 @@
 {{ $id := delimit (slice "gitlab" (partial "function/uid.html" .)) "-" }}
 {{ $repo := .Get "repo" }}
-{{ $apiUrl := printf "https://gitlab.com/api/v4/projects/%s" (replace $repo "/" "%2F") }}
+{{ $baseURL := .Get "baseURL" | default "https://gitlab.com" }}
+{{ $apiUrl := printf "%s/api/v4/projects/%s" $baseURL (replace $repo "/" "%2F") }}
 
 {{ $headers := dict "Accept" "application/json" }}
 
 {{ $repoData := resources.GetRemote $apiUrl $headers | transform.Unmarshal }}
 
-<div class="plain-link p-6 rounded-xl border-[1.5px] border-border/40 dark:border-border-dark/40 
-    bg-card/50 dark:bg-card-dark/50 backdrop-blur
-    shadow-sm shadow-accent/10 dark:shadow-accent-dark/10
-    ring-1 ring-accent/20 dark:ring-accent-dark/20
-    transition duration-300
-    hover:(ring-accent/30 dark:ring-accent-dark/30
-    shadow-md shadow-accent/10 dark:shadow-accent-dark/10
-    bg-card/70 dark:bg-card-dark/70
-    transition duration-300)">
+<div class="p-8 rounded-xl
+    backdrop-blur
+    shadow-md shadow-accent/10
+    ring-1 ring-accent/10
+    hover:ring-accent/30
+    hover:shadow-lg hover:shadow-accent/20
+    hover:transition hover:duration-300">
     <div class="flex items-center justify-between mb-3">
-        <a href="{{ $repoData.web_url }}" target="_blank" rel="noopener noreferrer" 
-            class="inline-flex items-center gap-2 text-lg font-medium 
-            text-foreground hover:text-primary transition-colors">
+        <a href="{{ $repoData.web_url }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-lg font-medium 
+        text-foreground transition-colors plain-link">
             <div class="i-carbon-logo-gitlab w-5 h-5"></div>
             <span>{{ $repoData.path_with_namespace }}</span>
         </a>
         {{ if $repoData.archived }}
-        <span class="px-3 py-1 text-sm rounded-full bg-accent/30 dark:bg-accent-dark/30
-            text-muted-foreground/80 dark:text-muted-foreground-dark/80">
+        <span class="px-3 py-1 text-sm rounded-full bg-accent/30
+            text-muted-foreground/80">
             已归档
         </span>
         {{ end }}
     </div>
-    
+
     {{ with $repoData.description }}
-    <p class="mb-4 text-[15px] leading-relaxed text-foreground/80 dark:text-foreground-dark/80">
+    <p class="mb-4 text-[15px] leading-relaxed text-foreground/80">
         {{ . }}
     </p>
     {{ end }}
-    
-    <div class="flex flex-wrap items-center gap-4 text-sm text-foreground/60 dark:text-foreground-dark/60">
+
+    <div class="flex flex-wrap items-center gap-4 text-sm text-foreground/60">
         {{ with $repoData.repository_access_level }}
         <div class="inline-flex items-center gap-1.5" title="仓库可见性">
             <div class="i-carbon-view w-4 h-4"></div>
             <span>{{ . }}</span>
         </div>
         {{ end }}
-        
+
         <div class="inline-flex items-center gap-1.5" title="Star 数">
             <div class="i-carbon-star w-4 h-4"></div>
             <span class="tabular-nums">{{ $repoData.star_count }}</span>
         </div>
-        
+
         <div class="inline-flex items-center gap-1.5" title="Fork 数">
             <div class="i-carbon-fork w-4 h-4"></div>
             <span class="tabular-nums">{{ $repoData.forks_count }}</span>
         </div>
-        
+
         <div class="inline-flex items-center gap-1.5" title="最后更新时间">
             <div class="i-carbon-time w-4 h-4"></div>
             <span class="tabular-nums">{{ time.Format "2006-01-02" $repoData.last_activity_at }}</span>

@@ -1,13 +1,13 @@
 {{ $path := .Get "path" | default (.Get 0) }}
 {{ with .Site.GetPage $path }}
 
-<div class="plain-link article-card p-6 rounded-xl border-2 border-border/50 dark:border-border-dark/50 
-    bg-card/50 dark:bg-card-dark/50 backdrop-blur
+<div class="plain-link-container article-card p-6 rounded-xl border-2 border-border/50 dark:border-border-dark/50 
+    backdrop-blur
     shadow-sm shadow-accent/10 dark:shadow-accent-dark/10
     ring-1 ring-accent/20 dark:ring-accent-dark/20
     transition duration-300 
     hover:(ring-accent/30 dark:ring-accent-dark/30
-    bg-card/80 dark:bg-card-dark/80 translate-y-[-2px]
+    translate-y-[-2px]
     shadow-md shadow-accent/10 dark:shadow-accent-dark/10)">
 
     <!-- 文章信息 -->

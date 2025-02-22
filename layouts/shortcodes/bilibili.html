@@ -10,14 +10,14 @@
 {{ $timestamp := int $data.pubdate }}
 {{ $pubTime := $timestamp | time.AsTime }}
 
-<div class="plain-link p-6 rounded-xl border-2 border-border/50 dark:border-border-dark/50 
-    bg-card/50 dark:bg-card-dark/50 backdrop-blur
+<div class="plain-link-container p-6 rounded-xl border-2 border-border/50 dark:border-border-dark/50 
+    backdrop-blur
     shadow-sm shadow-accent/10 dark:shadow-accent-dark/10
     ring-1 ring-accent/20 dark:ring-accent-dark/20
     transition duration-300
     hover:(ring-accent/30 dark:ring-accent-dark/30
     shadow-md shadow-accent/10 dark:shadow-accent-dark/10
-    bg-card/70 dark:bg-card-dark/70
+    dark:bg-card-dark/70
     transition duration-300)">
 
     <!-- 视频封面和标题区域 -->

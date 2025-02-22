@@ -227,11 +227,22 @@
   margin-bottom: 0;
 }
 
-.plain-link a {
+.plain-link-container a {
   color: inherit;
   text-decoration: none;
   background-image: none;
   border-bottom: none;
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+.plain-link {
+  color: inherit;
+  text-decoration: none;
+  background-image: none !important;
+  border-bottom: none !important;
 
   &:visited {
     color: inherit;

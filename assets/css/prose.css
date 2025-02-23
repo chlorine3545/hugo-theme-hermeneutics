@@ -157,13 +157,21 @@
 
 
 .prose a {
-  color: inherit;
+  color: var(--foreground);
   text-decoration: none;
   font-weight: inherit;
   word-break: break-word;
   word-wrap: break-word;
   border-bottom: 1px solid rgba(125, 125, 125, 0.3);
-  transition: border 0.3s ease-in-out;
+  transition: border 0.3s ease-in-out, color 0.3s ease-in-out;
+
+  html.dark & {
+    border-bottom: 1px solid rgba(125, 125, 125, 0.7);
+
+    &:hover {
+      border-bottom: 1px solid var(--foreground);
+    }
+  }
 
   &:hover {
     border-bottom: 1px solid var(--foreground);

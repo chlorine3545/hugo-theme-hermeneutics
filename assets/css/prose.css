@@ -204,25 +204,32 @@
 }
 
 .prose hr {
-  border: none;
-  height: 1.2px;
-  margin: 3em auto;
-  width: 90%;
-  background: linear-gradient(90deg, rgba(var(--border), 0), rgba(var(--border), 0.2) 50%, rgba(var(--border), 0));
-  overflow: visible;
+  border: 0;
+  height: 1px;
+  margin: 2.5rem auto;
+  width: 88%;
+  background: linear-gradient(90deg,
+      rgba(128, 128, 128, 0) 0%,
+      rgba(128, 128, 128, 0.4) 50%,
+      rgba(128, 128, 128, 0) 100%);
 
-  @media (max-width: 768px) {
-    width: 95%;
-    margin: 2em auto;
-
-    &::before {
-      width: 40px;
-      height: 2px;
-    }
+  /* 暗色模式适配 */
+  html.dark & {
+    background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0) 100%);
   }
 
-  html.dark & {
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0));
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    width: 92%;
+    margin: 1.8rem auto;
+  }
+
+  /* 大屏幕增强效果 */
+  @media (min-width: 1280px) {
+    width: 82%;
   }
 }
 

@@ -114,7 +114,7 @@ enableCsrf = false
     [[params.social]]
         name = "Codeberg"
         url = "https://codeberg.org/your-username"
-        icon = "i-simple-codeberg"
+        icon = "i-simple-icons-codeberg"
         color = "#2185D0"
         enable = false
 
@@ -156,7 +156,7 @@ enableCsrf = false
     [[params.social]]
         name = "Bilibili"
         url = "https://space.bilibili.com/your-userid"
-        icon = "i-simple-bilibili"
+        icon = "i-simple-icons-bilibili"
         color = "#00A1D6"
         enable = false
 
@@ -170,7 +170,7 @@ enableCsrf = false
     [[params.social]]
         name = "ORCID"
         url = "https://orcid.org/your-orcid-id"
-        icon = "i-simple-orcid"
+        icon = "i-simple-icons-orcid"
         color = "#A6CE39"
         enable = false
 
@@ -184,7 +184,7 @@ enableCsrf = false
     [[params.social]]
         name = "Bluesky"
         url = "https://bsky.app/profile/your-username"
-        icon = "i-simple-bluesky"
+        icon = "i-simple-icons-bluesky"
         color = "#1DA1F2"
         enable = false
 

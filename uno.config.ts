@@ -1,23 +1,12 @@
-import { defineConfig, presetUno, presetIcons } from 'unocss'
-import { IconifyJSON } from '@iconify/types'
-
-import carbonIcons from '@iconify-json/carbon/icons.json'
-import mdiIcons from '@iconify-json/mdi/icons.json'
-import simpleIcons from '@iconify-json/simple-icons/icons.json'
+import { defineConfig, presetWind3 } from 'unocss'
+import presetIcons from '@unocss/preset-icons'
 
 export default defineConfig({
     presets: [
-        presetUno({
+        presetWind3({
             dark: 'class',
         }),
-        presetIcons({
-            scale: 1.2,
-            collections: {
-                carbon: () => carbonIcons as IconifyJSON,
-                mdi: () => mdiIcons as IconifyJSON,
-                simple: () => simpleIcons as IconifyJSON,
-            }
-        }),
+        presetIcons(),
     ],
     theme: {
         colors: {

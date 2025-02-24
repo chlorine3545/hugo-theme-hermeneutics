@@ -1,0 +1,47 @@
+/* AI Summary 组件样式 */
+[data-component="ai-summary"] {
+    --ai-summary-duration: 0.4s;
+    --ai-summary-easing: cubic-bezier(0.25, 0.1, 0.25, 1.2);
+    --ai-summary-transition: var(--ai-summary-duration) var(--ai-summary-easing);
+}
+
+.ai-summary__content {
+    will-change: grid-template-rows, opacity;
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition:
+        grid-template-rows var(--ai-summary-transition),
+        opacity calc(var(--ai-summary-duration) * 0.6) var(--ai-summary-easing);
+}
+
+.ai-summary__content>div {
+    overflow: hidden;
+    min-height: 0;
+}
+
+.ai-summary__icon {
+    transition:
+        transform var(--ai-summary-transition),
+        opacity 0.2s linear;
+}
+
+/* 状态变化 */
+#ai-summary__checkbox:checked~label {
+    .ai-summary__content {
+        grid-template-rows: 1fr;
+        opacity: 1;
+    }
+
+    .ai-summary__icon {
+        transform: rotate(180deg);
+    }
+}
+
+/* 移动设备优化 */
+@media (pointer: coarse) {
+    .ai-summary__toggle:active {
+        transform: scale(0.95);
+        transition: transform 0.1s;
+    }
+}

@@ -1,7 +1,7 @@
 {{ $enableComments := .Params.comments | default .Site.Params.comments.enable }}
 {{ if $enableComments }}
 
-{{ partial "utils/loadcss.html" "css/components/twikoo.css" }}
+{{ partial "utils/loadcss.html" "css/components/article/comments/twikoo.css" }}
 
 <div class="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-border/40 dark:border-border-dark/40">
     <!-- 评论区标题 -->

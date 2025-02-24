@@ -1,29 +1,3 @@
-<script type="text/javascript">
-    function formatNumber(n) {
-        return n < 10 ? '0' + n : n;
-    }
-    
-    function runtime() {
-        const startTime = new Date("{{ .Site.Params.Basic.startDate }}");
-        const currentTime = new Date();
-        const timeDifference = currentTime - startTime;
-        
-        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((timeDifference / (1000 * 60)) % 60);
-        const seconds = Math.floor((timeDifference / 1000) % 60);
-        
-        const timeString = `${days} 天 ${formatNumber(hours)} : ${formatNumber(minutes)} : ${formatNumber(seconds)}`;
-        document.getElementById("runningtime").innerHTML = timeString;
-    }
-    
-    // 确保DOM加载完成后再执行
-    document.addEventListener('DOMContentLoaded', () => {
-        runtime();
-        setInterval(runtime, 1000);
-    });
-</script>
-
 {{/* Wowbook */}}
 {{ $totalWord := 0 }}
 {{ range .Site.RegularPages }}

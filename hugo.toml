@@ -223,6 +223,9 @@ enableCsrf = false
 
 [markup]
     [markup.goldmark]
+        [markup.goldmark.parser]
+            [markup.goldmark.parser.attribute]
+                block = true
         [markup.goldmark.extensions]
             [markup.goldmark.extensions.passthrough]
                 enable = false

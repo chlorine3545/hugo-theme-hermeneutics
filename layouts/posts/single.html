@@ -13,7 +13,11 @@
 
                     <!-- 文章内容 -->
                     <article class="prose max-w-none">
-                        {{ partial "wikicontent.html" . }}
+                        {{ if .Params.wikilinks }}
+                            {{ partial "wikicontent.html" . }}
+                        {{ else }}
+                            {{ .Content }}
+                        {{ end }}
                     </article>
 
                     <!-- 系列文章导航 -->

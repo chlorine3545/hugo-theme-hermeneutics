@@ -1,0 +1,26 @@
+{{ partial "utils/loadcss.html" "css/components/comments/artalk.css" }}
+
+<div class="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-border/40 dark:border-border-dark/40">
+    <!-- 评论区标题 -->
+    <div class="flex items-center gap-2 mb-8">
+        <div class="i-carbon-chat w-5 h-5 text-primary/80"></div>
+        <h3 class="text-lg font-medium">评论</h3>
+    </div>
+
+    <!-- Artalk 容器 -->
+    <div id="artalk" class="plain-link"></div>
+</div>
+
+<link href="{{ .Site.Params.comments.artalk.server }}/dist/Artalk.css" rel="stylesheet" />
+
+<!-- JS -->
+<script src="{{ .Site.Params.comments.artalk.server }}/dist/Artalk.js"></script>
+
+<script>
+    Artalk.init({
+        el: '#artalk',                       // 绑定元素的 Selector
+        pageKey: '{{ .Page.Slug }}',         // 页面唯一标识
+        pageTitle: '{{ .Page.Title }}',       // 页面标题
+        server: '{{ .Site.Params.comments.artalk.server }}', // Artalk 服务端地址
+    })
+</script>

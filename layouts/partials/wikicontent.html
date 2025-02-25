@@ -1,19 +1,14 @@
-{{/* 修复后的代码 */}}
-{{ if .Params.wikilinks }}
-    {{ $wikiregex := "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]" }} <!-- 优化正则 -->
-    {{ $page := .Page }}
-    {{ $content := .RawContent }}
+{{ $wikiregex := "\\[\\[([^\\]|]+)(?:\\|([^\\]]+))?\\]\\]" }} <!-- 优化正则 -->
+{{ $page := .Page }}
+{{ $content := .RawContent }}
 
-    {{ range .Content | findRE $wikiregex }}
-        {{ $linkPart := replaceRE $wikiregex "$1" . }}
-        {{ $displayPart := replaceRE $wikiregex "$2" . }}
-        {{ $displayText := cond (eq $displayPart "") $linkPart $displayPart }}
+{{ range .Content | findRE $wikiregex }}
+    {{ $linkPart := replaceRE $wikiregex "$1" . }}
+    {{ $displayPart := replaceRE $wikiregex "$2" . }}
+    {{ $displayText := cond (eq $displayPart "") $linkPart $displayPart }}
 
-        {{ $relref := printf "[%s]({{< relref \"%s\" >}})" $displayText $linkPart }}
-        {{ $content = replace $content . $relref }} <!-- 直接替换原始内容 -->
-    {{ end }}
-
-    {{ $content | markdownify }} 
-{{ else }}
-    {{ .Content }}
+    {{ $relref := printf "[%s]({{< relref \"%s\">}})" $displayText $linkPart }}
+    {{ $content = replace $content . $relref }} <!-- 直接替换原始内容 -->
 {{ end }}
+
+{{ $content | markdownify }}

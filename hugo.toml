@@ -213,8 +213,7 @@ enableCsrf = false
             categoryID = ""
 
         [params.comments.artalk]
-            serverURL = ""
-            siteId = ""
+            server = ""
 
     [params.beian]
         icp = ""

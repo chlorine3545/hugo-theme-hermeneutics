@@ -2,9 +2,11 @@
 {{ $repo := .Get "repo" }}
 {{ $baseURL := .Get "baseURL" | default "https://gitea.com" }}
 {{ $apiUrl := printf "%s/api/v1/repos/%s" $baseURL $repo }}
-
+{{ $platform := .Get "platform" | default "gitea" }}
+{{ if eq $baseURL "https://codeberg.org" }}
+    {{ $platform = "codeberg" }}
+{{ end }}
 {{ $headers := dict "Accept" "application/json" }}
-
 {{ $repoData := resources.GetRemote $apiUrl $headers | transform.Unmarshal }}
 
 <div class="p-8 rounded-xl
@@ -17,7 +19,15 @@
     <div class="flex items-center justify-between mb-3">
         <a href="{{ $repoData.html_url }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-lg font-medium 
         text-foreground transition-colors plain-link">
-            <div class="i-carbon-code w-5 h-5"></div>
+            {{ $iconClass := "i-carbon-code" }}
+            {{ if eq $platform "gitea" }}
+            {{ $iconClass = "i-simple-icons-gitea" }}
+            {{ else if eq $platform "codeberg" }}
+            {{ $iconClass = "i-simple-icons-codeberg" }}
+            {{ else if eq $platform "forgejo" }}
+            {{ $iconClass = "i-simple-icons-forgejo" }}
+            {{ end }}
+            <div class="{{ $iconClass }} w-5 h-5"></div>
             <span>{{ $repoData.full_name }}</span>
         </a>
         {{ if $repoData.archived }}
@@ -27,40 +37,40 @@
         </span>
         {{ end }}
     </div>
-    
+
     {{ with $repoData.description }}
     <p class="mb-4 text-[15px] leading-relaxed text-foreground/80">
         {{ . }}
     </p>
     {{ end }}
-    
+
     <div class="flex flex-wrap items-center gap-4 text-sm text-foreground/60">
         {{ with $repoData.language }}
         <div class="inline-flex items-center gap-1.5">
-            <span class="w-3 h-3 rounded-full ring-1 ring-black/5 dark:ring-white/5" 
+            <span class="w-3 h-3 rounded-full ring-1 ring-black/5 dark:ring-white/5"
                 style="background-color: {{ index $.Site.Data.external.giteaColors . }}">
             </span>
             <span>{{ . }}</span>
         </div>
         {{ end }}
-        
+
         <div class="inline-flex items-center gap-1.5" title="Star 数">
             <div class="i-carbon-star w-4 h-4"></div>
             <span class="tabular-nums">{{ $repoData.stars_count }}</span>
         </div>
-        
+
         <div class="inline-flex items-center gap-1.5" title="Fork 数">
             <div class="i-carbon-fork w-4 h-4"></div>
             <span class="tabular-nums">{{ $repoData.forks_count }}</span>
         </div>
-        
+
         {{ if $repoData.private }}
         <div class="inline-flex items-center gap-1.5" title="私有仓库">
             <div class="i-carbon-lock w-4 h-4"></div>
             <span>私有</span>
         </div>
         {{ end }}
-        
+
         <div class="inline-flex items-center gap-1.5" title="最后更新时间">
             <div class="i-carbon-time w-4 h-4"></div>
             <span class="tabular-nums">{{ time.Format "2006-01-02" $repoData.updated_at }}</span>

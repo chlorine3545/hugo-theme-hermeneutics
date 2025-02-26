@@ -33,7 +33,7 @@ This theme doesn't have much to do with the religious or philosophical meaning o
     - Comment support (currently only supports [Twikoo](https://twikoo.js.org))
     - Algolia Docsearch
     - bilibili video card support (note: not a player)
-    - GitHub / GitLab / Gitea card support
+    - GitHub / GitLab / Gitea / Forgejo card support
     - Gallery
     - Pure native JavaScript image lightbox
     - Wowbook word count

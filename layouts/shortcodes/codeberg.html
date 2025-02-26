@@ -1,11 +1,7 @@
-{{ $id := delimit (slice "gitea" (partial "function/uid.html" .)) "-" }}
+{{/*  这是 gitea.html 的 Codeberg 特化版本, 用起来方便点  */}}
+{{ $id := delimit (slice "codeberg" (partial "function/uid.html" .)) "-" }}
 {{ $repo := .Get "repo" }}
-{{ $baseURL := .Get "baseURL" | default "https://gitea.com" }}
-{{ $apiUrl := printf "%s/api/v1/repos/%s" $baseURL $repo }}
-{{ $platform := .Get "platform" | default "gitea" }}
-{{ if eq $baseURL "https://codeberg.org" }}
-{{ $platform = "codeberg" }}
-{{ end }}
+{{ $apiUrl := printf "https://codeberg.org/api/v1/repos/%s" $repo }}
 {{ $headers := dict "Accept" "application/json" }}
 {{ $repoData := resources.GetRemote $apiUrl $headers | transform.Unmarshal }}
 
@@ -19,15 +15,7 @@
     <div class="flex items-center justify-between mb-3">
         <a href="{{ $repoData.html_url }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-lg font-medium 
         text-foreground transition-colors plain-link">
-            {{ $iconClass := "i-carbon-code" }}
-            {{ if eq $platform "gitea" }}
-            {{ $iconClass = "i-simple-icons-gitea" }}
-            {{ else if eq $platform "codeberg" }}
-            {{ $iconClass = "i-simple-icons-codeberg" }}
-            {{ else if eq $platform "forgejo" }}
-            {{ $iconClass = "i-simple-icons-forgejo" }}
-            {{ end }}
-            <div class="{{ $iconClass }} w-5 h-5"></div>
+            <div class="i-simple-icons-codeberg w-5 h-5"></div>
             <span>{{ $repoData.full_name }}</span>
         </a>
         {{ if $repoData.archived }}

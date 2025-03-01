@@ -1,11 +1,37 @@
 {{ define "main" }}
-<article class="prose prose-neutral dark:prose-invert max-w-4xl mx-auto px-4 py-20">
-    <header class="not-prose mb-16">
-        <h1 class="text-3xl font-bold mb-6">{{ .Title }}</h1>
-    </header>
+<div class="container max-w-6xl mx-auto px-4 pt-24 pb-16">
+    <div class="flex gap-16">
+        <div class="relative">
+            <div class="flex gap-8 max-w-6xl mx-auto px-4 py-12 md:py-20">
+                <div class="w-full lg:max-w-3xl">
+                    <header class="mb-12">
+                        <h1 class="text-3xl font-bold mb-6">{{ .Title }}</h1>
+                    </header>
 
-    {{ .Content }}
+                    <!-- 文章内容 -->
+                    <article class="prose max-w-none">
+                        {{ if .Params.wikilinks }}
+                            {{ partial "wikicontent.html" . }}
+                        {{ else }}
+                            {{ .Content }}
+                        {{ end }}
+                    </article>
 
-    {{ partial "components/article/comments.html" . }}
-</article>
+                    <!-- 评论区 -->
+                    {{ partial "components/article/comments.html" . }}
+                </div>
+
+                <!-- 侧边栏 -->
+                <aside class="hidden lg:block w-64 flex-shrink-0">
+                    <div class="sticky top-24 flex flex-col gap-6">
+                        {{ partial "components/article/toc.html" . }}
+                        {{ partial "components/article/reading-progress.html" . }}
+                    </div>
+                </aside>
+            </div>
+
+            {{ partial "components/article/reading-progress-ball.html" . }}
+        </div>
+    </div>
+</div>
 {{ end }}

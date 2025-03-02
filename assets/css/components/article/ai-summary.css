@@ -1,8 +1,24 @@
 /* AI Summary 组件样式 */
 [data-component="ai-summary"] {
-    --ai-summary-duration: 0.4s;
-    --ai-summary-easing: cubic-bezier(0.25, 0.1, 0.25, 1.2);
+    --ai-summary-duration: 0.3s; /* 稍微缩短动画时间 */
+    --ai-summary-easing: cubic-bezier(0.16, 1, 0.3, 1); /* 更平滑的缓动函数 */
     --ai-summary-transition: var(--ai-summary-duration) var(--ai-summary-easing);
+    -webkit-tap-highlight-color: transparent;
+    transform: translateZ(0); /* 整个组件启用硬件加速 */
+}
+
+/* 为label添加无高亮效果 */
+.ai-summary label {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+.ai-summary__container {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-tap-highlight-color: transparent; /* 移除移动端点击高亮 */
+    will-change: transform; /* 告知浏览器可能变化的属性 */
 }
 
 .ai-summary__content {
@@ -12,7 +28,8 @@
     opacity: 0;
     transition:
         grid-template-rows var(--ai-summary-transition),
-        opacity calc(var(--ai-summary-duration) * 0.6) var(--ai-summary-easing);
+        opacity calc(var(--ai-summary-duration) * 0.8) var(--ai-summary-easing);
+    transform: translateZ(0); /* 启用硬件加速 */
 }
 
 .ai-summary__content>div {
@@ -21,27 +38,33 @@
 }
 
 .ai-summary__icon {
-    transition:
-        transform var(--ai-summary-transition),
-        opacity 0.2s linear;
+    transition: transform var(--ai-summary-transition);
+    will-change: transform; /* 提前告知浏览器 */
 }
 
 /* 状态变化 */
-#ai-summary__checkbox:checked~label {
-    .ai-summary__content {
-        grid-template-rows: 1fr;
-        opacity: 1;
-    }
+#ai-summary__checkbox:checked~label .ai-summary__content {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
 
-    .ai-summary__icon {
-        transform: rotate(180deg);
-    }
+#ai-summary__checkbox:checked~label .ai-summary__icon {
+    transform: rotate(180deg);
 }
 
 /* 移动设备优化 */
 @media (pointer: coarse) {
+    .ai-summary__container {
+        touch-action: manipulation; /* 全局触摸优化 */
+    }
+    
+    /* 禁用活跃状态样式变化 */
     .ai-summary__toggle:active {
-        transform: scale(0.95);
-        transition: transform 0.1s;
+        background-color: transparent !important;
+    }
+    
+    /* 防止移动设备上的任何闪烁 */
+    .ai-summary label:active {
+        opacity: 0.99; /* 极小变化以防止闪烁 */
     }
 }

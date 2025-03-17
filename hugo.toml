@@ -7,6 +7,12 @@ theme = 'hermeneutics'
 hasCJKLanguage = false
 enableCsrf = false
 
+[outputs]
+    home = ['html', 'rss']
+    section = ['html']
+    taxonomy = ['html']
+    term = ['html']
+
 [Permalinks]
     posts = "/:slug/"
 

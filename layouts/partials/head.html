@@ -19,7 +19,7 @@
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
 
-{{/*  KaTeX CSS  */}}
+{{/* KaTeX CSS */}}
 {{ $noop := .WordCount }}
 {{ if .Page.Store.Get "hasMath" }}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"

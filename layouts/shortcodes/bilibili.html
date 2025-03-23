@@ -10,35 +10,34 @@
 {{ $timestamp := int $data.pubdate }}
 {{ $pubTime := $timestamp | time.AsTime }}
 
-<div class="plain-link-container p-6 rounded-xl border-2 border-border/50 dark:border-border-dark/50 
+<div class="plain-link-container p-6 rounded-xl border-2 border-border/50
     backdrop-blur
-    shadow-sm shadow-accent/10 dark:shadow-accent-dark/10
-    ring-1 ring-accent/20 dark:ring-accent-dark/20
+    shadow-sm shadow-accent/10
+    ring-1 ring-accent/20
     transition duration-300
-    hover:(ring-accent/30 dark:ring-accent-dark/30
-    shadow-md shadow-accent/10 dark:shadow-accent-dark/10
-    dark:bg-card-dark/70
-    transition duration-300)">
+    hover:ring-accent/30
+    hover:shadow-md hover:shadow-accent/10
+    transition duration-300">
 
     <!-- 视频封面和标题区域 -->
     <div class="flex gap-4">
         <!-- 封面图 -->
-        <a href="https://www.bilibili.com/video/{{ $bvid }}" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 w-40 h-24 rounded-lg overflow-hidden 
+        <div class="flex-shrink-0 w-40 h-24 rounded-lg overflow-hidden 
             ring-1 ring-black/5 dark:ring-white/5">
             <img src="{{ $data.pic }}" alt="{{ $data.title }}"
-                class="w-full h-full object-cover transition duration-300 hover:scale-105" loading="lazy"
+                class="w-full h-full object-cover transition duration-300 pointer-events-none" loading="lazy"
                 referrerpolicy="no-referrer">
-        </a>
+        </div>
 
         <!-- 标题和UP主信息 -->
         <div class="flex-1 min-w-0">
             <a href="https://www.bilibili.com/video/{{ $bvid }}" target="_blank" rel="noopener noreferrer" class="block text-lg font-medium text-foreground hover:text-primary 
-                transition-colors line-clamp-2">
+                transition-colors line-clamp-2 plain-link">
                 {{ $data.title }}
             </a>
-            <a href="https://space.bilibili.com/{{ printf "%.0f" $data.owner.mid }}" target="_blank"
+            <a href="https://space.bilibili.com/{{ printf " %.0f" $data.owner.mid }}" target="_blank"
                 rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-sm 
-    text-muted-foreground/70 hover:text-primary transition-colors">
+    text-muted-foreground/70 hover:text-primary transition-colors plain-link">
                 <div class="i-carbon-user-avatar w-4 h-4"></div>
                 <span>{{ $data.owner.name }}</span>
             </a>

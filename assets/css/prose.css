@@ -120,6 +120,10 @@
   }
 }
 
+.prose del {
+  color: var(--muted-foreground);
+}
+
 /* 代码 */
 .prose code {
   font-family: ui-monospace, monospace;

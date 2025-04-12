@@ -5,7 +5,7 @@
     {{ if .enable }}
     <a href="{{ .url }}" title="{{ .name }}" target="_blank"
         class="flex items-center justify-center hover:opacity-80 text-white p-2.5 rounded-full"
-        style="background-color: {{ .color }}">
+        style="background: {{ .color }}">
         <div class="{{ .icon }} w-5 h-5"></div>
     </a>
     {{ end }}

@@ -188,6 +188,13 @@ enableCsrf = false
         enable = false
 
     [[params.social]]
+        name = "Fediverse"
+        url = "https://example.social/@your-username"
+        icon = "i-ph-fediverse-logo"
+        color = "#7289DA"
+        enable = false
+
+    [[params.social]]
         name = "Bluesky"
         url = "https://bsky.app/profile/your-username"
         icon = "i-simple-icons-bluesky"

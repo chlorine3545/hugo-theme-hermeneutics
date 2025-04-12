@@ -3,9 +3,10 @@
   "workspaces": {
     "": {
       "dependencies": {
-        "@iconify-json/carbon": "^1.2.7",
+        "@iconify-json/carbon": "^1.2.8",
         "@iconify-json/mdi": "^1.2.3",
-        "@iconify-json/simple-icons": "^1.2.26",
+        "@iconify-json/ph": "^1.2.2",
+        "@iconify-json/simple-icons": "^1.2.31",
       },
       "devDependencies": {
         "unocss": "^66.0.0",
@@ -77,11 +78,13 @@
 
     "@esbuild/win32-x64": ["@esbuild/win32-x64@0.24.2", "https://registry.npmmirror.com/@esbuild/win32-x64/-/win32-x64-0.24.2.tgz", { "os": "win32", "cpu": "x64" }, "sha512-7VTgWzgMGvup6aSqDPLiW5zHaxYJGTO4OokMjIlrCtf+VpEL+cXKtCvg723iguPYI5oaUNdS+/V7OU2gvXVWEg=="],
 
-    "@iconify-json/carbon": ["@iconify-json/carbon@1.2.7", "https://registry.npmmirror.com/@iconify-json/carbon/-/carbon-1.2.7.tgz", { "dependencies": { "@iconify/types": "*" } }, "sha512-nqEjicnNdb3CnY21MsTr9DfU8JBkP9C8hup1bCe4zvpLKjcU9YRmYChUbqZYBP4P+BL5NdrprTSN+B7qJg3H3Q=="],
+    "@iconify-json/carbon": ["@iconify-json/carbon@1.2.8", "https://registry.npmmirror.com/@iconify-json/carbon/-/carbon-1.2.8.tgz", { "dependencies": { "@iconify/types": "*" } }, "sha512-6xh4YiFBz6qoSnB3XMe23WvjTJroDFXB17J1MbiT7nATFe+70+em1acRXr8hgP/gYpwFMHFc4IvjA/IPTPnTzg=="],
 
     "@iconify-json/mdi": ["@iconify-json/mdi@1.2.3", "https://registry.npmmirror.com/@iconify-json/mdi/-/mdi-1.2.3.tgz", { "dependencies": { "@iconify/types": "*" } }, "sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg=="],
 
-    "@iconify-json/simple-icons": ["@iconify-json/simple-icons@1.2.26", "https://registry.npmmirror.com/@iconify-json/simple-icons/-/simple-icons-1.2.26.tgz", { "dependencies": { "@iconify/types": "*" } }, "sha512-NvqRuE+5h/tp4boPlnvfs0alD0CvnRE7oeG9Li5NGmZRx2/rhwlNjW/vEVTyhZcR9zqvRPAVh2GXR+PTEpzV+A=="],
+    "@iconify-json/ph": ["@iconify-json/ph@1.2.2", "https://registry.npmmirror.com/@iconify-json/ph/-/ph-1.2.2.tgz", { "dependencies": { "@iconify/types": "*" } }, "sha512-PgkEZNtqa8hBGjHXQa4pMwZa93hmfu8FUSjs/nv4oUU6yLsgv+gh9nu28Kqi8Fz9CCVu4hj1MZs9/60J57IzFw=="],
+
+    "@iconify-json/simple-icons": ["@iconify-json/simple-icons@1.2.31", "https://registry.npmmirror.com/@iconify-json/simple-icons/-/simple-icons-1.2.31.tgz", { "dependencies": { "@iconify/types": "*" } }, "sha512-xBUPtvkcSAiXs9DfVtudhLddQtQYin3I3Ph/W5FNYA0oE6r2hmLB8TgOog9OjOt1Sxn3IB5+4n5+64DMf2xNmQ=="],
 
     "@iconify/types": ["@iconify/types@2.0.0", "https://registry.npmmirror.com/@iconify/types/-/types-2.0.0.tgz", {}, "sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg=="],
 

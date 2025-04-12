@@ -90,6 +90,6 @@
 
 {{ with resources.Get "js/theme.js" }}
 <script>
-    { { .Content | safeJS } }
+    {{ .Content | safeJS }}
 </script>
 {{ end }}

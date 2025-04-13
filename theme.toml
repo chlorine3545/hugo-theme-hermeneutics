@@ -1,10 +1,10 @@
 name = 'Hermeneutics'
 license = 'MIT'
-licenselink = 'https://github.com/chlorine3545/hugo-theme-hermeneutics?tab=MIT-1-ov-file'
+licenselink = 'https://codeberg.org/chlorine/hugo-theme-hermeneutics/src/branch/main/LICENSE'
 description = 'But I call them all delusion —— beautiful delusion.'
 
 # The home page of the theme, where the source can be found
-homepage = 'https://github.com/chlorine3545/hugo-theme-hermeneutics'
+homepage = 'https://codeberg.org/chlorine/hugo-theme-hermeneutics'
 
 # If you have a running demo of the theme
 demosite = 'https://chlor.me'

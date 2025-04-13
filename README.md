@@ -1,6 +1,6 @@
 # Hugo Theme Hermeneutics
 
-[🇨🇳 简体中文](./README.zh.md)
+[🇨🇳 简体中文](./README.zh-CN.md)
 
 > If it comes first, they call that true love
 >

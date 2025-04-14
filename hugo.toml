@@ -240,7 +240,7 @@ enableCsrf = false
                 block = true
         [markup.goldmark.extensions]
             [markup.goldmark.extensions.passthrough]
-                enable = false
+                enable = true
                 [markup.goldmark.extensions.passthrough.delimiters]
                     block = [['$$', '$$']]
                     inline = [['$', '$']]

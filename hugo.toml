@@ -7,8 +7,18 @@ theme = 'hermeneutics'
 hasCJKLanguage = false
 enableCsrf = false
 
+[mediaTypes]
+    [mediaTypes.'application/atom+xml']
+        suffixes = ['atom']
+
+[outputFormats]
+    [outputFormats.atom]
+        mediaType = 'application/atom+xml'
+        baseName = 'feed'
+        noUgly = true
+
 [outputs]
-    home = ['html', 'rss']
+    home = ['html', 'rss', 'atom']
     section = ['html']
     taxonomy = ['html']
     term = ['html']
@@ -79,8 +89,14 @@ enableCsrf = false
             "Open Source Enthusiast",
             "Tech Lover",
         ]
-    [params.rss]
-        fullText = false
+    [params.feed]
+        [params.feed.rss]
+            fullText = true # 是否输出全文
+            limit = 10 # 限制 RSS 输出的文章数量
+
+        [params.feed.atom]
+            fullText = true
+            limit = 10
 
     [[params.social]]
         name = "Home"

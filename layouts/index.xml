@@ -20,21 +20,24 @@
     <copyright>{{ replace site.Copyright "{year}" now.Year }}</copyright>
     <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
     <category>Blog</category>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     {{- with site.Params.favicon }} <image>
       <url>{{ . | absURL }}</url>
       <title>{{ site.Title }}</title>
       <link>{{ site.BaseURL }}</link>
     </image> {{- end }} {{ with .OutputFormats.Get "RSS" }} {{
     printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }} {{ end }} 
-    {{- $posts := first 20 (where site.RegularPages "Section" "posts") }} {{- range $posts }} <item>
+    {{- $limit := .Site.Params.Feed.Rss.limit | default 10 -}}
+    {{- $posts := first $limit (where site.RegularPages "Section" "posts") -}}
+    {{- range $posts -}}
+    <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
       <author>{{ site.Params.author.name }}</author>
       <guid>{{ .Permalink }}</guid> {{- with .Params.tags }} {{-
     range . }} <category>{{ . }}</category> {{- end }} {{- end }} <description>{{ with .Description
-    }}{{ . }}{{ else }}{{ .Summary | html }}{{ end }}</description> {{- if site.Params.rss.fullText
+    }}{{ . }}{{ else }}{{ .Summary | html }}{{ end }}</description> {{- if site.Params.Feed.Rss.fullText
     }} <content:encoded>{{ `<![CDATA[` | safeHTML }}
         {{- if .Params.featuredImage }}
         <figure>

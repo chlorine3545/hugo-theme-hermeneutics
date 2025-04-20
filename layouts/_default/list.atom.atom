@@ -1,0 +1,54 @@
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\"?>" | safeHTML }}
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title>
+    {{- if eq .Title site.Title -}}
+      {{- site.Title -}}
+    {{- else -}}
+      {{- with .Title -}}{{ . }} - {{- end -}}
+      {{- site.Title -}}
+    {{- end }}
+  </title>
+  <link href="{{ .Permalink }}" rel="alternate" />
+  {{ with .OutputFormats.Get "Atom" }}
+    <link href="{{ .Permalink }}" rel="self" type="{{ .MediaType.Type }}" />
+  {{ end }}
+  <id>{{ .Permalink }}</id>
+  <updated>{{ now.Format "2006-01-02T15:04:05Z07:00" }}</updated>
+  <author>
+    <name>{{ site.Params.author.name }}</name>
+  </author>
+  <rights>{{ replace site.Copyright "{year}" now.Year }}</rights>
+  <generator>Hugo</generator>
+  {{- $limit := .Site.Params.Feed.Rss.limit | default 10 -}}
+  {{- $posts := first $limit (where site.RegularPages "Section" "posts") -}}
+  {{- range $posts }}
+  <entry>
+    <title>{{ .Title }}</title>
+    <link href="{{ .Permalink }}" />
+    <id>{{ .Permalink }}</id>
+    <updated>{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</updated>
+    <author>
+      <name>{{ site.Params.author.name }}</name>
+    </author>
+    <summary type="html">
+      {{ with .Description }}{{ . | html }}{{ else }}{{ .Summary | html }}{{ end }}
+    </summary>
+    {{ if site.Params.Feed.Rss.fullText }}
+    <content type="html">
+      {{ `<![CDATA[` | safeHTML }}
+        {{- if .Params.featuredImage }}
+        <figure>
+          <img src="{{ .Params.featuredImage | absURL }}" alt="{{ .Title }}" />
+          {{- with .Params.featuredImageCaption }}
+          <figcaption>{{ . }}</figcaption>
+          {{- end }}
+        </figure>
+        {{- end }}
+        {{ .Content | safeHTML }}
+      {{ `]]>` | safeHTML }}
+    </content>
+    {{ end }}
+  </entry>
+  {{- end }}
+</feed>

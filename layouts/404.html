@@ -2,34 +2,33 @@
 <div class="flex flex-col items-center justify-center min-h-[70vh] text-center px-4">
     <h1 class="text-8xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent 
                animate-pulse">404</h1>
-    
+
     <!-- 副标题 -->
     <h2 class="mt-4 text-2xl font-medium text-foreground/80">页面未找到</h2>
-    
+
     <!-- 建议链接 -->
     <div class="mt-8 flex flex-col sm:flex-row gap-4">
-        <a href="/" class="inline-flex items-center px-6 py-3 rounded-lg bg-primary text-white hover:bg-primary/90 
+        <a href="/" class="inline-flex items-center px-6 py-3 rounded-lg bg-primary text-white dark:text-black hover:bg-primary/90 
                           transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
             <div class="i-carbon-arrow-left w-4 h-4 mr-2"></div>
             <span class="font-medium">返回首页</span>
         </a>
-        <a href="/posts" class="inline-flex items-center px-6 py-3 rounded-lg border-2 border-primary text-primary
-                               hover:bg-primary hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl
+        <a href="/posts" class="inline-flex items-center px-6 py-3 rounded-lg border-2 border-primary text-primary hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl
                                transform hover:-translate-y-0.5">
             <div class="i-carbon-document w-4 h-4 mr-2"></div>
             <span class="font-medium">浏览文章</span>
         </a>
     </div>
-    
+
     <!-- 随机引言 -->
     <div class="mt-12 max-w-lg">
         <blockquote class="text-sm text-foreground/60 italic">
             {{ index (slice
-                "「所有命运的馈赠，早已在暗中标好价格。」 ——茨威格"
-                "「生活不可能像你想象得那么好，但也不会像你想象得那么糟。」 ——莫泊桑"
-                "「希望是本无所谓有，无所谓无的。这正如地上的路；其实地上本没有路，走的人多了，也便成了路。」 ——鲁迅"
-                "「不要为已消尽之年华叹息，必须正视匆匆溜走的时光。」 ——普鲁斯特"
-                "「我们必须拿我们所有的，去换我们所没有的。」 ——惠特曼"
+            "「所有命运的馈赠，早已在暗中标好价格。」 ——茨威格"
+            "「生活不可能像你想象得那么好，但也不会像你想象得那么糟。」 ——莫泊桑"
+            "「希望是本无所谓有，无所谓无的。这正如地上的路；其实地上本没有路，走的人多了，也便成了路。」 ——鲁迅"
+            "「不要为已消尽之年华叹息，必须正视匆匆溜走的时光。」 ——普鲁斯特"
+            "「我们必须拿我们所有的，去换我们所没有的。」 ——惠特曼"
             ) (mod now.Unix 5) }}
         </blockquote>
     </div>

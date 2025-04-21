@@ -1,4 +1,4 @@
-{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\"?>" | safeHTML }}
 <rss version="2.0"
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -13,7 +13,20 @@
       {{- end -}}
     </title>
     <link>{{ .Permalink }}</link>
-    <description>{{ with site.Params.description }}{{ . }}{{ end }}</description>
+    <description>
+      {{- /* 获取 Atom Feed 的链接 */ -}}
+      {{- $atomLink := "" -}}
+      {{- with .OutputFormats.Get "atom" -}}
+        {{- $atomLink = .Permalink -}}
+      {{- end -}}
+      {{- /* 输出网站描述和警告信息 */ -}}
+      {{- with site.Params.description -}}
+        {{- . | plainify -}}
+      {{- end -}}
+      {{- if $atomLink -}}
+        {{- printf " | Note: This RSS feed is deprecated. Please use the Atom feed at %s for future updates." $atomLink -}}
+      {{- end -}}
+    </description>
     <language>{{ site.Language.LanguageCode }}</language>
     <managingEditor>{{ site.Params.author.name }}</managingEditor>
     <webMaster>{{ site.Params.author.name }}</webMaster>
@@ -26,7 +39,11 @@
       <title>{{ site.Title }}</title>
       <link>{{ site.BaseURL }}</link>
     </image> {{- end }} {{ with .OutputFormats.Get "RSS" }} {{
-    printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }} {{ end }} 
+    printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }} {{ end }}
+    {{- /* 添加指向 Atom Feed 的链接 */ -}}
+    {{- with .OutputFormats.Get "atom" -}}
+      {{- printf "<atom:link href=%q rel=\"alternate\" type=%q />" .Permalink .MediaType | safeHTML -}}
+    {{- end -}}
     {{- $limit := .Site.Params.Feed.Rss.limit | default 10 -}}
     {{- $posts := first $limit (where site.RegularPages "Section" "posts") -}}
     {{- range $posts -}}
@@ -37,7 +54,7 @@
       <author>{{ site.Params.author.name }}</author>
       <guid>{{ .Permalink }}</guid> {{- with .Params.tags }} {{-
     range . }} <category>{{ . }}</category> {{- end }} {{- end }} <description>{{ with .Description
-    }}{{ . }}{{ else }}{{ .Summary | html }}{{ end }}</description> {{- if site.Params.Feed.Rss.fullText
+    }}{{ . | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}</description> {{- if site.Params.Feed.Rss.fullText
     }} <content:encoded>{{ `<![CDATA[` | safeHTML }}
         {{- if .Params.featuredImage }}
         <figure>

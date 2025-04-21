@@ -19,7 +19,7 @@
     <name>{{ site.Params.author.name }}</name>
   </author>
   <rights>{{ replace site.Copyright "{year}" now.Year }}</rights>
-  <generator>Hugo</generator>
+  <generator>Hugo -- The best static site generator</generator>
   {{- $limit := .Site.Params.Feed.Rss.limit | default 10 -}}
   {{- $posts := first $limit (where site.RegularPages "Section" "posts") -}}
   {{- range $posts }}
@@ -37,15 +37,15 @@
     {{ if site.Params.Feed.Rss.fullText }}
     <content type="html">
       {{ `<![CDATA[` | safeHTML }}
-        {{- if .Params.featuredImage }}
-        <figure>
-          <img src="{{ .Params.featuredImage | absURL }}" alt="{{ .Title }}" />
-          {{- with .Params.featuredImageCaption }}
-          <figcaption>{{ . }}</figcaption>
-          {{- end }}
-        </figure>
+      {{- if .Params.featuredImage }}
+      <figure>
+        <img src="{{ .Params.featuredImage | absURL }}" alt="{{ .Title }}" />
+        {{- with .Params.featuredImageCaption }}
+        <figcaption>{{ . }}</figcaption>
         {{- end }}
-        {{ .Content | safeHTML }}
+      </figure>
+      {{- end }}
+      {{ .Content }}
       {{ `]]>` | safeHTML }}
     </content>
     {{ end }}

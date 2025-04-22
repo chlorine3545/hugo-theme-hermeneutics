@@ -1,9 +1,13 @@
+let currentTheme = null;
+
 function getTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        return savedTheme;
+    if (currentTheme) {
+        return currentTheme;
     }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    // 首次加载时从 localStorage 获取
+    const savedTheme = localStorage.getItem('theme');
+    currentTheme = savedTheme || 'light';
+    return currentTheme;
 }
 
 function setTheme(theme) {
@@ -13,39 +17,24 @@ function setTheme(theme) {
 
     if (theme === 'dark') {
         htmlElement.classList.add('dark');
-    } else if (theme === 'light') {
-        htmlElement.classList.add('light');
     } else {
-        // 自动模式
-        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (isDark) {
-            htmlElement.classList.add('dark');
-        } else {
-            htmlElement.classList.add('light');
-        }
+        htmlElement.classList.add('light');
     }
+
+    currentTheme = theme;
     localStorage.setItem('theme', theme);
     updateThemeIcon(theme);
 }
 
 function updateThemeIcon(theme) {
     const themeToggle = document.getElementById('theme-toggle');
-    const iconClass = theme === 'dark' ? 'i-carbon-moon' :
-        theme === 'light' ? 'i-carbon-sun' :
-            'i-carbon-screen';
+    const iconClass = theme === 'dark' ? 'i-carbon-moon' : 'i-carbon-sun';
     themeToggle.innerHTML = `<div class="${iconClass} w-4 h-4 text-muted-foreground/70 dark:text-muted-foreground-dark/70"></div>`;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
     const theme = getTheme();
     setTheme(theme);
-
-    // 监听系统主题变化
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (localStorage.getItem('theme') === 'auto') {
-            setTheme('auto');
-        }
-    });
 });
 
 document.addEventListener('DOMContentLoaded', function () {

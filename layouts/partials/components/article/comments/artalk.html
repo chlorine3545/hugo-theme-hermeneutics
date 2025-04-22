@@ -17,51 +17,26 @@
 
 <script defer>
     function initArtalk() {
-        const theme = getTheme();
-        const isDark = theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-
         window.artalk = Artalk.init({
-            el: '#artalk',                       // 绑定元素的 Selector
-            pageKey: '{{ printf "/%s" (trim .RelPermalink "/") }}',         
-            pageTitle: '{{ .Page.Title }}',       // 页面标题
-            server: '{{ .Site.Params.comments.artalk.server }}', // Artalk 服务端地址
-            site: '{{ .Site.Title }}',             // 站点名称
-            darkMode: isDark,
+            el: '#artalk',
+            pageKey: '{{ printf "/%s" (trim .RelPermalink "/") }}',
+            pageTitle: '{{ .Page.Title }}',
+            server: '{{ .Site.Params.comments.artalk.server }}',
+            site: '{{ .Site.Title }}',
+            darkMode: currentTheme === 'dark',
         });
-    }
-
-    // 在主题切换时更新 Artalk 主题
-    function updateArtalkTheme() {
-        if (window.artalk) {
-            const theme = getTheme();
-            const isDark = theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-            window.artalk.setDarkMode(isDark);
-        }
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+        if (currentTheme === null) getTheme();
         initArtalk();
 
-        // 监听主题变化
-        const htmlElement = document.documentElement;
-        const observer = new MutationObserver(function (mutations) {
-            mutations.forEach(function (mutation) {
-                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                    updateArtalkTheme();
-                }
-            });
-        });
-
-        observer.observe(htmlElement, {
+        // 主题变化后动态切换暗黑模式
+        new MutationObserver(() => {
+            if (window.artalk) window.artalk.setDarkMode(currentTheme === 'dark');
+        }).observe(document.documentElement, {
             attributes: true,
             attributeFilter: ['class']
-        });
-
-        // 监听系统主题变化
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-            if (getTheme() === 'auto') {
-                updateArtalkTheme();
-            }
         });
     });
 </script>

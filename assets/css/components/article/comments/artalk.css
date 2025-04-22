@@ -127,6 +127,12 @@
     }
 }
 
+.artalk code, .atk-layer-wrap code {
+    font-family: monospace;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+}
+
 /* 表情图片垂直对齐 */
 img[atk-emoticon] {
     display: inline-block;

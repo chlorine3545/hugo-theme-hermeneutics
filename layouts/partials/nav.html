@@ -76,7 +76,7 @@
                     group-hover:opacity-100 group-hover:visible transition-all duration-200">
                     <div class="w-9 flex flex-col rounded-xl
                         shadow-sm shadow-accent/5">
-                        {{ range slice "light" "dark" "auto" }}
+                        {{ range slice "light" "dark" }}
                         {{ partial "components/nav/theme-button.html" (dict "theme" .) }}
                         {{ end }}
                     </div>

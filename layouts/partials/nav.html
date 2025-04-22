@@ -61,27 +61,17 @@
             {{ end }}
 
             <!-- 主题切换按钮 -->
-            <div class="relative group">
-                <button id="theme-toggle" class="shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full
-            bg-background/80
-            ring-0 border-0
-            text-muted-foreground/70
-            hover:bg-accent/50
-            transition-colors" aria-label="切换主题">
-                    <div class="i-carbon-sun w-4 h-4"></div>
-                </button>
-
-                <!-- 主题选择菜单 -->
-                <div class="absolute right-0 top-full mt-2 opacity-0 invisible 
-                    group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div class="w-9 flex flex-col rounded-xl
-                        shadow-sm shadow-accent/5">
-                        {{ range slice "light" "dark" }}
-                        {{ partial "components/nav/theme-button.html" (dict "theme" .) }}
-                        {{ end }}
-                    </div>
-                </div>
-            </div>
+            <button id="theme-toggle"
+                onclick="setTheme(currentTheme === 'dark' ? 'light' : 'dark')"
+                class="shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full
+                bg-background/80
+                ring-0 border-0
+                text-muted-foreground/70
+                hover:bg-accent/50
+                transition-colors"
+                aria-label="切换主题">
+                <div class="i-carbon-sun w-4 h-4" id="theme-icon"></div>
+            </button>
         </div>
     </div>
 </nav>

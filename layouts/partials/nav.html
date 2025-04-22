@@ -76,7 +76,9 @@
     </div>
 </nav>
 
+{{ if .Site.Params.Search.enable }}
 {{ partial "components/nav/search.html" . }}
+{{ end }}
 
 {{ with resources.Get "js/theme.js" }}
 <script>

@@ -1,4 +1,4 @@
-:root {
+.twikoo {
     --tk-radius: 12px;
     --tk-second-radius: 6px;
     --tk-card-border-width: 1px;
@@ -8,16 +8,16 @@
     --tk-owo-body-bg-color: rgba(255, 255, 255, 0.7);
     --style-border-always: 1px solid var(--tk-card-border);
     --tk-comment-border: 0.5px solid var(--tk-card-border);
-}
 
-html.dark {
-    --tk-border-color: #42444a;
-    --tk-action-bg: #2c2c2c;
-    --tk-card-border: #42444a;
-    --tk-owo-body-bg-color: rgba(0, 0, 0, 0.7);
-    --tk-text: #ccb !important;
-    --style-border-always: 1px solid var(--tk-card-border);
-    --tk-comment-border: 0.5px solid var(--tk-card-border);
+    html.dark & {
+        --tk-border-color: #42444a;
+        --tk-action-bg: #2c2c2c;
+        --tk-card-border: #42444a;
+        --tk-owo-body-bg-color: rgba(0, 0, 0, 0.7);
+        --tk-text: #ccb !important;
+        --style-border-always: 1px solid var(--tk-card-border);
+        --tk-comment-border: 0.5px solid var(--tk-card-border);
+    }
 }
 
 /* 动画 */

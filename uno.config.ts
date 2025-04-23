@@ -10,23 +10,23 @@ export default defineConfig({
     ],
     theme: {
         colors: {
-            border: 'var(--border)',
-            background: 'var(--background)',
-            foreground: 'var(--foreground)',
+            border: 'var(--herm-border)',
+            background: 'var(--herm-background)',
+            foreground: 'var(--herm-foreground)',
             primary: {
-                DEFAULT: 'var(--primary)',
-                foreground: 'var(--primary-foreground)',
+                DEFAULT: 'var(--herm-primary)',
+                foreground: 'var(--herm-primary-foreground)',
             },
             secondary: {
                 DEFAULT: 'hsl(var(--secondary))',
                 foreground: 'hsl(var(--secondary-foreground))',
             },
             muted: {
-                DEFAULT: 'var(--muted)',
-                foreground: 'var(--muted-foreground)',
+                DEFAULT: 'var(--herm-muted)',
+                foreground: 'var(--herm-muted-foreground)',
             },
             accent: {
-                DEFAULT: 'var(--accent)',
+                DEFAULT: 'var(--herm-muted)',
                 foreground: 'var(--accent-foreground)',
             },
         },

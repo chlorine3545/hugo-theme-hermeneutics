@@ -14,7 +14,7 @@
 
             a {
                 font-size: 0.85rem;
-                color: var(--muted-foreground);
+                color: var(--herm-muted-foreground);
                 opacity: 0.6;
             }
         }
@@ -26,7 +26,7 @@
             left: 0;
             width: 100%;
             height: 1px;
-            background-color: var(--border);
+            background-color: var(--herm-border);
             opacity: 0.5;
         }
     }
@@ -42,7 +42,7 @@
         padding: 0.25rem 0.5rem;
         margin: 0 -0.5rem;
         border-radius: 0.25rem;
-        color: var(--muted-foreground);
+        color: var(--herm-muted-foreground);
         opacity: 0.7;
         transition: all 0.2s ease;
         overflow: hidden;
@@ -51,9 +51,9 @@
         font-size: 14px;
 
         &:hover {
-            color: var(--foreground);
+            color: var(--herm-foreground);
             opacity: 0.9;
-            background-color: var(--accent);
+            background-color: var(--herm-muted);
         }
     }
 }

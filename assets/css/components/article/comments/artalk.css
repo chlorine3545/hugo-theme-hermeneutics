@@ -1,13 +1,13 @@
 .artalk {
     /* 主题变量定义 */
-    --at-color-main: var(--theme-accent) !important;
+    --at-color-main: var(--herm-accent) !important;
     --at-radius: 12px;
     --at-radius-sm: 8px;
-    --at-border-color: var(--border);
-    --at-bg-accent: var(--accent);
-    --at-bg-card: var(--card);
-    --at-text-color: var(--foreground);
-    --at-text-muted: var(--muted-foreground);
+    --at-border-color: var(--herm-border);
+    --at-bg-accent: var(--herm-muted);
+    --at-bg-card: var(--herm-card);
+    --at-text-color: var(--herm-foreground);
+    --at-text-muted: var(--herm-muted-foreground);
     --at-comment-border: 0.5px solid var(--at-border-color);
     --at-color-pending-text: #a94442;
     --at-color-pending-bg: linear-gradient(90deg, #fff5f5 0%, #ffeaea 100%);
@@ -32,7 +32,7 @@
     }
 
     >.atk-bottom .atk-send-btn {
-        background: var(--theme-accent);
+        background: var(--herm-accent);
         border-radius: 0.5rem;
     }
 }
@@ -106,7 +106,7 @@
 .artalk blockquote,
 .atk-layer-wrap blockquote {
     font-family: "Times New Roman", "STKaiti", "KaiTi", "楷体", "Noto Serif SC", serif;
-    color: var(--foreground);
+    color: var(--herm-foreground);
     background: inherit;
     position: relative;
     margin: 1rem 0;
@@ -120,7 +120,7 @@
         top: 0;
         bottom: 0;
         width: 0.15rem;
-        background: var(--accent);
+        background: var(--herm-muted);
         border-top-left-radius: 0.75rem;
         border-bottom-left-radius: 0.75rem;
         opacity: 0.8;

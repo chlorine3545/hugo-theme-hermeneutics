@@ -1,10 +1,10 @@
+/* 基础文本样式 */
 .prose {
-  /* 基础文本样式 */
-  line-height: 1.75;
-  color: var(--herm-foreground);
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  word-break: break-word;
+    line-height: 1.75;
+    color: var(--herm-foreground);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 /* 标题 */
@@ -14,250 +14,251 @@
 .prose h4,
 .prose h5,
 .prose h6 {
-  font-weight: 500;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    scroll-margin-top: 5rem;
 }
 
 .prose h1 {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 .prose h2 {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .prose h3 {
-  font-size: 1.25rem;
+    font-size: 1.25rem;
 }
 
 .prose h4 {
-  font-size: 1rem;
+    font-size: 1rem;
 }
 
 /* 段落 */
 .prose p {
-  margin: 1.25rem 0;
+    margin: 1.25rem 0;
 }
 
 /* 列表 */
 .prose ul,
 .prose ol {
-  margin: 1.25rem 0;
-  padding-left: 1.5rem;
+    margin: 1.25rem 0;
+    padding-left: 1.5rem;
 }
 
 .prose li {
-  margin: 0.5rem 0;
+    margin: 0.5rem 0;
 }
 
 /* 引用块 */
 .prose blockquote {
-  position: relative;
-  margin: 2rem 0;
-  padding: 1.5rem;
-  font-family: "Times New Roman", "STKaiti", "KaiTi", "楷体", "Noto Serif SC", serif;
-  color: var(--herm-foreground);
+    position: relative;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    font-family: "Times New Roman", "STKaiti", "KaiTi", "楷体", "Noto Serif SC", serif;
+    color: var(--herm-foreground);
 
-  /* 左边装饰线 */
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 0.25rem;
-    background: var(--herm-muted);
-    border-top-left-radius: 0.75rem;
-    border-bottom-left-radius: 0.75rem;
-    opacity: 0.8;
-  }
-
-  p {
-    margin: 0.75rem 0;
-    font-size: 0.95em;
-    opacity: 0.9;
-
-    &:first-of-type {
-      margin-top: 0;
-    }
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-  }
-
-  /* 移动端适配 */
-  @media (max-width: 768px) {
-    margin: 1.5rem 0;
-    padding: 1.25rem;
-
-    &::after {
-      font-size: 3rem;
-      opacity: 0.1;
+    /* 左边装饰线 */
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 0.25rem;
+        background: var(--herm-muted);
+        border-top-left-radius: 0.75rem;
+        border-bottom-left-radius: 0.75rem;
+        opacity: 0.8;
     }
 
     p {
-      font-size: 0.9em;
+        margin: 0.75rem 0;
+        font-size: 0.95em;
+        opacity: 0.9;
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
     }
-  }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        margin: 1.5rem 0;
+        padding: 1.25rem;
+
+        &::after {
+            font-size: 3rem;
+            opacity: 0.1;
+        }
+
+        p {
+            font-size: 0.9em;
+        }
+    }
 }
 
 /* 嵌套引用 */
 .prose blockquote blockquote {
-  margin: 1rem 0;
-  background: var(--herm-background);
-  border: 1px solid var(--herm-border);
+    margin: 1rem 0;
+    background: var(--herm-background);
+    border: 1px solid var(--herm-border);
 
-  &::before {
-    width: 0.2rem;
-    opacity: 0.6;
-  }
+    &::before {
+        width: 0.2rem;
+        opacity: 0.6;
+    }
 
-  &::after {
-    display: none;
-  }
+    &::after {
+        display: none;
+    }
 }
 
 .prose del {
-  color: var(--herm-muted-foreground);
+    color: var(--herm-muted-foreground);
 }
 
 /* 代码 */
 .prose code {
-  font-family: ui-monospace, monospace;
-  font-size: 0.9rem;
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.25rem;
-  background: rgba(var(--herm-muted), 0.3);
-  white-space: pre-wrap;
-  word-break: break-word;
-  word-wrap: break-word;
+    font-family: ui-monospace, monospace;
+    font-size: 0.9rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    background: rgba(var(--herm-muted), 0.3);
+    white-space: pre-wrap;
+    word-break: break-word;
+    word-wrap: break-word;
 }
 
 .prose pre {
-  position: relative;
-  padding: 1.25rem;
-  border-radius: 0.75rem;
-  background-color: rgba(var(--herm-muted), 0.3);
-  overflow-x: auto;
-  font-size: 0.875rem;
-  white-space: pre-wrap;
-  word-break: break-word;
-  word-wrap: break-word;
-}
+    position: relative;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    background-color: rgba(var(--herm-muted), 0.3);
+    overflow-x: auto;
+    font-size: 0.875rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+    word-wrap: break-word;
 
-.prose pre code {
-  background: none;
-  padding: 0;
-  font-size: 0.9rem;
-  color: var(--herm-foreground);
+    code {
+        background: none;
+        padding: 0;
+        font-size: 0.9rem;
+        color: var(--herm-foreground);
+    }
 }
 
 .prose a {
-  color: inherit;
-  text-decoration: none;
-  font-weight: inherit;
-  word-break: break-word;
-  word-wrap: break-word;
-  border-bottom: 1px solid rgba(125, 125, 125, 0.5);
-  transition: border 0.3s ease-in-out, color 0.3s ease-in-out;
-
-  &:hover {
-    border-bottom: 1px solid var(--herm-foreground);
-  }
-
-  html.dark & {
-    border-bottom: 1px solid rgba(125, 125, 125, 0.8);
+    color: inherit;
+    text-decoration: none;
+    font-weight: inherit;
+    word-break: break-word;
+    word-wrap: break-word;
+    border-bottom: 1px solid rgba(125, 125, 125, 0.5);
+    transition: border 0.3s ease-in-out, color 0.3s ease-in-out;
 
     &:hover {
-      border-bottom: 1px solid var(--herm-foreground);
+        border-bottom: 1px solid var(--herm-foreground);
     }
-  }
 
-  code {
-    color: inherit;
-  }
+    html.dark & {
+        border-bottom: 1px solid rgba(125, 125, 125, 0.8);
+
+        &:hover {
+            border-bottom: 1px solid var(--herm-foreground);
+        }
+    }
+
+    code {
+        color: inherit;
+    }
 }
 
 /* 表格 */
 .prose table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 2rem 0;
-  font-size: 0.9rem;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.9rem;
 }
 
 .prose th {
-  background: rgba(var(--herm-muted), 0.3);
-  font-weight: 500;
+    background: rgba(var(--herm-muted), 0.3);
+    font-weight: 500;
 }
 
 .prose td,
 .prose th {
-  padding: 0.75em 1em;
-  border: 1px solid rgba(var(--herm-border), 0.2);
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+    padding: 0.75em 1em;
+    border: 1px solid rgba(var(--herm-border), 0.2);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .prose hr {
-  border: 0;
-  height: 0.1rem;
-  margin: 2.5rem auto;
-  width: 88%;
-  background: linear-gradient(90deg,
-      rgba(128, 128, 128, 0) 0%,
-      rgba(128, 128, 128, 0.6) 50%,
-      rgba(128, 128, 128, 0) 100%);
-
-  /* 暗色模式适配 */
-  html.dark & {
+    border: 0;
+    height: 0.1rem;
+    margin: 2.5rem auto;
+    width: 88%;
     background: linear-gradient(90deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.3) 50%,
-        rgba(255, 255, 255, 0) 100%);
-  }
+            rgba(128, 128, 128, 0) 0%,
+            rgba(128, 128, 128, 0.6) 50%,
+            rgba(128, 128, 128, 0) 100%);
 
-  /* 响应式调整 */
-  @media (max-width: 768px) {
-    width: 92%;
-    margin: 1.8rem auto;
-  }
+    /* 暗色模式适配 */
+    html.dark & {
+        background: linear-gradient(90deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0) 100%);
+    }
 
-  /* 大屏幕增强效果 */
-  @media (min-width: 1280px) {
-    width: 82%;
-  }
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+        width: 92%;
+        margin: 1.8rem auto;
+    }
+
+    /* 大屏幕增强效果 */
+    @media (min-width: 1280px) {
+        width: 82%;
+    }
 }
 
 /* 其他元素间距 */
 .prose> :first-child {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 .prose> :last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .plain-link-container a {
-  color: inherit;
-  text-decoration: none;
-  background-image: none;
-  border-bottom: none;
-
-  &:visited {
     color: inherit;
-  }
+    text-decoration: none;
+    background-image: none;
+    border-bottom: none;
+
+    &:visited {
+        color: inherit;
+    }
 }
 
 .plain-link {
-  color: inherit;
-  text-decoration: none;
-  background-image: none !important;
-  border-bottom: none !important;
-
-  &:visited {
     color: inherit;
-  }
+    text-decoration: none;
+    background-image: none !important;
+    border-bottom: none !important;
+
+    &:visited {
+        color: inherit;
+    }
 }

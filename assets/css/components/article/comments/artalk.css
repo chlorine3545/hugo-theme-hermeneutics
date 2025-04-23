@@ -1,6 +1,6 @@
 .artalk {
     /* 主题变量定义 */
-    --at-color-main: var(--cl-green) !important;
+    --at-color-main: var(--theme-accent) !important;
     --at-radius: 12px;
     --at-radius-sm: 8px;
     --at-border-color: var(--border);
@@ -32,7 +32,7 @@
     }
 
     >.atk-bottom .atk-send-btn {
-        background: var(--cl-green);
+        background: var(--theme-accent);
         border-radius: 0.5rem;
     }
 }

@@ -465,6 +465,7 @@
 .duration-300{transition-duration:300ms;}
 .duration-500{transition-duration:500ms;}
 .hover\:duration-300:hover{transition-duration:300ms;}
+.ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);}
 .ease-out{transition-timing-function:cubic-bezier(0, 0, 0.2, 1);}
 @media (min-width: 640px){
 .sm\:top-4{top:1rem;}

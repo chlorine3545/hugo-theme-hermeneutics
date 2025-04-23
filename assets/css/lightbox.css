@@ -1,4 +1,4 @@
-.lightbox-overlay {
+.lightbox__overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -14,11 +14,11 @@
     transition: opacity 0.3s ease;
 }
 
-.lightbox-overlay.active {
+.lightbox__overlay.active {
     opacity: 1;
 }
 
-.lightbox-image {
+.lightbox__image {
     max-width: 90%;
     max-height: 90vh;
     object-fit: contain;
@@ -27,12 +27,12 @@
     cursor: zoom-out;
 }
 
-.lightbox-overlay.active .lightbox-image {
+.lightbox__overlay.active .lightbox__image {
     transform: scale(1);
 }
 
 /* 关闭按钮 */
-.lightbox-close {
+.lightbox__close {
     position: fixed;
     top: 1.5rem;
     right: 1.5rem;
@@ -46,9 +46,9 @@
     cursor: pointer;
     color: rgba(255, 255, 255, 0.8);
     transition: all 0.2s ease;
-}
 
-.lightbox-close:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: scale(1.1);
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: scale(1.1);
+    }
 }

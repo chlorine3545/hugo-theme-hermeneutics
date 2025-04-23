@@ -112,7 +112,7 @@
     }
 
     .tk-send {
-        background-color: var(--theme-accent);
+        background-color: var(--herm-accent);
     }
 }
 
@@ -243,7 +243,7 @@ body.owo-active {
 .tk-comments-title {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--foreground);
+    color: var(--herm-foreground);
     margin-bottom: 1.5rem;
     display: flex;
     justify-content: space-between;
@@ -261,7 +261,7 @@ body.owo-active {
     display: flex;
     flex-direction: row;
     word-break: break-all;
-    background: var(--card);
+    background: var(--herm-card);
     border: var(--tk-comment-border);
     border-radius: 1rem;
     transition: all 0.3s ease;
@@ -311,7 +311,7 @@ body.owo-active {
 
         .tk-action {
             .tk-action-icon {
-                color: var(--theme-accent);
+                color: var(--herm-accent);
             }
         }
 
@@ -333,7 +333,7 @@ body.owo-active {
             font-weight: 500;
 
             &:hover {
-                color: var(--theme-accent);
+                color: var(--herm-accent);
                 transition: color 0.2s ease;
             }
 
@@ -344,7 +344,7 @@ body.owo-active {
 
         .tk-time {
             font-size: 0.8rem;
-            color: var(--muted-foreground);
+            color: var(--herm-muted-foreground);
             margin-left: auto;
         }
     }
@@ -367,7 +367,7 @@ body.owo-active {
         }
 
         .tk-action-count {
-            color: var(--theme-accent);
+            color: var(--herm-accent);
         }
 
         @media (max-width: 768px) {
@@ -386,7 +386,7 @@ body.owo-active {
         }
 
         a {
-            color: var(--theme-accent);
+            color: var(--herm-accent);
             text-decoration: none;
             background-image: none;
         }
@@ -404,13 +404,13 @@ body.owo-active {
     .tk-comment {
         padding: 1rem;
         margin: 0.5rem 0 !important;
-        background: var(--accent);
+        background: var(--herm-muted);
         border: var(--tk-comment-border);
         opacity: 0.9;
 
         &:hover {
             transform: none;
-            border-color: var(--theme-accent);
+            border-color: var(--herm-accent);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
         }
     }
@@ -422,7 +422,7 @@ body.owo-active {
 }
 
 .tk-ruser {
-    color: var(--theme-accent) !important;
+    color: var(--herm-accent) !important;
     text-decoration: none !important;
     background-image: none !important;
 }
@@ -451,7 +451,7 @@ body.owo-active {
 }
 
 .tk-tag-green {
-    background: var(--theme-accent);
+    background: var(--herm-accent);
 }
 
 @media (max-width: 768px) {

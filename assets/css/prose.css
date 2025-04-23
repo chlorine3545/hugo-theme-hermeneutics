@@ -1,7 +1,7 @@
 .prose {
   /* 基础文本样式 */
   line-height: 1.75;
-  color: rgba(var(--foreground), 0.9);
+  color: rgba(var(--herm-foreground), 0.9);
   word-wrap: break-word;
   overflow-wrap: break-word;
   word-break: break-word;
@@ -17,7 +17,7 @@
   font-style: 500;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  color: hsl(var(--foreground));
+  color: hsl(var(--herm-foreground));
 }
 
 .prose h1 {
@@ -58,7 +58,7 @@
   margin: 2rem 0;
   padding: 1.5rem;
   font-family: "Times New Roman", "STKaiti", "KaiTi", "楷体", "Noto Serif SC", serif;
-  color: var(--foreground);
+  color: var(--herm-foreground);
 
   /* 左边装饰线 */
   &::before {
@@ -68,7 +68,7 @@
     top: 0;
     bottom: 0;
     width: 0.25rem;
-    background: var(--accent);
+    background: var(--herm-muted);
     border-top-left-radius: 0.75rem;
     border-bottom-left-radius: 0.75rem;
     opacity: 0.8;
@@ -107,8 +107,8 @@
 /* 嵌套引用 */
 .prose blockquote blockquote {
   margin: 1rem 0;
-  background: var(--background);
-  border: 1px solid var(--border);
+  background: var(--herm-background);
+  border: 1px solid var(--herm-border);
 
   &::before {
     width: 0.2rem;
@@ -121,7 +121,7 @@
 }
 
 .prose del {
-  color: var(--muted-foreground);
+  color: var(--herm-muted-foreground);
 }
 
 /* 代码 */
@@ -130,7 +130,7 @@
   font-size: 0.9rem;
   padding: 0.2rem 0.4rem;
   border-radius: 0.25rem;
-  background: rgba(var(--muted), 0.3);
+  background: rgba(var(--herm-muted), 0.3);
   white-space: pre-wrap;
   word-break: break-word;
   word-wrap: break-word;
@@ -140,7 +140,7 @@
   position: relative;
   padding: 1.25rem;
   border-radius: 0.75rem;
-  background-color: rgba(var(--accent), 0.3);
+  background-color: rgba(var(--herm-muted), 0.3);
   overflow-x: auto;
   font-size: 0.875rem;
   white-space: pre-wrap;
@@ -152,12 +152,12 @@
   background: none;
   padding: 0;
   font-size: 0.9rem;
-  color: rgba(var(--foreground), 0.8);
+  color: rgba(var(--herm-foreground), 0.8);
 }
 
 
 .prose a {
-  color: var(--foreground);
+  color: var(--herm-foreground);
   text-decoration: none;
   font-weight: inherit;
   word-break: break-word;
@@ -169,12 +169,12 @@
     border-bottom: 1px solid rgba(125, 125, 125, 0.7);
 
     &:hover {
-      border-bottom: 1px solid var(--foreground);
+      border-bottom: 1px solid var(--herm-foreground);
     }
   }
 
   &:hover {
-    border-bottom: 1px solid var(--foreground);
+    border-bottom: 1px solid var(--herm-foreground);
   }
 
   code {
@@ -191,14 +191,14 @@
 }
 
 .prose th {
-  background: rgba(var(--muted), 0.3);
+  background: rgba(var(--herm-muted), 0.3);
   font-weight: 500;
 }
 
 .prose td,
 .prose th {
   padding: 0.75em 1em;
-  border: 1px solid rgba(var(--border), 0.2);
+  border: 1px solid rgba(var(--herm-border), 0.2);
   word-wrap: break-word;
   overflow-wrap: break-word;
 }

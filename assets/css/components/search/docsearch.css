@@ -1,24 +1,24 @@
 /* DocSearch 样式定制 */
 :root {
-    --docsearch-primary-color: var(--theme-accent);
-    --docsearch-text-color: var(--foreground);
+    --docsearch-primary-color: var(--herm-accent);
+    --docsearch-text-color: var(--herm-foreground);
     --docsearch-spacing: 12px;
     --docsearch-icon-stroke-width: 1.4;
-    --docsearch-highlight-color: var(--theme-accent);
-    --docsearch-muted-color: var(--muted-foreground);
+    --docsearch-highlight-color: var(--herm-accent);
+    --docsearch-muted-color: var(--herm-muted-foreground);
     --docsearch-container-background: rgba(0, 0, 0, 0.4);
-    --docsearch-modal-background: var(--card);
-    --docsearch-modal-shadow: 0 0 0 1px var(--border), 0 8px 32px rgba(0, 0, 0, 0.12);
-    --docsearch-searchbox-background: var(--accent);
-    --docsearch-searchbox-focus-background: var(--background);
-    --docsearch-hit-color: var(--foreground);
-    --docsearch-hit-active-color: var(--background);
-    --docsearch-hit-background: var(--card);
+    --docsearch-modal-background: var(--herm-card);
+    --docsearch-modal-shadow: 0 0 0 1px var(--herm-border), 0 8px 32px rgba(0, 0, 0, 0.12);
+    --docsearch-searchbox-background: var(--herm-muted);
+    --docsearch-searchbox-focus-background: var(--herm-background);
+    --docsearch-hit-color: var(--herm-foreground);
+    --docsearch-hit-active-color: var(--herm-background);
+    --docsearch-hit-background: var(--herm-card);
     --docsearch-hit-shadow: none;
-    --docsearch-footer-background: var(--card);
+    --docsearch-footer-background: var(--herm-card);
     --docsearch-footer-shadow: none;
-    --docsearch-logo-color: var(--muted-foreground);
-    --docsearch-key-gradient: var(--accent);
+    --docsearch-logo-color: var(--herm-muted-foreground);
+    --docsearch-key-gradient: var(--herm-muted);
     --docsearch-key-shadow: none;
     --docsearch-modal-width: min(90vw, 640px);
     --docsearch-modal-height: min(80vh, 600px);
@@ -37,9 +37,9 @@
     height: 36px;
     padding: 0 0.75rem;
     font-size: 0.875rem;
-    color: var(--muted-foreground);
-    background: var(--accent);
-    border: 1px solid var(--border);
+    color: var(--herm-muted-foreground);
+    background: var(--herm-muted);
+    border: 1px solid var(--herm-border);
     border-radius: 0.5rem;
     transition: all 0.2s ease;
     cursor: pointer;
@@ -48,9 +48,9 @@
 }
 
 .search-button:hover {
-    color: var(--foreground);
-    background: var(--accent);
-    border-color: var(--border);
+    color: var(--herm-foreground);
+    background: var(--herm-muted);
+    border-color: var(--herm-border);
     transform: translateY(-1px);
 }
 
@@ -59,9 +59,9 @@
     font-family: ui-monospace, monospace;
     font-size: 0.75rem;
     font-weight: 500;
-    color: var(--muted-foreground);
-    background: var(--card);
-    border: 1px solid var(--border);
+    color: var(--herm-muted-foreground);
+    background: var(--herm-card);
+    border: 1px solid var(--herm-border);
     border-radius: 0.25rem;
     white-space: nowrap;
 }
@@ -105,7 +105,7 @@
 }
 
 .DocSearch-Form {
-    border: 1px solid var(--border);
+    border: 1px solid var(--herm-border);
     border-radius: 0.75rem;
 }
 
@@ -116,8 +116,8 @@
 .DocSearch-Hit-source {
     padding: 0.75rem var(--docsearch-spacing);
     font-weight: 500;
-    color: var(--foreground);
-    background: var(--accent);
+    color: var(--herm-foreground);
+    background: var(--herm-muted);
 }
 
 .DocSearch-Hit {
@@ -131,7 +131,7 @@
 }
 
 .DocSearch-Hit[aria-selected=true] a {
-    background: var(--theme-accent);
+    background: var(--herm-accent);
 }
 
 .DocSearch-Hit-Container {
@@ -149,7 +149,7 @@
 }
 
 .DocSearch-Footer {
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--herm-border);
 }
 
 .DocSearch-Commands {
@@ -157,17 +157,17 @@
 }
 
 .DocSearch-Logo svg path {
-    fill: var(--muted-foreground);
+    fill: var(--herm-muted-foreground);
 }
 
 /* 暗色模式适配 */
 html.dark {
-    --docsearch-modal-background: var(--card);
-    --docsearch-footer-background: var(--card);
-    --docsearch-hit-background: var(--card);
-    --docsearch-hit-color: var(--foreground);
-    --docsearch-hit-active-color: var(--background);
-    --docsearch-logo-color: var(--muted-foreground);
+    --docsearch-modal-background: var(--herm-card);
+    --docsearch-footer-background: var(--herm-card);
+    --docsearch-hit-background: var(--herm-card);
+    --docsearch-hit-color: var(--herm-foreground);
+    --docsearch-hit-active-color: var(--herm-background);
+    --docsearch-logo-color: var(--herm-muted-foreground);
     --docsearch-hit-shadow: none;
 }
 

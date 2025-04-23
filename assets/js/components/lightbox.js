@@ -1,17 +1,17 @@
 class Lightbox {
     constructor() {
-        if (document.querySelector('.lightbox-overlay')) return; // 防止重复初始化
+        if (document.querySelector('.lightbox__overlay')) return; // 防止重复初始化
         this.createLightbox();
         this.initializeImages();
     }
 
     createLightbox() {
         this.overlay = document.createElement('div');
-        this.overlay.className = 'lightbox-overlay';
+        this.overlay.className = 'lightbox__overlay';
         this.image = document.createElement('img');
-        this.image.className = 'lightbox-image';
+        this.image.className = 'lightbox__image';
         this.closeButton = document.createElement('div');
-        this.closeButton.className = 'lightbox-close';
+        this.closeButton.className = 'lightbox__close';
         this.closeButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
         this.overlay.append(this.image, this.closeButton);
         document.body.appendChild(this.overlay);

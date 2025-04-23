@@ -2,7 +2,7 @@
 <html lang="{{ .Site.LanguageCode }}">
 
 <head>
-    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+    <title>{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}</title>
     {{ partial "head.html" . }}
     {{ block "head" . }}{{ end }}
 </head>

@@ -9,10 +9,10 @@
 
 <div class="p-8 rounded-xl
     backdrop-blur
-    shadow-md shadow-accent/10
-    ring-1 ring-accent/10
-    hover:ring-accent/30
-    hover:shadow-lg hover:shadow-accent/20
+    shadow-md shadow-muted/10
+    ring-1 ring-muted/10
+    hover:ring-muted/30
+    hover:shadow-lg hover:shadow-muted/20
     hover:transition hover:duration-300">
     <div class="flex items-center justify-between mb-3">
         <a href="{{ $repoData.web_url }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-lg font-medium 
@@ -21,7 +21,7 @@
             <span>{{ $repoData.path_with_namespace }}</span>
         </a>
         {{ if $repoData.archived }}
-        <span class="px-3 py-1 text-sm rounded-full bg-accent/30
+        <span class="px-3 py-1 text-sm rounded-full bg-muted/30
             text-muted-foreground/80">
             已归档
         </span>

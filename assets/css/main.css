@@ -1,12 +1,11 @@
 :root {
   /* 亮色模式变量 */
   --herm-background: hsl(0 0% 100%);
-  --herm-foreground: hsl(222 25% 25%);
+  --herm-foreground: hsl(222 20% 35%);
   --herm-primary: hsl(222 35% 25%);
   --herm-primary-foreground: hsl(210 25% 98%);
   --herm-muted: hsl(210 25% 96%);
   --herm-muted-foreground: hsl(215 12% 45%);
-  --accent-foreground: hsl(222 35% 25%);
   --herm-card: hsl(0 0% 100%);
   --herm-card-foreground: hsl(222 25% 12%);
   --herm-border: hsl(214 15% 94%);
@@ -15,12 +14,11 @@
 
 .dark {
   --herm-background: hsl(222 25% 8%);
-  --herm-foreground: hsl(210 25% 96%);
+  --herm-foreground: hsl(210 20% 85%);
   --herm-primary: hsl(210 25% 92%);
   --herm-primary-foreground: hsl(222 35% 12%);
   --herm-muted: hsl(217 20% 15%);
   --herm-muted-foreground: hsl(215 15% 65%);
-  --accent-foreground: hsl(210 25% 92%);
   --herm-card: hsl(222 25% 8%);
   --herm-card-foreground: hsl(210 25% 92%);
   --herm-border: hsl(217 20% 15%);

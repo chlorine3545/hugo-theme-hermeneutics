@@ -4,7 +4,7 @@
     --at-radius: 12px;
     --at-radius-sm: 8px;
     --at-border-color: var(--herm-border);
-    --at-bg-accent: var(--herm-muted);
+    --at-bg-muted: var(--herm-muted);
     --at-bg-card: var(--herm-card);
     --at-text-color: var(--herm-foreground);
     --at-text-muted: var(--herm-muted-foreground);

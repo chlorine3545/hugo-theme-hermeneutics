@@ -1,7 +1,7 @@
 .prose {
   /* 基础文本样式 */
   line-height: 1.75;
-  color: rgba(var(--herm-foreground), 0.9);
+  color: var(--herm-foreground);
   word-wrap: break-word;
   overflow-wrap: break-word;
   word-break: break-word;
@@ -14,10 +14,9 @@
 .prose h4,
 .prose h5,
 .prose h6 {
-  font-style: 500;
+  font-weight: 500;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  color: hsl(var(--herm-foreground));
 }
 
 .prose h1 {
@@ -152,29 +151,28 @@
   background: none;
   padding: 0;
   font-size: 0.9rem;
-  color: rgba(var(--herm-foreground), 0.8);
+  color: var(--herm-foreground);
 }
 
-
 .prose a {
-  color: var(--herm-foreground);
+  color: inherit;
   text-decoration: none;
   font-weight: inherit;
   word-break: break-word;
   word-wrap: break-word;
-  border-bottom: 1px solid rgba(125, 125, 125, 0.3);
+  border-bottom: 1px solid rgba(125, 125, 125, 0.5);
   transition: border 0.3s ease-in-out, color 0.3s ease-in-out;
 
+  &:hover {
+    border-bottom: 1px solid var(--herm-foreground);
+  }
+
   html.dark & {
-    border-bottom: 1px solid rgba(125, 125, 125, 0.7);
+    border-bottom: 1px solid rgba(125, 125, 125, 0.8);
 
     &:hover {
       border-bottom: 1px solid var(--herm-foreground);
     }
-  }
-
-  &:hover {
-    border-bottom: 1px solid var(--herm-foreground);
   }
 
   code {
@@ -205,19 +203,19 @@
 
 .prose hr {
   border: 0;
-  height: 1px;
+  height: 0.1rem;
   margin: 2.5rem auto;
   width: 88%;
   background: linear-gradient(90deg,
       rgba(128, 128, 128, 0) 0%,
-      rgba(128, 128, 128, 0.4) 50%,
+      rgba(128, 128, 128, 0.6) 50%,
       rgba(128, 128, 128, 0) 100%);
 
   /* 暗色模式适配 */
   html.dark & {
     background: linear-gradient(90deg,
         rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0.3) 50%,
         rgba(255, 255, 255, 0) 100%);
   }
 

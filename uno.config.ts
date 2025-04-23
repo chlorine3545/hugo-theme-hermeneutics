@@ -17,18 +17,10 @@ export default defineConfig({
                 DEFAULT: 'var(--herm-primary)',
                 foreground: 'var(--herm-primary-foreground)',
             },
-            secondary: {
-                DEFAULT: 'hsl(var(--secondary))',
-                foreground: 'hsl(var(--secondary-foreground))',
-            },
             muted: {
                 DEFAULT: 'var(--herm-muted)',
                 foreground: 'var(--herm-muted-foreground)',
-            },
-            accent: {
-                DEFAULT: 'var(--herm-muted)',
-                foreground: 'var(--accent-foreground)',
-            },
+            }
         },
     }
 })

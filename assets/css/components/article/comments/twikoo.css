@@ -112,7 +112,7 @@
     }
 
     .tk-send {
-        background-color: var(--cl-green);
+        background-color: var(--theme-accent);
     }
 }
 
@@ -311,7 +311,7 @@ body.owo-active {
 
         .tk-action {
             .tk-action-icon {
-                color: var(--cl-green);
+                color: var(--theme-accent);
             }
         }
 
@@ -333,7 +333,7 @@ body.owo-active {
             font-weight: 500;
 
             &:hover {
-                color: var(--cl-green);
+                color: var(--theme-accent);
                 transition: color 0.2s ease;
             }
 
@@ -367,7 +367,7 @@ body.owo-active {
         }
 
         .tk-action-count {
-            color: var(--cl-green);
+            color: var(--theme-accent);
         }
 
         @media (max-width: 768px) {
@@ -386,7 +386,7 @@ body.owo-active {
         }
 
         a {
-            color: var(--cl-green);
+            color: var(--theme-accent);
             text-decoration: none;
             background-image: none;
         }
@@ -410,7 +410,7 @@ body.owo-active {
 
         &:hover {
             transform: none;
-            border-color: var(--cl-green);
+            border-color: var(--theme-accent);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
         }
     }
@@ -422,7 +422,7 @@ body.owo-active {
 }
 
 .tk-ruser {
-    color: var(--cl-green) !important;
+    color: var(--theme-accent) !important;
     text-decoration: none !important;
     background-image: none !important;
 }
@@ -451,7 +451,7 @@ body.owo-active {
 }
 
 .tk-tag-green {
-    background: var(--cl-green);
+    background: var(--theme-accent);
 }
 
 @media (max-width: 768px) {

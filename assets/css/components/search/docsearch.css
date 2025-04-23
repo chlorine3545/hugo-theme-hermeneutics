@@ -1,10 +1,10 @@
 /* DocSearch 样式定制 */
 :root {
-    --docsearch-primary-color: var(--cl-green);
+    --docsearch-primary-color: var(--theme-accent);
     --docsearch-text-color: var(--foreground);
     --docsearch-spacing: 12px;
     --docsearch-icon-stroke-width: 1.4;
-    --docsearch-highlight-color: var(--cl-green);
+    --docsearch-highlight-color: var(--theme-accent);
     --docsearch-muted-color: var(--muted-foreground);
     --docsearch-container-background: rgba(0, 0, 0, 0.4);
     --docsearch-modal-background: var(--card);
@@ -131,7 +131,7 @@
 }
 
 .DocSearch-Hit[aria-selected=true] a {
-    background: var(--cl-green);
+    background: var(--theme-accent);
 }
 
 .DocSearch-Hit-Container {

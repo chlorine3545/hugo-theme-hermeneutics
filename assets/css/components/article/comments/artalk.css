@@ -137,7 +137,7 @@
 img[atk-emoticon] {
     display: inline-block;
     vertical-align: middle;
-    max-height: 4rem;
+    max-height: 3.5rem;
     border-radius: var(--at-radius);
 }
 

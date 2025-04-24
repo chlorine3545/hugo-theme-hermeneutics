@@ -98,6 +98,10 @@ enableCsrf = false
             fullText = true
             limit = 10
 
+    # 下面是首页的社交图标，推荐不要写太多
+
+    # 元 Meta
+
     [[params.social]]
         name = "Home"
         url = "/"
@@ -112,6 +116,7 @@ enableCsrf = false
         color = "#EA4335"
         enable = true
 
+    # RSS 和 Atom 都使用这个
     [[params.social]]
         name = "RSS"
         url = "/index.xml"
@@ -119,6 +124,7 @@ enableCsrf = false
         color = "#EE802F"
         enable = true
 
+    # 开发者平台 Dev Platforms
     [[params.social]]
         name = "GitHub"
         url = "https://github.com/your-username"
@@ -134,6 +140,13 @@ enableCsrf = false
         enable = false
 
     [[params.social]]
+        name = "Bitbucket"
+        url = "https://bitbucket.org/your-username"
+        icon = "i-mdi-bitbucket"
+        color = "#0052CC"
+        enable = false
+
+    [[params.social]]
         name = "Codeberg"
         url = "https://codeberg.org/your-username"
         icon = "i-simple-icons-codeberg"
@@ -141,7 +154,43 @@ enableCsrf = false
         enable = false
 
     [[params.social]]
-        name = "Twitter"
+        name = "Gitee"
+        url = "https://gitee.com/your-username"
+        icon = "i-simple-icons-gitee"
+        color = "#C71D23"
+        enable = false
+
+    [[params.social]]
+        name = "SourceHut"
+        url = "https://sr.ht/~your-username"
+        icon = "i-simple-icons-sourcehut"
+        color = "#1793D1"
+        enable = false
+
+    [[params.social]]
+        name = "Gitea"
+        url = "https://gitea.tld/your-username"
+        icon = "i-simple-icons-gitea"
+        color = "#609926"
+        enable = false
+
+    [[params.social]]
+        name = "Forgejo"
+        url = "https://forgejo.tld/your-username"
+        icon = "i-simple-icons-forgejo"
+        color = "#F05033"
+        enable = false
+
+    # 社交平台 Social Platforms
+    [[params.social]]
+        name = "Weibo"
+        url = "https://weibo.com/your-username"
+        icon = "i-carbon-logo-weibo"
+        color = "#E6162D"
+        enable = false
+
+    [[params.social]]
+        name = "Twitter/X"
         url = "https://twitter.com/your-username"
         icon = "i-carbon-logo-twitter"
         color = "#1DA1F2"
@@ -169,38 +218,17 @@ enableCsrf = false
         enable = false
 
     [[params.social]]
-        name = "YouTube"
-        url = "https://www.youtube.com/channel/your-channel"
-        icon = "i-carbon-logo-youtube"
-        color = "#FF0000"
-        enable = false
-
-    [[params.social]]
-        name = "Bilibili"
-        url = "https://space.bilibili.com/your-userid"
-        icon = "i-simple-icons-bilibili"
-        color = "#00A1D6"
-        enable = false
-
-    [[params.social]]
-        name = "Telegram"
-        url = "https://t.me/your-username"
-        icon = "i-mdi-telegram"
-        color = "#2CA5E0"
-        enable = false
-
-    [[params.social]]
-        name = "ORCID"
-        url = "https://orcid.org/your-orcid-id"
-        icon = "i-simple-icons-orcid"
-        color = "#A6CE39"
-        enable = false
-
-    [[params.social]]
         name = "Mastodon"
         url = "https://example.social/@your-username"
         icon = "i-carbon-logo-mastodon"
         color = "#6364FF"
+        enable = false
+
+    [[params.social]]
+        name = "Misskey"
+        url = "https://misskey.tld/@your-username"
+        icon = "i-simple-icons-misskey"
+        color = "#A8C266"
         enable = false
 
     [[params.social]]
@@ -215,6 +243,243 @@ enableCsrf = false
         url = "https://bsky.app/profile/your-username"
         icon = "i-simple-icons-bluesky"
         color = "#1DA1F2"
+        enable = false
+
+    # 文字创作者平台 Writing Platforms
+    [[params.social]]
+        name = "Medium"
+        url = "https://medium.com/@your-username"
+        icon = "i-simple-icons-medium"
+        color = "#000000"
+        enable = false
+
+    [[params.social]]
+        name = "Substack"
+        url = "https://your-username.substack.com/"
+        icon = "i-simple-icons-substack"
+        color = "#FF6F20"
+        enable = false
+
+    [[params.social]]
+        name = "WordPress"
+        url = "https://wordpress.com/your-username"
+        icon = "i-simple-icons-wordpress"
+        color = "#21759B"
+        enable = false
+
+    [[params.social]]
+        name = "Wix"
+        url = "https://wix.tld/your-username"
+        icon = "i-simple-icons-wix"
+        color = "#000000"
+        enable = false
+
+    [[params.social]]
+        name = "Reddit"
+        url = "https://www.reddit.com/user/your-username"
+        icon = "i-mdi-reddit"
+        color = "#FF4500"
+        enable = false
+
+    [[params.social]]
+        name = "Zhihu"
+        url = "https://www.zhihu.com/people/your-username"
+        icon = "i-simple-icons-zhihu"
+        color = "#0084FF"
+        enable = false
+
+    [[params.social]]
+        name = "Douban"
+        url = "https://www.douban.com/people/your-username"
+        icon = "i-mdi-douban"
+        color = "#072"
+        enable = false
+
+    # 图片与音乐平台 Image & Music Platforms
+    [[params.social]]
+        name = "Flickr"
+        url = "https://www.flickr.com/photos/your-username"
+        icon = "i-mdi-flickr"
+        color = "#FF0084"
+        enable = false
+
+    [[params.social]]
+        name = "DeviantArt"
+        url = "https://www.deviantart.com/your-username"
+        icon = "i-mdi-deviantart"
+        color = "#05CC47"
+        enable = false
+
+    [[params.social]]
+        name = "Spotify"
+        url = "https://open.spotify.com/user/your-username"
+        icon = "i-mdi-spotify"
+        color = "#1DB954"
+        enable = false
+
+    [[params.social]]
+        name = "SoundCloud"
+        url = "https://soundcloud.com/your-username"
+        icon = "i-mdi-soundcloud"
+        color = "#FF5500"
+        enable = false
+
+    [[params.social]]
+        name = "Bandcamp"
+        url = "https://your-username.bandcamp.com/"
+        icon = "i-simple-icons-bandcamp"
+        color = "#4C9EBF"
+        enable = false
+
+    [[params.social]]
+        name = "Netease Music"
+        url = "https://music.163.com/#/user/home?id=your-userid"
+        icon = "i-simple-icons-neteasecloudmusic"
+        color = "#C20C0C"
+        enable = false
+
+    [[params.social]]
+        name = "Pixiv"
+        url = "https://www.pixiv.net/users/your-userid"
+        icon = "i-simple-icons-pixiv"
+        color = "#0096DB"
+        enable = false
+
+    # 视频创作者平台 Video Platforms
+    [[params.social]]
+        name = "YouTube"
+        url = "https://www.youtube.com/channel/your-channel"
+        icon = "i-carbon-logo-youtube"
+        color = "#FF0000"
+        enable = false
+
+    [[params.social]]
+        name = "Bilibili"
+        url = "https://space.bilibili.com/your-userid"
+        icon = "i-simple-icons-bilibili"
+        color = "#00A1D6"
+        enable = false
+
+    [[params.social]]
+        name = "TikTok"
+        url = "https://www.tiktok.com/@your-username"
+        icon = "i-simple-icons-tiktok"
+        color = "#000000"
+        enable = false
+
+    [[params.social]]
+        name = "PeerTube"
+        url = "https://peertube.tld/@your-username"
+        icon = "i-simple-icons-peertube"
+        color = "#F1680D"
+        enable = false
+
+    # 即时通讯平台 IM
+    [[params.social]]
+        name = "Telegram"
+        url = "https://t.me/your-username"
+        icon = "i-mdi-telegram"
+        color = "#2CA5E0"
+        enable = false
+
+    [[params.social]]
+        name = "Discord"
+        url = "https://discord.gg/your-username"
+        icon = "i-mdi-discord"
+        color = "#5865F2"
+        enable = false
+
+    [[params.social]]
+        name = "Signal"
+        url = "https://signal.me/#p/your-username"
+        icon = "i-simple-icons-signal"
+        color = "#2592E9"
+        enable = false
+
+    [[params.social]]
+        name = "QQ"
+        url = "https://t.qq.com/your-username"
+        icon = "i-carbon-logo-qq"
+        color = "#FFCC00"
+        enable = false
+
+    [[params.social]]
+        name = "WeChat"
+        url = "https://weixin.qq.com/r/your-username"
+        icon = "i-carbon-logo-wechat"
+        color = "#07C160"
+        enable = false
+
+    [[params.social]]
+        name = "Matrix"
+        url = "https://matrix.to/#/@your-username:matrix.tld"
+        icon = "i-simple-icons-matrix"
+        color = "#000000"
+        enable = false
+
+    # 捐赠平台 Donate Platforms
+    [[params.social]]
+        name = "Liberapay"
+        url = "https://liberapay.com/your-username"
+        icon = "i-simple-icons-liberapay"
+        color = "#FFCC00"
+        enable = false
+    
+    [[params.social]]
+        name = "Patreon"
+        url = "https://www.patreon.com/your-username"
+        icon = "i-mdi-patreon"
+        color = "#000000"
+        enable = false
+
+    [[params.social]]
+        name = "Buy Me a Coffee"
+        url = "https://www.buymeacoffee.com/your-username"
+        icon = "i-simple-icons-buymeacoffee"
+        color = "#F9DE4B"
+        enable = false
+
+    [[params.social]]
+        name = "Ko-fi"
+        url = "https://ko-fi.com/your-username"
+        icon = "i-simple-icons-kofi"
+        color = "#EC6632"
+        enable = false
+
+    [[params.social]]
+        name = "Open Collective"
+        url = "https://opencollective.com/your-username"
+        icon = "i-simple-icons-opencollective"
+        color = "#152C62"
+        enable = false
+
+    # 学术与研究平台 Academic & Research Platforms
+    [[params.social]]
+        name = "Google Scholar"
+        url = "https://scholar.google.com/citations?user=your-userid"
+        icon = "i-simple-icons-googlescholar"
+        color = "#4285F4"
+        enable = false
+
+    [[params.social]]
+        name = "ResearchGate"
+        url = "https://www.researchgate.net/profile/your-username"
+        icon = "i-simple-icons-researchgate"
+        color = "#65B89D"
+        enable = false
+
+    [[params.social]]
+        name = "arXiv"
+        url = "https://arxiv.org/a/your-username.html"
+        icon = "i-simple-icons-arxiv"
+        color = "#A42D25"
+        enable = false
+    
+    [[params.social]]
+        name = "ORCID"
+        url = "https://orcid.org/your-orcid-id"
+        icon = "i-simple-icons-orcid"
+        color = "#A6CE39"
         enable = false
 
     [[params.social]]

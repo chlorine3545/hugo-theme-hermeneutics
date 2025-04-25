@@ -1,4 +1,3 @@
-{{ $id := delimit (slice "gitlab" (partial "function/uid.html" .)) "-" }}
 {{ $repo := .Get "repo" }}
 {{ $baseURL := .Get "baseURL" | default "https://gitlab.com" }}
 {{ $apiUrl := printf "%s/api/v4/projects/%s" $baseURL (replace $repo "/" "%2F") }}

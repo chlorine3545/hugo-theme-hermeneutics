@@ -1,5 +1,4 @@
 {{/* 这是 gitea.html 的 Codeberg 特化版本, 用起来方便点 */}}
-{{ $id := delimit (slice "codeberg" (partial "function/uid.html" .)) "-" }}
 {{ $repo := .Get "repo" }}
 {{ $apiUrl := printf "https://codeberg.org/api/v1/repos/%s" $repo }}
 {{ $headers := dict "Accept" "application/json" }}

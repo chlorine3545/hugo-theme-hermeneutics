@@ -1,4 +1,4 @@
-import { defineConfig, presetWind3 } from 'unocss'
+import { defineConfig, presetWind3, transformerVariantGroup } from 'unocss'
 import presetIcons from '@unocss/preset-icons'
 
 export default defineConfig({
@@ -22,5 +22,8 @@ export default defineConfig({
                 foreground: 'var(--herm-muted-foreground)',
             }
         },
-    }
+    },
+    transformers: [
+        transformerVariantGroup(),
+    ],
 })

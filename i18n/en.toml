@@ -1,7 +1,10 @@
 [home]
     announcement = "Announcement"
-    readmore = "Read More"
     loading = "Don't worry, sit back and relax"
 
 [posts]
+    readmore = "Read More"
     pinned = "Pinned"
+
+[article]
+    toc = "Table of Contents"

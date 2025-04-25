@@ -2,13 +2,12 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "dependencies": {
+      "devDependencies": {
         "@iconify-json/carbon": "^1.2.8",
         "@iconify-json/mdi": "^1.2.3",
         "@iconify-json/ph": "^1.2.2",
         "@iconify-json/simple-icons": "^1.2.31",
-      },
-      "devDependencies": {
+        "@unocss/transformer-variant-group": "^66.1.0-beta.12",
         "unocss": "^66.0.0",
       },
     },
@@ -84,7 +83,7 @@
 
     "@iconify-json/ph": ["@iconify-json/ph@1.2.2", "https://registry.npmmirror.com/@iconify-json/ph/-/ph-1.2.2.tgz", { "dependencies": { "@iconify/types": "*" } }, "sha512-PgkEZNtqa8hBGjHXQa4pMwZa93hmfu8FUSjs/nv4oUU6yLsgv+gh9nu28Kqi8Fz9CCVu4hj1MZs9/60J57IzFw=="],
 
-    "@iconify-json/simple-icons": ["@iconify-json/simple-icons@1.2.31", "https://registry.npmmirror.com/@iconify-json/simple-icons/-/simple-icons-1.2.31.tgz", { "dependencies": { "@iconify/types": "*" } }, "sha512-xBUPtvkcSAiXs9DfVtudhLddQtQYin3I3Ph/W5FNYA0oE6r2hmLB8TgOog9OjOt1Sxn3IB5+4n5+64DMf2xNmQ=="],
+    "@iconify-json/simple-icons": ["@iconify-json/simple-icons@1.2.33", "https://registry.npmmirror.com/@iconify-json/simple-icons/-/simple-icons-1.2.33.tgz", { "dependencies": { "@iconify/types": "*" } }, "sha512-nL5/UmI9x5PQ/AHv6bOaL2pH6twEdEz4pI89efB/K7HFn5etQnxMtGx9DFlOg/sRA2/yFpX8KXvc95CSDv5bJA=="],
 
     "@iconify/types": ["@iconify/types@2.0.0", "https://registry.npmmirror.com/@iconify/types/-/types-2.0.0.tgz", {}, "sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg=="],
 
@@ -148,7 +147,7 @@
 
     "@unocss/config": ["@unocss/config@66.0.0", "https://registry.npmmirror.com/@unocss/config/-/config-66.0.0.tgz", { "dependencies": { "@unocss/core": "66.0.0", "unconfig": "~7.0.0" } }, "sha512-nFRGop/guBa4jLkrgXjaRDm5JPz4x3YpP10m5IQkHpHwlnHUVn1L9smyPl04ohYWhYn9ZcAHgR28Ih2jwta8hw=="],
 
-    "@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+    "@unocss/core": ["@unocss/core@66.1.0-beta.12", "https://registry.npmmirror.com/@unocss/core/-/core-66.1.0-beta.12.tgz", {}, "sha512-8+KJAoqA7eHC5cBJtod1AqWqQbYKfhTvQEgVQzZJ2sTYNTuQz4qdzPhUgKF83wURUhznGkdDL1Jxc6YITB1KPg=="],
 
     "@unocss/extractor-arbitrary-variants": ["@unocss/extractor-arbitrary-variants@66.0.0", "https://registry.npmmirror.com/@unocss/extractor-arbitrary-variants/-/extractor-arbitrary-variants-66.0.0.tgz", { "dependencies": { "@unocss/core": "66.0.0" } }, "sha512-vlkOIOuwBfaFBJcN6o7+obXjigjOlzVFN/jT6pG1WXbQDTRZ021jeF3i9INdb9D/0cQHSeDvNgi1TJ5oUxfiow=="],
 
@@ -184,7 +183,7 @@
 
     "@unocss/transformer-directives": ["@unocss/transformer-directives@66.0.0", "https://registry.npmmirror.com/@unocss/transformer-directives/-/transformer-directives-66.0.0.tgz", { "dependencies": { "@unocss/core": "66.0.0", "@unocss/rule-utils": "66.0.0", "css-tree": "^3.1.0" } }, "sha512-utcg7m2Foi7uHrU5WHadNuJ0a3qWG8tZNkQMi+m0DQpX6KWfuDtDn0zDZ1X+z5lmiB3WGSJERRrsvZbj1q50Mw=="],
 
-    "@unocss/transformer-variant-group": ["@unocss/transformer-variant-group@66.0.0", "https://registry.npmmirror.com/@unocss/transformer-variant-group/-/transformer-variant-group-66.0.0.tgz", { "dependencies": { "@unocss/core": "66.0.0" } }, "sha512-1BLjNWtAnR1JAcQGw0TS+nGrVoB9aznzvVZRoTx23dtRr3btvgKPHb8LrD48eD/p8Dtw9j3WfuxMDKXKegKDLg=="],
+    "@unocss/transformer-variant-group": ["@unocss/transformer-variant-group@66.1.0-beta.12", "https://registry.npmmirror.com/@unocss/transformer-variant-group/-/transformer-variant-group-66.1.0-beta.12.tgz", { "dependencies": { "@unocss/core": "66.1.0-beta.12" } }, "sha512-MWMJ2zMOdZm2yQptttzh8HoPwzmdk2BgShuoCE6B5jeTVhDpU52QSAZEewl2AAgv0VSz68X0QxxOC2j7GZ+90w=="],
 
     "@unocss/vite": ["@unocss/vite@66.0.0", "https://registry.npmmirror.com/@unocss/vite/-/vite-66.0.0.tgz", { "dependencies": { "@ampproject/remapping": "^2.3.0", "@unocss/config": "66.0.0", "@unocss/core": "66.0.0", "@unocss/inspector": "66.0.0", "chokidar": "^3.6.0", "magic-string": "^0.30.17", "tinyglobby": "^0.2.10", "unplugin-utils": "^0.2.4" }, "peerDependencies": { "vite": "^2.9.0 || ^3.0.0-0 || ^4.0.0 || ^5.0.0-0 || ^6.0.0-0" } }, "sha512-IVcPX8xL+2edyXKt4tp9yu5A6gcbPVCsspfcL0XgziCr01kS+4qSoZ90F3IUs3hXc/AyO5eCpRtGFMPLpOjXQg=="],
 
@@ -330,8 +329,52 @@
 
     "vue-flow-layout": ["vue-flow-layout@0.1.1", "https://registry.npmmirror.com/vue-flow-layout/-/vue-flow-layout-0.1.1.tgz", { "peerDependencies": { "vue": "^3.4.37" } }, "sha512-JdgRRUVrN0Y2GosA0M68DEbKlXMqJ7FQgsK8CjQD2vxvNSqAU6PZEpi4cfcTVtfM2GVOMjHo7GKKLbXxOBqDqA=="],
 
+    "@unocss/astro/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/cli/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/config/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/extractor-arbitrary-variants/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/inspector/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/postcss/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/preset-attributify/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/preset-icons/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/preset-mini/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/preset-tagify/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/preset-typography/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/preset-uno/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/preset-web-fonts/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/preset-wind/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/preset-wind3/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/rule-utils/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/transformer-attributify-jsx/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/transformer-compile-class/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/transformer-directives/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "@unocss/vite/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
     "anymatch/picomatch": ["picomatch@2.3.1", "https://registry.npmmirror.com/picomatch/-/picomatch-2.3.1.tgz", {}, "sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA=="],
 
     "readdirp/picomatch": ["picomatch@2.3.1", "https://registry.npmmirror.com/picomatch/-/picomatch-2.3.1.tgz", {}, "sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA=="],
+
+    "unocss/@unocss/core": ["@unocss/core@66.0.0", "https://registry.npmmirror.com/@unocss/core/-/core-66.0.0.tgz", {}, "sha512-PdVbSMHNDDkr++9nkqzsZRAkaU84gxMTEgYbqI7dt2p1DXp/5tomVtmMsr2/whXGYKRiUc0xZ3p4Pzraz8TcXA=="],
+
+    "unocss/@unocss/transformer-variant-group": ["@unocss/transformer-variant-group@66.0.0", "https://registry.npmmirror.com/@unocss/transformer-variant-group/-/transformer-variant-group-66.0.0.tgz", { "dependencies": { "@unocss/core": "66.0.0" } }, "sha512-1BLjNWtAnR1JAcQGw0TS+nGrVoB9aznzvVZRoTx23dtRr3btvgKPHb8LrD48eD/p8Dtw9j3WfuxMDKXKegKDLg=="],
   }
 }

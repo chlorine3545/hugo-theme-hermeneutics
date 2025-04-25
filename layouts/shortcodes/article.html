@@ -1,14 +1,11 @@
 {{ $path := .Get "path" | default (.Get 0) }}
 {{ with .Site.GetPage $path }}
 
-<div class="plain-link-container article-card p-6 rounded-xl border-2 border-border/50 dark:border-border-dark/50 
-    backdrop-blur
-    shadow-sm shadow-muted/10 dark:shadow-muted-dark/10
-    ring-1 ring-muted/20 dark:ring-muted-dark/20
-    transition duration-300 
-    hover:(ring-muted/30 dark:ring-muted-dark/30
-    translate-y-[-2px]
-    shadow-md shadow-muted/10 dark:shadow-muted-dark/10)">
+<div class="plain-link-container article-card p-6 rounded-xl backdrop-blur
+    shadow-sm shadow-muted/10
+    ring-1 ring-muted/20
+    transition duration-300
+    hover:ring-muted/30 hover:translate-y-[-2px] hover:shadow-md">
 
     <!-- 文章信息 -->
     <div class="flex flex-col">

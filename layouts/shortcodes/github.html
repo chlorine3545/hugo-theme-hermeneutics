@@ -1,4 +1,3 @@
-{{ $id := delimit (slice "github" (partial "function/uid.html" .)) "-" }}
 {{ $repo := .Get "repo" }}
 {{ $apiUrl := printf "https://api.github.com/repos/%s" $repo }}
 

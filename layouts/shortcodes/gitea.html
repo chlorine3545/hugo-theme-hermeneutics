@@ -1,4 +1,3 @@
-{{ $id := delimit (slice "gitea" (partial "function/uid.html" .)) "-" }}
 {{ $repo := .Get "repo" }}
 {{ $baseURL := .Get "baseURL" | default "https://gitea.com" }}
 {{ $apiUrl := printf "%s/api/v1/repos/%s" $baseURL $repo }}

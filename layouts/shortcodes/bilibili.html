@@ -1,4 +1,3 @@
-{{ $id := delimit (slice "bilibili" (partial "function/uid.html" .)) "-" }}
 {{ $bvid := .Get "bv" }}
 {{ $apiUrl := printf "https://api.bilibili.com/x/web-interface/view?bvid=%s" $bvid }}
 
@@ -10,13 +9,11 @@
 {{ $timestamp := int $data.pubdate }}
 {{ $pubTime := $timestamp | time.AsTime }}
 
-<div class="plain-link-container p-6 rounded-xl border-2 border-border/50
-    backdrop-blur
+<div class="plain-link-container p-6 rounded-xl backdrop-blur
     shadow-sm shadow-muted/10
     ring-1 ring-muted/20
     transition duration-300
-    hover:ring-muted/30
-    hover:shadow-md hover:shadow-muted/10
+    hover:ring-muted/30 hover:shadow-md hover:shadow-muted/20
     transition duration-300">
 
     <!-- 视频封面和标题区域 -->
@@ -49,31 +46,31 @@
         <!-- 播放量 -->
         <div class="inline-flex items-center gap-1.5" title="播放量">
             <div class="i-carbon-play w-4 h-4"></div>
-            <span class="tabular-nums">{{ div $data.stat.view 10000.0 | lang.FormatNumber 1 }}万</span>
+            <span class="tabular-nums">{{ partial "function/format-count.html" $data.stat.view }}</span>
         </div>
 
         <!-- 点赞数 -->
         <div class="inline-flex items-center gap-1.5" title="点赞数">
             <div class="i-carbon-thumbs-up w-4 h-4"></div>
-            <span class="tabular-nums">{{ div $data.stat.like 10000.0 | lang.FormatNumber 1 }}万</span>
+            <span class="tabular-nums">{{ partial "function/format-count.html" $data.stat.like }}</span>
         </div>
 
         <!-- 投币数 -->
         <div class="inline-flex items-center gap-1.5" title="投币数">
             <div class="i-carbon-currency w-4 h-4"></div>
-            <span class="tabular-nums">{{ div $data.stat.coin 10000.0 | lang.FormatNumber 1 }}万</span>
+            <span class="tabular-nums">{{ partial "function/format-count.html" $data.stat.coin }}</span>
         </div>
 
         <!-- 收藏数 -->
         <div class="inline-flex items-center gap-1.5" title="收藏数">
             <div class="i-carbon-favorite w-4 h-4"></div>
-            <span class="tabular-nums">{{ div $data.stat.favorite 10000.0 | lang.FormatNumber 1 }}万</span>
+            <span class="tabular-nums">{{ partial "function/format-count.html" $data.stat.favorite }}</span>
         </div>
 
         <!-- 弹幕数 -->
         <div class="inline-flex items-center gap-1.5" title="弹幕数">
             <div class="i-carbon-chat w-4 h-4"></div>
-            <span class="tabular-nums">{{ div $data.stat.danmaku 10000.0 | lang.FormatNumber 1 }}万</span>
+            <span class="tabular-nums">{{ partial "function/format-count.html" $data.stat.danmaku }}</span>
         </div>
 
         <!-- 发布时间 -->

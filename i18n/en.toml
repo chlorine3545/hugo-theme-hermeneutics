@@ -1,3 +1,7 @@
 [home]
     announcement = "Announcement"
     readmore = "Read More"
+    loading = "Don't worry, sit back and relax"
+
+[posts]
+    pinned = "Pinned"

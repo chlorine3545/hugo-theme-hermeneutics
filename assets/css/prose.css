@@ -183,10 +183,12 @@
 
 /* 表格 */
 .prose table {
-    width: 100%;
+    display: block;
+    max-width: 100%;
     border-collapse: collapse;
     margin: 2rem 0;
     font-size: 0.9rem;
+    overflow-x: auto;
 }
 
 .prose th {
@@ -198,8 +200,11 @@
 .prose th {
     padding: 0.75em 1em;
     border: 1px solid rgba(var(--herm-border), 0.2);
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    text-align: center;
+}
+
+.prose tr:nth-child(even) {
+    background: rgba(var(--herm-muted), 0.08);
 }
 
 .prose hr {

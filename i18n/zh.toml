@@ -1,3 +1,7 @@
 [home]
     announcement = "公告"
     readmore = "阅读更多"
+    loading = "别着急，坐和放宽"
+
+[posts]
+    pinned = "置顶"

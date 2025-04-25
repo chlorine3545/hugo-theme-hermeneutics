@@ -6,13 +6,8 @@
 
 {{ $repoData := resources.GetRemote $apiUrl $headers | transform.Unmarshal }}
 
-<div class="p-8 rounded-xl
-    backdrop-blur
-    shadow-md shadow-muted/10
-    ring-1 ring-muted/10
-    hover:ring-muted/30
-    hover:shadow-lg hover:shadow-muted/20
-    hover:transition hover:duration-300">
+<div
+    class="p-8 rounded-xl backdrop-blur shadow-md shadow-muted/10 hover:shadow-lg hover:shadow-muted/20 ring-1 ring-muted/10 hover:ring-muted/30 hover:transition hover:duration-300">
     <div class="flex items-center justify-between mb-3">
         <a href="{{ $repoData.html_url }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-lg font-medium 
             text-foreground transition-colors plain-link">

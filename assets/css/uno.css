@@ -193,6 +193,7 @@
 .max-w-\[50\%\]{max-width:50%;}
 .max-w-4xl{max-width:56rem;}
 .max-w-6xl{max-width:72rem;}
+.max-w-full{max-width:100%;}
 .max-w-lg{max-width:32rem;}
 .max-w-none{max-width:none;}
 .min-h-\[160px\]{min-height:160px;}
@@ -276,6 +277,7 @@
 .space-y-6>:not([hidden])~:not([hidden]){--un-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--un-space-y-reverse)));margin-bottom:calc(1.5rem * var(--un-space-y-reverse));}
 .space-y-8>:not([hidden])~:not([hidden]){--un-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--un-space-y-reverse)));margin-bottom:calc(2rem * var(--un-space-y-reverse));}
 .overflow-hidden{overflow:hidden;}
+.overflow-x-auto{overflow-x:auto;}
 .truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .whitespace-nowrap{white-space:nowrap;}
 .border{border-width:1px;}

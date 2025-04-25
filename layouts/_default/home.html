@@ -7,27 +7,11 @@
         <main class="flex flex-col-reverse lg:flex-row items-center lg:justify-between gap-12 lg:gap-24">
             <div class="w-full lg:flex-1 lg:max-w-xl space-y-6 text-center lg:text-left">
                 <h2 class="text-2xl lg:text-4xl font-bold">
-                    <span class="inline-flex overflow-hidden">
-                        {{/* 这里只好先硬编码了，没找到好的配置方式 */}}
-                        <span class="animate-text-reveal" style="--index: 0">H</span>
-                        <span class="animate-text-reveal" style="--index: 1">i</span>
-                        <span class="animate-text-reveal" style="--index: 2">,</span>
-                        <span class="animate-text-reveal" style="--index: 3">&nbsp;</span>
-                        <span class="animate-text-reveal" style="--index: 4">I</span>
-                        <span class="animate-text-reveal" style="--index: 5">'</span>
-                        <span class="animate-text-reveal" style="--index: 6">m</span>
-                        <span class="animate-text-reveal" style="--index: 7">&nbsp;</span>
-
-                        <!-- 作者名字 -->
-                        {{ $author := .Site.Params.Author.name }}
-                        {{ $nameChars := split $author "" }}
-                        {{ range $index, $char := $nameChars }}
-                        <span class="animate-text-reveal" style="--index: {{ add 8 $index }}">{{ $char }}</span>
-                        {{ end }}
-
-                        <span class="animate-text-reveal" style="--index: {{ add 8 (len $nameChars) }}">&nbsp;</span>
-                        <span class="animate-text-reveal" style="--index: {{ add 9 (len $nameChars) }}">🎉</span>
-                    </span>
+                    {{ partial "components/home/floating-text.html" (dict
+                    "text" (printf "Hi, I'm %s 🎉" .Site.Params.Author.name)
+                    "startIndex" 0
+                    "class" "animate-text-reveal"
+                    ) }}
                 </h2>
                 <div class="flex flex-wrap justify-center lg:justify-start gap-2">
                     {{ range $index, $tag := .Site.Params.Author.tags }}
@@ -45,14 +29,13 @@
                 </p>
                 {{ end }}
 
-
                 {{ partial "components/home/social.html" . }}
             </div>
 
             <div class="w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden flex-shrink-0 border-2 border-background shadow-xl animate-fade-left opacity-0"
                 style="animation-delay: 0.6s; animation-fill-mode: forwards;">
-                <img src="{{ .Site.Params.Author.avatar }}" alt="avatar" class="object-cover rounded-full" width="256" height="256"
-                    loading="lazy">
+                <img src="{{ .Site.Params.Author.avatar }}" alt="avatar" class="object-cover rounded-full" width="256"
+                    height="256" loading="lazy">
             </div>
         </main>
     </div>

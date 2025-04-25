@@ -1,8 +1,8 @@
 baseURL = 'https://example.com/'
 languageCode = 'en-US'
+defaultContentLanguage = "en"
 title = 'My Awesome Site'
 theme = 'hermeneutics'
-
 # 如果你使用 CJK（中文、日文、韩文）语言，请将下面的选项设置为 true
 hasCJKLanguage = false
 enableCsrf = false

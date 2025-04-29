@@ -12,7 +12,7 @@
 </div>
 
 <!-- Twikoo 脚本 -->
-<script src="https://cdn.jsdmirror.com/gh/chlorine3545/customcdn@2b63d63/js/twikoo/1_6_41.min.js" crossorigin="anonymous" defer></script>
+<script src="{{ printf "%s/gh/chlorine3545/customcdn@2b63d63/js/twikoo/1_6_41.min.js" .Site.Params.Dev.jsd }}" crossorigin="anonymous" defer></script>
 <script>
     window.addEventListener('load', () => {
         twikoo.init({

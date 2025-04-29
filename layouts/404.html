@@ -22,15 +22,7 @@
 
     <!-- 随机引言 -->
     <div class="mt-12 max-w-lg">
-        <blockquote class="text-sm text-foreground/60 italic">
-            {{ index (slice
-            "「所有命运的馈赠，早已在暗中标好价格。」 ——茨威格"
-            "「生活不可能像你想象得那么好，但也不会像你想象得那么糟。」 ——莫泊桑"
-            "「希望是本无所谓有，无所谓无的。这正如地上的路；其实地上本没有路，走的人多了，也便成了路。」 ——鲁迅"
-            "「不要为已消尽之年华叹息，必须正视匆匆溜走的时光。」 ——普鲁斯特"
-            "「我们必须拿我们所有的，去换我们所没有的。」 ——惠特曼"
-            ) (mod now.Unix 5) }}
-        </blockquote>
+        {{ partial "components/random-quote.html" . }}
     </div>
 </div>
 {{ end }}

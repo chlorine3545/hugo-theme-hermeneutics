@@ -1,0 +1,10 @@
+{{ $quotes := .Site.Data.internal.quotes }}
+{{ if $quotes }}
+  {{ $length := len $quotes }}
+  {{ $index := mod (now.Unix) $length }}
+  {{ with index $quotes $index }}
+    <blockquote class="text-sm text-foreground/60 italic">
+      「{{ .quote }}」 ——{{ .author }}
+    </blockquote>
+  {{ end }}
+{{ end }}

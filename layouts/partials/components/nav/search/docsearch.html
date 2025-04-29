@@ -1,13 +1,13 @@
 <link rel="preconnect" href="https://{{ .Site.Params.Search.docsearch.appid }}-dsn.algolia.net" crossorigin />
 
-<link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@docsearch/css@3" crossorigin="anonymous" />
+<link rel="stylesheet" href="{{ printf "%s/npm/@docsearch/css@3" .Site.Params.Dev.jsd }}" crossorigin="anonymous" />
 
 {{ partial "utils/loadcss.html" "css/components/search/docsearch.css" }}
 
 <div id="docsearch"></div>
 
 {{/*  Impossible without JS  */}}
-<script src="https://cdn.jsdmirror.com/npm/@docsearch/js@3" crossorigin="anonymous" defer></script>
+<script src="{{ printf "%s/npm/@docsearch/js@3" .Site.Params.Dev.jsd }}" crossorigin="anonymous" defer></script>
 
 {{ with .Site.Params.Search.docsearch }}
 <script>

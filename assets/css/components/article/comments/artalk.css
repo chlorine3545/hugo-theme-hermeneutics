@@ -138,6 +138,7 @@ img[atk-emoticon] {
     display: inline-block;
     vertical-align: middle;
     max-height: 3.5rem;
+    margin: 0.25rem 0.5rem;
     border-radius: var(--at-radius);
 }
 

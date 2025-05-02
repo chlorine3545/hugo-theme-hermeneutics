@@ -22,8 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
             loadingScreen.offsetHeight;
             loadingScreen.style.opacity = '1';
             
-            // 设置超时保护，最多显示3秒
-            loadingTimeout = setTimeout(hideLoading, 3000);
+            loadingTimeout = setTimeout(hideLoading, 2000);
         }
     }
 
@@ -56,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // 延迟跳转
             setTimeout(() => {
                 window.location.href = link.href;
-            }, 500);
+            }, 400);
         }
     });
 

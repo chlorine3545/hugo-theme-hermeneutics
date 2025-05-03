@@ -133,6 +133,11 @@
     font-size: 0.9rem;
 }
 
+.atk-content img {
+    display: block;
+    max-height: 15rem;
+}
+
 /* 表情图片垂直对齐 */
 img[atk-emoticon] {
     display: inline-block;

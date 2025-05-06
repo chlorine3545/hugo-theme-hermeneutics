@@ -1,7 +1,7 @@
-<div class="gallery grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 prose">
+<div class="gallery grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 prose mx-auto">
     {{ range (split (.Get 0) ",") }}
     {{ $image := . | strings.TrimSpace }}
-    <div class="gallery-item relative aspect-square group">
+    <div class="gallery-item relative aspect-square group max-w-xs flex justify-center items-center">
         <img 
             src="{{ $image }}"
             alt="Gallery Image"
@@ -11,4 +11,4 @@
         >
     </div>
     {{ end }}
-</div> 
+</div>

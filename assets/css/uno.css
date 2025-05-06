@@ -196,6 +196,7 @@
 .max-w-6xl{max-width:72rem;}
 .max-w-lg{max-width:32rem;}
 .max-w-none{max-width:none;}
+.max-w-xs{max-width:20rem;}
 .min-h-\[160px\]{min-height:160px;}
 .min-h-\[70vh\]{min-height:70vh;}
 .min-h-screen{min-height:100vh;}

@@ -1,6 +1,8 @@
 {{ define "main" }}
 
-{{ partial "components/home/announcement.html" . }}
+{{ if .Site.Params.basic.announcement | default true }}
+    {{ partial "components/home/announcement.html" . }}
+{{ end }}
 
 <main>
     <section class="h-screen flex items-center" aria-label="hero">

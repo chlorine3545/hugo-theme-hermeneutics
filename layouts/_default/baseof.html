@@ -8,12 +8,8 @@
 </head>
 
 <body class="flex flex-col min-h-screen bg-background text-foreground transition-colors">
-
-    <!-- 加载动画 -->
-    {{ partialCached "components/loading-screen.html" . }}
-
     <!-- 主要内容区域 -->
-    <div class="flex flex-col flex-grow">
+    <div class="flex flex-col flex-grow anime-fadein">
         {{ partial "nav" . }}
         <main class="flex-grow">
             {{ block "main" . }}{{ end }}
@@ -21,10 +17,6 @@
     </div>
 
     {{ partial "footer.html" . }}
-
-    {{ with resources.Get "js/components/loading.js" }}
-    <script>{{ .Content | safeJS }}</script>
-    {{ end }}
 </body>
 
 </html>

@@ -1,6 +1,0 @@
-{{- $v := . -}}
-{{- if lt $v 10000 -}}
-{{- $v | lang.FormatNumber 0 -}}
-{{- else -}}
-{{- div $v 10000.0 | lang.FormatNumber 1 }}万
-{{- end -}}

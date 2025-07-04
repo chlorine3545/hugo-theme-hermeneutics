@@ -1,5 +1,0 @@
-{{ $enableComments := .Params.comments | default .Site.Params.comments.enable }}
-{{ if $enableComments }}
-    {{ $commentType := .Site.Params.comments.type }}
-    {{ partial (printf "components/article/comments/%s.html" $commentType) . }}
-{{ end }}

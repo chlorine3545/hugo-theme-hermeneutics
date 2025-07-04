@@ -1,8 +1,0 @@
-{{- $file := resources.Get . }}
-{{- if eq hugo.Environment "development" }}
-<link rel="stylesheet" href="{{ $file.RelPermalink }}">
-{{- else }}
-{{- with $file | minify | fingerprint }}
-<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-{{- end }}
-{{- end }}
